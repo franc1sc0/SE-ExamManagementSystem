@@ -1,0 +1,6 @@
+Definitions, acronyms, and abbreviations
+
+   EMS -- Exam Management System
+   Exams -- Either programming, communication, or core exam taken by students. The results of the exams are pass, fail, or incomplete.
+   Student Record -- All information pertaining to a specific student (e.g. name, address, exam results, etc.)
+   txstateid -- The student's identification number used by the University.
