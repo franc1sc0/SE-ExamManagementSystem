@@ -1,0 +1,304 @@
+Product Functions
+
+The major functions of this application will be used by either Faculty or Students
+after logging into the system. They are the following:
+
+Faculty Functionality
+
+   Create Exams
+         This function allows a faculty member to create
+         programming and communication exams. After creation, the exam is
+         viewable by the students in their interfaces. The exam information
+         includes the exam type, exam administration
+         date, start and end time of exam, semester offered, location of
+         exam, and registration deadline.
+
+         Sequence of Actions:
+         1. Faculty is logged in and fills in form of Exam type
+         2. Exam type is created with update ability.
+         3. Faculty and student can see exam.
+
+         Rationale:
+         Because the faculty administer and grades the exams, he or she should
+         be the one capable of creating an exam.
+
+
+   View Registered Students in Exam
+         This function allows a faculty member to display all registered
+         students for an exam. The information displayed includes username,
+         txstateid, student first and last name, results, comments, and total
+         number of registered students.
+         
+         Sequence of Actions:
+         1. Faculty is logged in and selects View Registered Students in Exam
+            Option.
+         2. Faculty member is presented with exam details [username,
+            txstateid, last name, first name, results (registered or not), comments,
+            and the total number of students registered]
+
+         Rationale:
+         This allows the faculty to know the details of an upcoming exam before
+         administering it. It is helpful to know how much material to prepare,
+         how many students have registered, etc. beforehand for faculty.
+
+   Edit Exams
+         This function allows a faculty member to edit exam information that are already
+         created. The exam type, date, start time, end time, semester,
+         location, and registration deadline can be modified. 
+         
+         Sequence of Actions:
+         1. Faculty is logged in and selects Edit Exams Option.
+         2. Faculty member is presented with editable exam type, exam date, exam
+            state time, exam end time, semester, exam location, registration
+            deadline. 
+
+         Rationale:
+         Faculty should have the capability to edit details of each exam after
+         creation.
+
+   Enter Exam Results
+         This function allows a faculty member to enter the exam results
+         according to txstateid.
+         
+         Sequence of Actions:
+         1. Faculty selects Enter Results Function
+         2. Faculty member is presented with form to indicate (noshow, passed,
+            failed) according to txstateid. 
+
+         Rationale:
+         Because faculty are responsible for grading each exam, he or she needs
+         to be able to update the results after the exam is administered.
+
+   View Exam Results
+         This function allows a faculty member to display the results of an
+         exam. Displayed information includes username, txstateid, student
+         first and last name, results, and statistics such as total results,
+         number of students who passed, number of students who
+         failed, and number of students who were not present.
+         
+         Sequence of Actions:
+         1. Faculty selects View Result function.
+         2. Faculty member is presented with username, txstateid, last name,
+            first name, results (no show, passed, failed), and statistics including
+            the total results, how many passed, how many failed, and how many
+            no show. 
+
+         Rationale:
+         It is useful for Faculty to see an overview of exam results and
+         statistical significant data to help prepare for future exams.
+
+   Publish Exams Result
+         This function allows a faculty member to publish the results of an
+         exam. After being published, students will be able to see their
+         results in their interface.
+         
+         Sequence of Actions:
+         1. Faculty selects Publish results function
+         2. This function allows a faculty member to publish the exam results.
+         3. Students can see results.
+
+         Rationale:
+         The students who participated in an exam will need to know their
+         results, but only after the faculty has graded the exam and reviewed
+         it. Hence, the faculty should have the capability to make the exam
+         results available for student review.
+
+   View Student Record
+         This function allows a faculty member to display all student records
+         which includes username, txstateid, student first and last name,
+         student major, email, result of programming exam, result of
+         communication exam, result of core courses, and exam history.
+         
+         Sequence of Actions:
+         1. Faculty is logged in and selects the View Student Records Option.
+         2. The Student Records are returned.
+
+         Rationale:
+         Faculty should have the capability of viewing all current student
+         records
+
+   Create Student Record
+         This function allows a faculty member to create a new student
+         record that includes username, txstateid, student first and last name,
+         student major, email, programming exam result, communication exam
+         result, each core course result, phone number, address, city, state,
+         and zip code of the student.
+         
+         Sequence of Actions:
+         1. The faculty is logged in and selects the Create Student Record
+            Option.
+         2. A form is presented to get the following information:
+               * Texas State ID
+               * Username
+               * Last Name
+               * First Name
+               * Major
+               * Email
+               * Programming Exam Results
+               * Communication Exam Results
+               * Core Course Results
+               * Phone
+               * Address
+               * City
+               * State
+               * Zip
+         3. The new Student Record is created
+
+         Rationale:
+         Faculty need to be able to create new student records as new students
+         enroll in courses and exams
+
+   Search Student Record
+         This function allows a faculty member to search student records
+         using txstateid, username, student first or last name, major,
+         email, programming exam, communication exam, or core course as
+         criteria.
+         
+         Sequence of Actions:
+         1. Faculty is logged in and selects the Search Student Record Option.
+         2. Faculty searches Student Records based on one or more criteria:
+               * Texas State ID
+               * Username
+               * Last Name
+               * First Name
+               * Major
+               * Email
+               * Programming Exam Results
+               * Communication Exam Results
+               * Core Course Results
+         3. All Student Records that meet the criteria are shown.
+
+         Rationale:
+         Because Faculty should be able to view all Student Records, there
+         should be an option to search the Records as well.
+
+   Edit Student Record
+         This function allows a faculty member to edit student records by
+         entering txstateid or username to find the student and edit the
+         student's last name or first name, major, email, programming result,
+         communication result, each core course result, local phone, local
+         address, local city, local state, local zip.
+         
+         Sequence of Actions:
+         1. Faculty is logged in and selects the Edit Student Record Option.
+         2. Faculty uses either username or txstateid to access a specific
+            Student Record.
+         3. Faculty can edit one or more of the following elements of the
+            Student Record:
+               * Texas State ID
+               * Username
+               * Last Name
+               * First Name
+               * Major
+               * Email
+               * Programming Exam Results
+               * Communication Exam Results
+               * Core Course Results
+               * Phone
+               * Address
+               * City
+               * State
+               * Zip
+         4. The Student Record is updated with the new information.
+
+         Rationale:
+         Because faculty is capable of creating Student Records, he or she
+         should have the availability to edit Student Records after they have
+         been created.
+
+   Change Student Exam Result
+         This function allows a faculty member to change a student exam
+         results by entering his/her txstateid or username, and the results of
+         programming, communication, and each core course can be changed.
+         
+         Sequence of Actions:
+         1. Faculty selects the Change Exam Result Option.
+         2. Faculty uses either txstateid or user name to access the Student
+            Record to edit the Exam Result.
+         3. Faculty can edit one or more of the following elements:
+               * Programming Exam Results
+               * Communication Exam Results
+               * Core Course Results
+         4. The Student Record is updated with the new information
+
+         Rationale:
+         Faculty should be able to change, insert, or delete results from exams
+         in Student Records.
+
+   View Complete
+         This function displays all the students who have passed the
+         programming, communication, and core exams. The information
+         displayed includes txstateid, username, student first and last
+         name, major, email, result of programming, result of communication,
+         result of core.
+         
+         Sequence of Actions:
+         1. Faculty selects the View Completed Option.
+         2. All Student who have completed all necessary exams are displayed.
+
+         Rationale:
+         Faculty should be able to see all students who have completed the
+         required exams without having to search through all Student Records.
+
+
+Student Functionality
+
+   Register Exam
+         This function allows a student to register for an existing exam by
+         entering a username, txstateid, first and last name, major, email,
+         local phone, local address, local city, local state, local zip.
+         Once a student has registered for the exam, a faculty member can see
+         this registration in the View Registered function.
+         
+         Sequence of Actions:
+         1. Student is logged in and goes to Register Exam and selects
+            Programming/Communcation/Core Course Exam to register.
+         2. The Register Exam function accepts the necessary data for the exam
+            registration:
+               * Texas State ID
+               * Last Name
+               * First Name
+               * Major
+               * Email
+               * Phone
+               * Address
+               * City
+               * State
+               * Zip
+         3. Exam record is updated to the database
+         4. Faculty member can see this registration in the View Registered
+            function.
+
+         Rationale:
+         Because a student is required to take exams with certain criteria and
+         restrictions (e.g. only offered on specific dates or a certain set of
+         core exams) he or she should be responsible for registering for each one.
+
+   Withdraw Exam
+         This function allows a student to withdraw from an existing exam. The
+         student should give username and the exam to withdraw. Once a
+         student has withdrawn an exam, the record seen by the faculty should
+         be updated.
+         
+         Sequence of Actions:
+         1. Student is logged in and selects the Withdraw Exam Option.
+         2. Student enters username and exam to withdraw.
+         2. Exam record is updated.
+         3. Faculty can view updated record.
+
+         Rationale:
+         As it is the student's responsibility to register for exams, he or she
+         should also be able to withdraw for a registered exam.
+
+   View Exam Result
+         This function allows a student to view his or her exam results after
+         the exam results are published by a faculty member.
+         
+         Sequence of Actions:
+         1. Student is logged in and selects the View Exam Result option.
+         2. Exam results are published by faculty
+         3. Student is able to view results
+
+         Rationale:
+         After the exam is completed and graded, each student needs to be able
+         to view his or her own results of the exam.
