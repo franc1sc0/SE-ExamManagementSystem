@@ -1,0 +1,18 @@
+User Characteristics
+
+There are two type of users who will be using the application: Faculty members
+and students of the University. Because each group has a different use of the
+application, they each have seperate requirements.
+
+The faculty members have more funtionality within the application because of
+their ability to create, edit, and search Student Records and Exams. This means
+that the application must be efficient in allowing them to search, update and
+view information about students and exams.
+
+The students will use the application only for exam related activities. In this
+sense, the application should only allow a student limited functionality to
+register, withdraw and view exams.
+
+For both types of users, no previous training or specialization should be
+required beyond interacting with a website in order to use the application
+correctly.
