@@ -1,0 +1,6 @@
+3.4 Design constraints 
+
+We will design this program to be as flexible as possible and platform independant.We will implement read
+write contraints for the data on the type of user or role. Resources will have to be provided by the client if 
+they wish to scale the program further than the tested capacity.There seems not to be other design constraints
+imposed on the implementation of this program.

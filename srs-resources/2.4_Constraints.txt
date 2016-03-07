@@ -1,0 +1,9 @@
+2.4 Constraints
+
+Our application will most likely be reachable from a server where it will be deployed. This implies some networking constraints in being able to reach the application remotely. If the user would like to reach this application from a different network location, Internet connection and DNS setups will be required. 
+
+All of our hardware constraints are all those of a typical PC (2.7Ghz Intel i5, 8Gb Memory). We will only have access to typical consumer average powered processors and consumer grade memory sizes.
+
+The application will also be constrained by the capacity of the database. Data saving and retrieval will happen at the database level, in events high traffic the application may be forced to queue incoming requests and therefor increase the time it takes to fetch data.
+
+For this projects something to keep in mind are the security constraints that have to be placed in order to maintain confidentiality of the student’s information as well as the faculty’s members. Adequate login session procedures have to be placed and tested to conserve confidentiality.
