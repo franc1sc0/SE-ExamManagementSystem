@@ -1,3 +1,5 @@
 2.5 Assumptions and Dependencies:
 
-	Exam Management System will be a web application and it will be available only to users with Internet access. Once the application is deployed on a web server, the user can connect to the application by visiting the website. To visit the website, the user is expected to use a compatible web browser (IE 7+, Google Chrome, Mozilla Firefox or similar).
+Exam Management System will be a web application and it will be available only to users with Internet access. 
+Once the application is deployed on a web server, the user can connect to the application by visiting the website. 
+To visit the website, the user is expected to use a compatible web browser (IE 7+, Google Chrome, Mozilla Firefox or similar).
