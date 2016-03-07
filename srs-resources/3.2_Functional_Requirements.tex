@@ -1,0 +1,410 @@
+% FILE: 3.2_Functional_Requirements.tex
+%
+% Section 3.2 based off A.3 Template of SRS Section 3 and the Form Based
+% specification found on slide 91 of Lecture3.ppt from Spring 2016 CS5391.
+%
+% All application functionality is organized by user class with each functional
+% requirement described by the following criteria:
+%  FUNCTION
+%  DESCRIPTION
+%  INPUTS
+%  SOURCES
+%  OUTPUTS
+%  DESTINATION
+%  REQUIRES
+%  PRE-CONDITION
+%  POST-CONDITION
+
+\section{Functional Requirements}
+The following are the functional requirements of the application based on the
+user class of Faculty and Student.
+\subsection{Faculty User Class}
+\subsubsection{Create Exams}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Create Exams
+\item[Description]
+   This function allows a faculty member to create programming and communication
+   exams. After creation, the exam is viewable by the students in their
+   interfaces.
+\item[Inputs]
+   A new exam object.
+\item[Sources]
+   All inputs are inputted by the Faculty user during exam creation.
+\item[Outputs]
+   An exam object.
+\item[Destination]
+   The exam object is committed to the database.
+\item[Requires]
+   All necessary data is obtained for the new exam object.
+\item[Pre-condition]
+   The Faculty is logged into the application.
+\item[Post-condition]
+   The database now has the newly created exam object.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{View Registered Students in Exam}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   View Registered Students in Exam
+\item[Description]
+   This function allows a faculty member to display all registered students for
+   an exam along with the details of the exam.
+\item[Inputs]
+   An exam object.
+\item[Sources]
+   The Faculty selects the exam object.
+\item[Outputs]
+   The specific exam object's details are returned.
+\item[Destination]
+   The exam object's details are displayed on the screen
+\item[Requires]
+   The exam must exist in the database.
+\item[Pre-condition]
+   The Faculty is logged into the application and has a list of valid exam objects
+   to choose from.
+\item[Post-condition]
+   The specific exam object is retrieved from the database and its details are
+   displayed.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{Edit Exams}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Edit Exams
+\item[Description]
+   This function allows a faculty member to edit exam information that are
+   already created.
+\item[Inputs]
+   An exam object.
+\item[Sources]
+   The specific exam object is selected by the Faculty.
+\item[Outputs]
+   The exam object with modified attributes.
+\item[Destination]
+   The exam object attributes are updated in the database.
+\item[Requires]
+   The exam object to be in the database and modifiable.
+\item[Pre-condition]
+   The Faculty is logged into the application and has a list of valid exam objects
+   to choose from.
+\item[Post-condition]
+   The specific exam object's attributes are updated in the database.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{Enter Exam Results}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Enter Exam Results
+\item[Description]
+   This function allows a faculty member to enter the exam results
+   according to txstateid.
+\item[Inputs]
+   An exam object and list of student record objects.
+\item[Sources]
+   The exam object is selected by the Faculty and the database gets the student
+   records that have registered for the exam according to the attribute
+   txstateid.
+\item[Outputs]
+   The list of student record objects' attribute of exam result is updated with
+   either pass, fail, or noshow. The Faculty will indicate the exam result for each
+   student record.
+\item[Destination]
+   Each student record object is updated in the database.
+\item[Requires]
+   The database to select the correct student record objects based on txstateid.
+\item[Pre-condition]
+   The Faculty is logged into the application and has a list of valid exam objects
+   to choose from.
+\item[Post-condition]
+   The student record objects are updated in the database.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{Publish Exams Result}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Publish Exams Result
+\item[Description]
+   This function allows a faculty member to publish the results of an exam.
+   After being published, students will be able to see their results in their
+   interface.
+\item[Inputs]
+   An exam object list of student record objects.
+\item[Sources]
+   The exam object is selected by the Faculty and the student record objects
+   from the database.
+\item[Outputs]
+   The student record objects attribute of exam results are now viewable by the
+   appropriate students.
+\item[Destination]
+   The student record objects are updated in the database.
+\item[Requires]
+   The correct student record objects are selected from the database.
+\item[Pre-condition]
+   The Faculty is logged into the application and has a list of exams objects to
+   choose from.
+\item[Post-condition]
+   The student record objects are updated such that the exam result attributes
+   are viewable.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{View Student Record}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   View Student Record
+\item[Description]
+   This function allows a faculty member to display all student records.
+\item[Inputs]
+   None.
+\item[Sources]
+   The Faculty selects this function.
+\item[Outputs]
+   All student records in the database are returned.
+\item[Destination]
+   The student record details are displayed on the screen.
+\item[Requires]
+   The student records to be retrievable from the database.
+\item[Pre-condition]
+   The Faculty is logged into the application.
+\item[Post-condition]
+   All student records' details are displayed on the screen.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{Create Student Record}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Create Student Record
+\item[Description]
+   This function allows a faculty member to create a new student record.
+\item[Inputs]
+   A new student record object.
+\item[Sources]
+   The student record attributes is inputted by the Faculty.
+\item[Outputs]
+   The student record object.
+\item[Destination]
+   The student record object is created in the database.
+\item[Requires]
+   All information necessary for a student record object.
+\item[Pre-condition]
+   The Faculty is logged into the application and is able to input all necessary
+   attributes for the student record object.
+\item[Post-condition]
+   A New student record object is created in the database.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{Search Student Record}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Search Student Record
+\item[Description]
+   This function allows a faculty member to search student records using
+   txstateid, username, student first or last name, major, email, programming
+   exam, communication exam, or core course as criteria.
+\item[Inputs]
+   A list of one or more student record attributes and student records.
+\item[Sources]
+   The list of attributes are inputted by the Faculty and the student records
+   come from the database.
+\item[Outputs]
+   The student records who have the matching attributes are returned from the
+   database.
+\item[Destination]
+   The student records are displayed on the screen.
+\item[Requires]
+   Student record attributes and access to the database.
+\item[Pre-condition]
+   The Faculty is logged into the application and is able to input the search
+   criteria.
+\item[Post-condition]
+   A list of matching student records is displayed on the screen.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{Edit Student Record}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Edit Student Record
+\item[Description]
+   This function allows a faculty member to edit student records by entering
+   txstateid or username to find the student record and edit the student
+   record's attributes.
+\item[Inputs]
+   The attribute of a student record of txstateid or username and a list of all
+   student records.
+\item[Sources]
+   The search criteria of txstateid or username is inputted by the user and the
+   database for the list of student records.
+\item[Outputs]
+   The Faculty updates the matching student record's attributes and the updated
+   student record is returned.
+\item[Destination]
+   The student record is updated in the database.
+\item[Requires]
+   The matching student record is modifiable in the database.
+\item[Pre-condition]
+   The Faculty is logged into the system and is able to select the appropriate
+   student record.
+\item[Post-condition]
+   The student record is updated and saved in the database.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{Change Student Exam Result}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Change Student Exam Result
+\item[Description]
+   This function allows a faculty member to change a student exam results by
+   entering his/her txstateid or username, and the results of programming,
+   communication, and each core course can be changed.
+\item[Inputs]
+   The attribute of a student record of txstateid or username and a list of all
+   student records.
+\item[Sources]
+   The search criteria of txstateid or username is inputted by the user and the
+   database for the list of student records.
+\item[Outputs]
+   The Faculty updates the matching student record's attribute of exam result
+   and the updated student record is returned.
+\item[Destination]
+   The student record is updated in the database.
+\item[Requires]
+   The matching student record is modifiable in the database.
+\item[Pre-condition]
+   The Faculty is logged into the system and is able to select the appropriate
+   student record.
+\item[Post-condition]
+   The student record is updated and saved in the database.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{View Complete}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   View Complete
+\item[Description]
+   This function displays all the students who have passed the programming,
+   communication, and core exams. The information displayed includes txstateid,
+   username, student first and last name, major, email, result of programming,
+   result of communication, result of core.
+\item[Inputs]
+   None.
+\item[Sources]
+   The Faculty selects this function.
+\item[Outputs]
+   A list of student record objects that have passed the programming,
+   communication, and core exams is returned from the database.
+\item[Destination]
+   The list of matching student records is displayed on the screen.
+\item[Requires]
+   The database is accessible.
+\item[Pre-condition]
+   The Faculty is logged into the application.
+\item[Post-condition]
+   The list of student record objects that meet the criteria is displayed on the
+   screen.
+\end{description}
+\end{quote} % End indentation
+
+\subsection{Student User Class}
+\subsubsection{Register Exam}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Register Exam
+\item[Description]
+   This function allows a student to register for an existing exam by entering a
+   username, txstateid, first and last name, major, email, local phone, local
+   address, local city, local state, local zip.  Once a student has registered
+   for the exam, a faculty member can see this registration in the View
+   Registered function.
+\item[Inputs]
+   A exam object and a student record object.
+\item[Sources]
+   The student record object is inputted by the Student and the exam object is
+   obtained from the database.
+\item[Outputs]
+   The exam object is updated with the student record now being registered for
+   it.
+\item[Destination]
+   The exam object is updated in the database.
+\item[Requires]
+   The Student is able to select a list of exam objects.
+\item[Pre-condition]
+   The Student is logged into the system.
+\item[Post-condition]
+   The updated exam object is saved in the database.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{Withdraw Exam}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   Withdraw Exam
+\item[Description]
+   This function allows a student to withdraw from an existing exam. The student
+   should give username and the exam to withdraw. Once a student has withdrawn
+   an exam, the record seen by the faculty should be updated.
+\item[Inputs]
+   A username and exam object.
+\item[Sources]
+   The username is inputted by the Student and the exam object is obtained from
+   the database.
+\item[Outputs]
+   The exam object is updated with the student record showing withdrawn.
+\item[Destination]
+   The exam object is updated in the database.
+\item[Requires]
+   The student is able to access a list of exam objects from the database.
+\item[Pre-condition]
+   The Student is logged into the application and is already registered for an
+   exam.
+\item[Post-condition]
+   The exam object is updated in the database.
+\end{description}
+\end{quote} % End indentation
+
+\subsubsection{View Exam Result}
+\begin{quote} %Indent Section
+\begin{description}
+\item[Function]
+   View Exam Result
+\item[Description]
+   This function allows a student to view his or her exam results after the exam
+   results are published by a faculty member.
+\item[Inputs]
+   None.
+\item[Sources]
+   The student selects this function.
+\item[Outputs]
+   The results of the exam is returned.
+\item[Destination]
+   The results are displayed on the screen.
+\item[Requires]
+   The exam results have been published by the Faculty.
+\item[Pre-condition]
+   The Student is logged into the system.
+\item[Post-condition]
+   The results of the exam are displayed on the screen.
+\end{description}
+\end{quote} % End indentation
