@@ -1,3 +1,4 @@
 1.2 Scope:
 
-	Exam Management System will be a web application providing access to registered students and faculty. Faculty can register new students, update student information, search student information, change results, create new exams, update existing exam information and publish results. Registered students can register for exams, view results and withdraw an exam.
+Exam Management System will be a web application providing access to registered students and faculty. 
+Faculty can register new students, update student information, search student information, change results, create new exams, update existing exam information and publish results. Registered students can register for exams, view results and withdraw an exam.
