@@ -1,11 +1,12 @@
-Product Functions
+% Product Functions
 
 The major functions of this application will be used by either Faculty or Students
 after logging into the system. They are the following:
 
-Faculty Functionality
+\subsection*{Faculty Functionality}
 
-   Create Exams
+   \subsubsection{Create Exams}
+   \begin{quote} % Indent section
          This function allows a faculty member to create
          programming and communication exams. After creation, the exam is
          viewable by the students in their interfaces. The exam information
@@ -13,292 +14,360 @@ Faculty Functionality
          date, start and end time of exam, semester offered, location of
          exam, and registration deadline.
 
-         Sequence of Actions:
-         1. Faculty is logged in and fills in form of Exam type
-         2. Exam type is created with update ability.
-         3. Faculty and student can see exam.
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty is logged in and fills in form of Exam type.
+            \item Exam type is created with update ability.
+            \item Faculty and student can see exam.
+         \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Because the faculty administer and grades the exams, he or she should
          be the one capable of creating an exam.
+   \end{quote} % End indent section
 
-
-   View Registered Students in Exam
+   \subsubsection{View Registered Students in Exam}
+   \begin{quote} % Indent section
          This function allows a faculty member to display all registered
          students for an exam. The information displayed includes username,
          txstateid, student first and last name, results, comments, and total
          number of registered students.
          
-         Sequence of Actions:
-         1. Faculty is logged in and selects View Registered Students in Exam
-            Option.
-         2. Faculty member is presented with exam details [username,
-            txstateid, last name, first name, results (registered or not), comments,
-            and the total number of students registered]
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty is logged in and selects View Registered Students in Exam
+               Option.
+            \item Faculty member is presented with exam details [username,
+               txstateid, last name, first name, results (registered or not),
+               comments, and the total number of students registered]
+         \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          This allows the faculty to know the details of an upcoming exam before
          administering it. It is helpful to know how much material to prepare,
          how many students have registered, etc. beforehand for faculty.
+   \end{quote} % End indent section
 
-   Edit Exams
+   \subsubsection{Edit Exams}
+   \begin{quote} % Indent section
          This function allows a faculty member to edit exam information that are already
          created. The exam type, date, start time, end time, semester,
          location, and registration deadline can be modified. 
          
-         Sequence of Actions:
-         1. Faculty is logged in and selects Edit Exams Option.
-         2. Faculty member is presented with editable exam type, exam date, exam
-            state time, exam end time, semester, exam location, registration
-            deadline. 
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty is logged in and selects Edit Exams Option.
+            \item Faculty member is presented with editable exam type, exam
+               date, exam state time, exam end time, semester, exam location,
+               registration deadline. 
+         \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Faculty should have the capability to edit details of each exam after
          creation.
+   \end{quote} % End indent section
 
-   Enter Exam Results
+   \subsubsection{Enter Exam Results}
+   \begin{quote} % Indent section
          This function allows a faculty member to enter the exam results
          according to txstateid.
          
-         Sequence of Actions:
-         1. Faculty selects Enter Results Function
-         2. Faculty member is presented with form to indicate (noshow, passed,
-            failed) according to txstateid. 
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty selects Enter Results Function
+            \item Faculty member is presented with form to indicate (noshow,
+               passed, failed) according to txstateid. 
+         \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Because faculty are responsible for grading each exam, he or she needs
          to be able to update the results after the exam is administered.
+   \end{quote} % End indent section
 
-   View Exam Results
+   \subsubsection{View Exam Results}
+   \begin{quote} % Indent section
          This function allows a faculty member to display the results of an
          exam. Displayed information includes username, txstateid, student
          first and last name, results, and statistics such as total results,
          number of students who passed, number of students who
          failed, and number of students who were not present.
          
-         Sequence of Actions:
-         1. Faculty selects View Result function.
-         2. Faculty member is presented with username, txstateid, last name,
-            first name, results (no show, passed, failed), and statistics including
-            the total results, how many passed, how many failed, and how many
-            no show. 
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty selects View Result function.
+            \item Faculty member is presented with username, txstateid, last
+               name, first name, results (no show, passed, failed), and
+               statistics including the total results, how many passed, how many
+               failed, and how many no show. 
+         \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          It is useful for Faculty to see an overview of exam results and
          statistical significant data to help prepare for future exams.
+   \end{quote} % End indent section
 
-   Publish Exams Result
+   \subsubsection{Publish Exams Result}
+   \begin{quote} % Indent section
          This function allows a faculty member to publish the results of an
          exam. After being published, students will be able to see their
          results in their interface.
          
-         Sequence of Actions:
-         1. Faculty selects Publish results function
-         2. This function allows a faculty member to publish the exam results.
-         3. Students can see results.
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty selects Publish results function
+            \item This function allows a faculty member to publish the exam results.
+            \item Students can see results.
+      \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          The students who participated in an exam will need to know their
          results, but only after the faculty has graded the exam and reviewed
          it. Hence, the faculty should have the capability to make the exam
          results available for student review.
+   \end{quote} % End indent section
 
-   View Student Record
+   \subsubsection{View Student Record}
+   \begin{quote} % Indent section
          This function allows a faculty member to display all student records
          which includes username, txstateid, student first and last name,
          student major, email, result of programming exam, result of
          communication exam, result of core courses, and exam history.
          
-         Sequence of Actions:
-         1. Faculty is logged in and selects the View Student Records Option.
-         2. The Student Records are returned.
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty is logged in and selects the View Student Records Option.
+            \item The Student Records are returned.
+      \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Faculty should have the capability of viewing all current student
          records
+   \end{quote} % End indent section
 
-   Create Student Record
+   \subsubsection{Create Student Record}
+   \begin{quote} % Indent section
          This function allows a faculty member to create a new student
          record that includes username, txstateid, student first and last name,
          student major, email, programming exam result, communication exam
          result, each core course result, phone number, address, city, state,
          and zip code of the student.
          
-         Sequence of Actions:
-         1. The faculty is logged in and selects the Create Student Record
-            Option.
-         2. A form is presented to get the following information:
-               * Texas State ID
-               * Username
-               * Last Name
-               * First Name
-               * Major
-               * Email
-               * Programming Exam Results
-               * Communication Exam Results
-               * Core Course Results
-               * Phone
-               * Address
-               * City
-               * State
-               * Zip
-         3. The new Student Record is created
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item The faculty is logged in and selects the Create Student Record
+               Option.
+            \item A form is presented to get the following information:
+               \begin{itemize}
+                  \item Texas State ID
+                  \item Username
+                  \item Last Name
+                  \item First Name
+                  \item Major
+                  \item Email
+                  \item Programming Exam Results
+                  \item Communication Exam Results
+                  \item Core Course Results
+                  \item Phone
+                  \item Address
+                  \item City
+                  \item State
+                  \item Zip
+               \end{itemize}
+            \item The new Student Record is created
+      \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Faculty need to be able to create new student records as new students
          enroll in courses and exams
+   \end{quote} % End indent section
 
-   Search Student Record
+   \subsubsection{Search Student Record}
+   \begin{quote} % Indent section
          This function allows a faculty member to search student records
          using txstateid, username, student first or last name, major,
          email, programming exam, communication exam, or core course as
          criteria.
          
-         Sequence of Actions:
-         1. Faculty is logged in and selects the Search Student Record Option.
-         2. Faculty searches Student Records based on one or more criteria:
-               * Texas State ID
-               * Username
-               * Last Name
-               * First Name
-               * Major
-               * Email
-               * Programming Exam Results
-               * Communication Exam Results
-               * Core Course Results
-         3. All Student Records that meet the criteria are shown.
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty is logged in and selects the Search Student Record Option.
+            \item Faculty searches Student Records based on one or more criteria:
+               \begin{itemize}
+                  \item Texas State ID
+                  \item Username
+                  \item Last Name
+                  \item First Name
+                  \item Major
+                  \item Email
+                  \item Programming Exam Results
+                  \item Communication Exam Results
+                  \item Core Course Results
+               \end{itemize}
+            \item All Student Records that meet the criteria are shown.
+      \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Because Faculty should be able to view all Student Records, there
          should be an option to search the Records as well.
+   \end{quote} % End indent section
 
-   Edit Student Record
+   \subsubsection{Edit Student Record}
+   \begin{quote} % Indent section
          This function allows a faculty member to edit student records by
          entering txstateid or username to find the student and edit the
          student's last name or first name, major, email, programming result,
          communication result, each core course result, local phone, local
          address, local city, local state, local zip.
          
-         Sequence of Actions:
-         1. Faculty is logged in and selects the Edit Student Record Option.
-         2. Faculty uses either username or txstateid to access a specific
-            Student Record.
-         3. Faculty can edit one or more of the following elements of the
-            Student Record:
-               * Texas State ID
-               * Username
-               * Last Name
-               * First Name
-               * Major
-               * Email
-               * Programming Exam Results
-               * Communication Exam Results
-               * Core Course Results
-               * Phone
-               * Address
-               * City
-               * State
-               * Zip
-         4. The Student Record is updated with the new information.
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty is logged in and selects the Edit Student Record Option.
+            \item Faculty uses either username or txstateid to access a specific
+               Student Record.
+            \item Faculty can edit one or more of the following elements of the
+               Student Record:
+               \begin{itemize}
+                  \item Texas State ID
+                  \item Username
+                  \item Last Name
+                  \item First Name
+                  \item Major
+                  \item Email
+                  \item Programming Exam Results
+                  \item Communication Exam Results
+                  \item Core Course Results
+                  \item Phone
+                  \item Address
+                  \item City
+                  \item State
+                  \item Zip
+               \end{itemize}
+            \item. The Student Record is updated with the new information.
+      \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Because faculty is capable of creating Student Records, he or she
          should have the availability to edit Student Records after they have
          been created.
+   \end{quote} % End indent section
 
-   Change Student Exam Result
+   \subsubsection{Change Student Exam Result}
+   \begin{quote} % Indent section
          This function allows a faculty member to change a student exam
          results by entering his/her txstateid or username, and the results of
          programming, communication, and each core course can be changed.
          
-         Sequence of Actions:
-         1. Faculty selects the Change Exam Result Option.
-         2. Faculty uses either txstateid or user name to access the Student
-            Record to edit the Exam Result.
-         3. Faculty can edit one or more of the following elements:
-               * Programming Exam Results
-               * Communication Exam Results
-               * Core Course Results
-         4. The Student Record is updated with the new information
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty selects the Change Exam Result Option.
+            \item Faculty uses either txstateid or user name to access the Student
+               Record to edit the Exam Result.
+            \item Faculty can edit one or more of the following elements:
+            \begin{itemize}
+               \item Programming Exam Results
+               \item Communication Exam Results
+               \item Core Course Results
+            \end{itemize}
+            \item The Student Record is updated with the new information
+      \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Faculty should be able to change, insert, or delete results from exams
          in Student Records.
+   \end{quote} % End indent section
 
-   View Complete
+   \subsubsection{View Complete}
+   \begin{quote} % Indent section
          This function displays all the students who have passed the
          programming, communication, and core exams. The information
          displayed includes txstateid, username, student first and last
          name, major, email, result of programming, result of communication,
          result of core.
          
-         Sequence of Actions:
-         1. Faculty selects the View Completed Option.
-         2. All Student who have completed all necessary exams are displayed.
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Faculty selects the View Completed Option.
+            \item All Student who have completed all necessary exams are displayed.
+      \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Faculty should be able to see all students who have completed the
          required exams without having to search through all Student Records.
+   \end{quote} % End indent section
 
 
-Student Functionality
+\subsection*{Student Functionality}
 
-   Register Exam
+\subsubsection{Register Exam}
+\begin{quote} % Indent section
          This function allows a student to register for an existing exam by
          entering a username, txstateid, first and last name, major, email,
          local phone, local address, local city, local state, local zip.
          Once a student has registered for the exam, a faculty member can see
          this registration in the View Registered function.
          
-         Sequence of Actions:
-         1. Student is logged in and goes to Register Exam and selects
-            Programming/Communcation/Core Course Exam to register.
-         2. The Register Exam function accepts the necessary data for the exam
-            registration:
-               * Texas State ID
-               * Last Name
-               * First Name
-               * Major
-               * Email
-               * Phone
-               * Address
-               * City
-               * State
-               * Zip
-         3. Exam record is updated to the database
-         4. Faculty member can see this registration in the View Registered
-            function.
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Student is logged in and goes to Register Exam and selects
+               Programming/Communcation/Core Course Exam to register.
+            \item The Register Exam function accepts the necessary data for the exam
+               registration:
+               \begin{itemize}
+                  \item Texas State ID
+                  \item Last Name
+                  \item First Name
+                  \item Major
+                  \item Email
+                  \item Phone
+                  \item Address
+                  \item City
+                  \item State
+                  \item Zip
+               \end{itemize}
+            \item Exam record is updated to the database
+            \item Faculty member can see this registration in the View Registered
+               function.
+         \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          Because a student is required to take exams with certain criteria and
          restrictions (e.g. only offered on specific dates or a certain set of
          core exams) he or she should be responsible for registering for each one.
+   \end{quote} % End indent section
 
-   Withdraw Exam
+   \subsubsection{Withdraw Exam}
+   \begin{quote} % Indent section
          This function allows a student to withdraw from an existing exam. The
          student should give username and the exam to withdraw. Once a
          student has withdrawn an exam, the record seen by the faculty should
          be updated.
          
-         Sequence of Actions:
-         1. Student is logged in and selects the Withdraw Exam Option.
-         2. Student enters username and exam to withdraw.
-         2. Exam record is updated.
-         3. Faculty can view updated record.
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Student is logged in and selects the Withdraw Exam Option.
+            \item Student enters username and exam to withdraw.
+            \item Exam record is updated.
+            \item Faculty can view updated record.
+         \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          As it is the student's responsibility to register for exams, he or she
          should also be able to withdraw for a registered exam.
+   \end{quote} % End indent section
 
-   View Exam Result
+   \subsubsection{View Exam Result}
+   \begin{quote} % Indent section
          This function allows a student to view his or her exam results after
          the exam results are published by a faculty member.
          
-         Sequence of Actions:
-         1. Student is logged in and selects the View Exam Result option.
-         2. Exam results are published by faculty
-         3. Student is able to view results
+         \textbf{Sequence of Actions:}
+         \begin{enumerate}
+            \item Student is logged in and selects the View Exam Result option.
+            \item Exam results are published by faculty
+            \item Student is able to view results
+         \end{enumerate}
 
-         Rationale:
+         \textbf{Rational:}
          After the exam is completed and graded, each student needs to be able
          to view his or her own results of the exam.
+   \end{quote} % End indent section
