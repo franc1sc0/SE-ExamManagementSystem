@@ -1,9 +1,10 @@
 % Software system attributes
 
-The requirements in this section specify the required attributes of performance,
+The requirements in this section specify the required attributes
+\index{attributes!requirements} of performance,
 security, and maintainability of the Exam Management System.
 
-\subsubsection{Performance}
+\subsubsection{Performance} \index{performance}
 
 The computational and database resources needed for the application are minimal,
 and thus a responsive system should be expected. All database calls should be
@@ -11,7 +12,7 @@ completed in under a second as long as the server the application is on is not
 under a heavy load. Any user visualizations should be updated or presented
 within a second as well given the server's overall availability.
 
-\subsubsection{Security}
+\subsubsection{Security} \index{security}
 
 The application is designed under the assumption that each faculty or student
 maintains their username and password in a secure manner. The login function
@@ -21,7 +22,7 @@ another student or faculty. Because the application will be run on a server,
 its overall security is dependant on the server itself and is outside of the
 scope of this document.
 
-\subsubsection{Maintainability}
+\subsubsection{Maintainability} \index{maintainability}
 
 The design and implementation of the application should be done in such a way
 that maintainability is easy to extend and refine. This is achieved by a
