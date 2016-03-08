@@ -4,3 +4,6 @@ SRS_Exam_Management_System.out
 SRS_Exam_Management_System.synctex.gz
 *.toc
 *.dvi
+*.ind
+SRS_Exam_Management_System.idx
+*.ilg
