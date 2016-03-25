@@ -69,6 +69,14 @@
 
 \tableofcontents
 
+% Redefine \chapter{} to not create a page break
+\makeatletter % Keeps LaTeX from stumbling over @ signs
+\renewcommand\chapter{\thispagestyle{plain}%
+\global\@topnum\z@
+\@afterindentfalse
+\secdef\@chapter\@schapter}
+\makeatother % Resets @ signs to their normal usage in LaTeX.
+
 \chapter{Introduction}
 
 \section{Purpose}
@@ -143,7 +151,7 @@
 \chapter{References}
 \input{srs-resources/1-4-References.tex}
 
-
+\newpage
 \printindex
 
 \end{document}
