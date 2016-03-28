@@ -106,13 +106,13 @@ students}
    Enter Exam Results
 \item[Description]
    This function allows a faculty member to enter the exam results
-   according to txstateid.
+   according to student ID.
 \item[Inputs]
    An exam object and list of student record objects.
 \item[Sources]
    The exam object is selected by the Faculty and the database gets the student
    records that have registered for the exam according to the attribute
-   txstateid.
+   student ID.
 \item[Outputs]
    The list of student record objects' attribute of exam result is updated with
    either pass, fail, or noshow. The Faculty will indicate the exam result for each
@@ -120,7 +120,7 @@ students}
 \item[Destination]
    Each student record object is updated in the database.
 \item[Requires]
-   The database to select the correct student record objects based on txstateid.
+   The database to select the correct student record objects based on student ID.
 \item[Pre-condition]
    The Faculty is logged into the application and has a list of valid exam objects
    to choose from.
@@ -215,7 +215,7 @@ students}
    Search Student Record
 \item[Description]
    This function allows a faculty member to search student records using
-   txstateid, username, student first or last name, major, email, programming
+   student ID, username, student first or last name, major, email, programming
    exam, communication exam, or core course as criteria.
 \item[Inputs]
    A list of one or more student record attributes and student records.
@@ -244,13 +244,13 @@ students}
    Edit Student Record
 \item[Description]
    This function allows a faculty member to edit student records by entering
-   txstateid or username to find the student record and edit the student
+   student ID or username to find the student record and edit the student
    record's attributes.
 \item[Inputs]
-   The attribute of a student record of txstateid or username and a list of all
+   The attribute of a student record of student ID or username and a list of all
    student records.
 \item[Sources]
-   The search criteria of txstateid or username is inputted by the user and the
+   The search criteria of student ID or username is inputted by the user and the
    database for the list of student records.
 \item[Outputs]
    The Faculty updates the matching student record's attributes and the updated
@@ -274,13 +274,13 @@ students}
    Change Student Exam Result
 \item[Description]
    This function allows a faculty member to change a student exam results by
-   entering his/her txstateid or username, and the results of programming,
+   entering his/her student ID or username, and the results of programming,
    communication, and each core course can be changed.
 \item[Inputs]
-   The attribute of a student record of txstateid or username and a list of all
+   The attribute of a student record of student ID or username and a list of all
    student records.
 \item[Sources]
-   The search criteria of txstateid or username is inputted by the user and the
+   The search criteria of student ID or username is inputted by the user and the
    database for the list of student records.
 \item[Outputs]
    The Faculty updates the matching student record's attribute of exam result
@@ -304,7 +304,7 @@ students}
    View Complete
 \item[Description]
    This function displays all the students who have passed the programming,
-   communication, and core exams. The information displayed includes txstateid,
+   communication, and core exams. The information displayed includes student ID,
    username, student first and last name, major, email, result of programming,
    result of communication, result of core.
 \item[Inputs]
@@ -334,7 +334,7 @@ students}
    Register Exam
 \item[Description]
    This function allows a student to register for an existing exam by entering a
-   username, txstateid, first and last name, major, email, local phone, local
+   username, student ID, first and last name, major, email, local phone, local
    address, local city, local state, local zip.  Once a student has registered
    for the exam, a faculty member can see this registration in the View
    Registered function.

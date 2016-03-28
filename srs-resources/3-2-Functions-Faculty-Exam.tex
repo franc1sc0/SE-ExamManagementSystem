@@ -15,9 +15,9 @@ Use Case Name	Faculty Exam Option
 Participating actors	 Faculty
 Flow of events	
 1. Faculty selects Exam Option Function
-2. Faculty member is presented with exam creation details [username, txstateid, lastname, firstname, results (registered or not), comments, and the total number of students registered ]
+2. Faculty member is presented with exam creation details [username, student ID, lastname, firstname, results (registered or not), comments, and the total number of students registered ]
 Entry Condition	Faculty is logged into EMS
-Exit Condition	Extended exam options are presented with editable fields : username, txstateid, lastname, firstname, results (registered or not), comments, and the total number of students registered.
+Exit Condition	Extended exam options are presented with editable fields : username, student ID, lastname, firstname, results (registered or not), comments, and the total number of students registered.
 OR
 Faculty is show error message 
 Quality Requirements	Exam option details should be presented under 1 second. Exam Options fields should also be saved under 1 second if updated.
@@ -38,7 +38,7 @@ Use Case Name	Faculty Enter Results
 Participating actors	 Faculty
 Flow of events	
 1. Faculty selects Enter Results Function
-2. Faculty member is presented with form to indicate (noshow, passed, failed) according to txstateid. 
+2. Faculty member is presented with form to indicate (noshow, passed, failed) according to student ID. 
 Entry Condition	Faculty is logged into EMS
 Exit Condition	Exam Results are entered and updated , redirecting to success page.
 OR
@@ -49,7 +49,7 @@ Use Case Name	Faculty View Results
 Participating actors	 Faculty
 Flow of events	
 1. Faculty selects View Result function.
-2. Faculty member is presented with username, txstateid, last name, first name, results (noshow, passed, failed), and statistics including the total results, how many passed, how many failed, and how many noshow. 
+2. Faculty member is presented with username, student ID, last name, first name, results (noshow, passed, failed), and statistics including the total results, how many passed, how many failed, and how many noshow. 
 Entry Condition	Faculty is logged into EMS
 Exit Condition	Exam Results presented to faculty successfully with exit option.
 OR
