@@ -1,160 +1,186 @@
 % Product Functions
 
+% Define a box around each function
+\newenvironment{boxed}
+ {\begin{center} \begin{tabular}{|p{0.9\textwidth}|}
+ \hline
+ }
+ { 
+ \\\hline
+ \end{tabular} 
+ \end{center}
+ }
+
 The major functions of this application will be used by either Faculty or Students
 after logging into the system. They are the following:
 
-\subsection*{Faculty Functionality}
+\subsection{Faculty Functionality}
 
-\subsubsection{Create Exams} \index{exam!create}
-   \begin{quote} % Indent section
-         This function allows a faculty member to create
-         programming and communication exams. After creation, the exam is
-         viewable by the students in their interfaces. The exam information
-         includes the exam type, exam administration
-         date, start and end time of exam, semester offered, location of
-         exam, and registration deadline.
+   \subsubsection{\large Create Exams} \index{exam!create}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to create programming and
+      communication exams. After creation, the exam is viewable by the students
+      in their interfaces. The exam information includes the exam type, exam
+      administration date, start and end time of exam, semester offered,
+      location of exam, and registration deadline.} \\
 
-         \textbf{Sequence of Actions:}
-         \begin{enumerate}
-            \item Faculty is logged in and fills in form of Exam type.
-            \item Exam type is created with update ability.
-            \item Faculty and student can see exam.
-         \end{enumerate}
+      \textbf{Sequence of Actions:}
+      \begin{enumerate}
+            {\small
+         \item Faculty is logged in and fills in form of Exam type.
+         \item Exam type is created with update ability.
+      \item Faculty and student can see exam.}
+      \end{enumerate}
 
-         \textbf{Rational:}
-         Because the faculty administer and grades the exams, he or she should
-         be the one capable of creating an exam.
-   \end{quote} % End indent section
+      \textbf{Rational:}
+      {\small Because the faculty administer and grades the exams, he or she should
+      be the one capable of creating an exam.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{View Registered Students in Exam} \index{exam!view registered
+   \subsubsection{\large View Registered Students in Exam} \index{exam!view registered
    students}
-   \begin{quote} % Indent section
-         This function allows a faculty member to display all registered
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to display all registered
          students for an exam. The information displayed includes username,
          txstateid, student first and last name, results, comments, and total
-         number of registered students.
+      number of registered students.} \\
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty is logged in and selects View Registered Students in Exam
                Option.
             \item Faculty member is presented with exam details [username,
                txstateid, last name, first name, results (registered or not),
-               comments, and the total number of students registered]
+            comments, and the total number of students registered]}
          \end{enumerate}
 
          \textbf{Rational:}
-         This allows the faculty to know the details of an upcoming exam before
+         {\small This allows the faculty to know the details of an upcoming exam before
          administering it. It is helpful to know how much material to prepare,
-         how many students have registered, etc. beforehand for faculty.
-   \end{quote} % End indent section
+         how many students have registered, etc. beforehand for faculty.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{Edit Exams} \index{exam!edit}
-   \begin{quote} % Indent section
-         This function allows a faculty member to edit exam information that are already
+   \subsubsection{\large Edit Exams} \index{exam!edit}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to edit exam information that are already
          created. The exam type, date, start time, end time, semester,
-         location, and registration deadline can be modified. 
+         location, and registration deadline can be modified. }
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty is logged in and selects Edit Exams Option.
             \item Faculty member is presented with editable exam type, exam
                date, exam state time, exam end time, semester, exam location,
-               registration deadline. 
+               registration deadline. }
          \end{enumerate}
 
          \textbf{Rational:}
-         Faculty should have the capability to edit details of each exam after
-         creation.
-   \end{quote} % End indent section
+         {\small Faculty should have the capability to edit details of each exam after
+         creation.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{Enter Exam Results} \index{exam!enter result}
-   \begin{quote} % Indent section
-         This function allows a faculty member to enter the exam results
-         according to txstateid.
+   \subsubsection{\large Enter Exam Results} \index{exam!enter result}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to enter the exam results
+         according to txstateid.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty selects Enter Results Function
             \item Faculty member is presented with form to indicate (noshow,
-               passed, failed) according to txstateid. 
+               passed, failed) according to txstateid. }
          \end{enumerate}
 
          \textbf{Rational:}
-         Because faculty are responsible for grading each exam, he or she needs
-         to be able to update the results after the exam is administered.
-   \end{quote} % End indent section
+         {\small Because faculty are responsible for grading each exam, he or she needs
+         to be able to update the results after the exam is administered.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{View Exam Results} \index{exam!view results}
-   \begin{quote} % Indent section
-         This function allows a faculty member to display the results of an
+   \subsubsection{\large View Exam Results} \index{exam!view results}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to display the results of an
          exam. Displayed information includes username, txstateid, student
          first and last name, results, and statistics such as total results,
          number of students who passed, number of students who
-         failed, and number of students who were not present.
+         failed, and number of students who were not present.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty selects View Result function.
             \item Faculty member is presented with username, txstateid, last
                name, first name, results (no show, passed, failed), and
                statistics including the total results, how many passed, how many
-               failed, and how many no show. 
+               failed, and how many no show. }
          \end{enumerate}
 
          \textbf{Rational:}
-         It is useful for Faculty to see an overview of exam results and
-         statistical significant data to help prepare for future exams.
-   \end{quote} % End indent section
+         {\small It is useful for Faculty to see an overview of exam results and
+         statistical significant data to help prepare for future exams.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{Publish Exams Result} \index{exam!publish result}
-   \begin{quote} % Indent section
-         This function allows a faculty member to publish the results of an
+   \subsubsection{\large Publish Exams Result} \index{exam!publish result}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to publish the results of an
          exam. After being published, students will be able to see their
-         results in their interface.
+         results in their interface.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty selects Publish results function
             \item This function allows a faculty member to publish the exam results.
-            \item Students can see results.
+            \item Students can see results.}
       \end{enumerate}
 
          \textbf{Rational:}
-         The students who participated in an exam will need to know their
+         {\small The students who participated in an exam will need to know their
          results, but only after the faculty has graded the exam and reviewed
          it. Hence, the faculty should have the capability to make the exam
-         results available for student review.
-   \end{quote} % End indent section
+      results available for student review.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{View Student Record} \index{student record!view}
-   \begin{quote} % Indent section
-         This function allows a faculty member to display all student records
+   \subsubsection{\large View Student Record} \index{student record!view}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to display all student records
          which includes username, txstateid, student first and last name,
          student major, email, result of programming exam, result of
-         communication exam, result of core courses, and exam history.
+         communication exam, result of core courses, and exam history.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty is logged in and selects the View Student Records Option.
-            \item The Student Records are returned.
+            \item The Student Records are returned.}
       \end{enumerate}
 
          \textbf{Rational:}
-         Faculty should have the capability of viewing all current student
-         records
-   \end{quote} % End indent section
+         {\small Faculty should have the capability of viewing all current student
+         records}
+   \end{boxed} % End boxed section
 
-   \subsubsection{Create Student Record} \index{student record!create}
-   \begin{quote} % Indent section
-         This function allows a faculty member to create a new student
+   \subsubsection{\large Create Student Record} \index{student record!create}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to create a new student
          record that includes username, txstateid, student first and last name,
          student major, email, programming exam result, communication exam
          result, each core course result, phone number, address, city, state,
-         and zip code of the student.
+         and zip code of the student.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item The faculty is logged in and selects the Create Student Record
                Option.
             \item A form is presented to get the following information:
@@ -174,23 +200,25 @@ after logging into the system. They are the following:
                   \item State
                   \item Zip
                \end{itemize}
-            \item The new Student Record is created
+            \item The new Student Record is created}
       \end{enumerate}
 
          \textbf{Rational:}
-         Faculty need to be able to create new student records as new students
-         enroll in courses and exams
-   \end{quote} % End indent section
+         {\small Faculty need to be able to create new student records as new students
+         enroll in courses and exams}
+   \end{boxed} % End boxed section
 
-   \subsubsection{Search Student Record} \index{student record!search}
-   \begin{quote} % Indent section
-         This function allows a faculty member to search student records
+   \subsubsection{\large Search Student Record} \index{student record!search}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to search student records
          using txstateid, username, student first or last name, major,
          email, programming exam, communication exam, or core course as
-         criteria.
+         criteria.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty is logged in and selects the Search Student Record Option.
             \item Faculty searches Student Records based on one or more criteria:
                \begin{itemize}
@@ -204,24 +232,26 @@ after logging into the system. They are the following:
                   \item Communication Exam Results
                   \item Core Course Results
                \end{itemize}
-            \item All Student Records that meet the criteria are shown.
+            \item All Student Records that meet the criteria are shown.}
       \end{enumerate}
 
          \textbf{Rational:}
-         Because Faculty should be able to view all Student Records, there
-         should be an option to search the Records as well.
-   \end{quote} % End indent section
+         {\small Because Faculty should be able to view all Student Records, there
+         should be an option to search the Records as well.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{Edit Student Record} \index{student record!edit}
-   \begin{quote} % Indent section
-         This function allows a faculty member to edit student records by
+   \subsubsection{\large Edit Student Record} \index{student record!edit}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to edit student records by
          entering txstateid or username to find the student and edit the
          student's last name or first name, major, email, programming result,
          communication result, each core course result, local phone, local
-         address, local city, local state, local zip.
+         address, local city, local state, local zip.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty is logged in and selects the Edit Student Record Option.
             \item Faculty uses either username or txstateid to access a specific
                Student Record.
@@ -243,23 +273,25 @@ after logging into the system. They are the following:
                   \item State
                   \item Zip
                \end{itemize}
-            \item. The Student Record is updated with the new information.
+            \item. The Student Record is updated with the new information.}
       \end{enumerate}
 
          \textbf{Rational:}
-         Because faculty is capable of creating Student Records, he or she
+         {\small Because faculty is capable of creating Student Records, he or she
          should have the availability to edit Student Records after they have
-         been created.
-   \end{quote} % End indent section
+      been created.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{Change Student Exam Result} \index{exam!change result}
-   \begin{quote} % Indent section
-         This function allows a faculty member to change a student exam
+   \subsubsection{\large Change Student Exam Result} \index{exam!change result}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a faculty member to change a student exam
          results by entering his/her txstateid or username, and the results of
-         programming, communication, and each core course can be changed.
+         programming, communication, and each core course can be changed.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty selects the Change Exam Result Option.
             \item Faculty uses either txstateid or user name to access the Student
                Record to edit the Exam Result.
@@ -269,46 +301,51 @@ after logging into the system. They are the following:
                \item Communication Exam Results
                \item Core Course Results
             \end{itemize}
-            \item The Student Record is updated with the new information
+         \item The Student Record is updated with the new information}
       \end{enumerate}
 
          \textbf{Rational:}
-         Faculty should be able to change, insert, or delete results from exams
-         in Student Records.
-   \end{quote} % End indent section
+         {\small Faculty should be able to change, insert, or delete results from exams
+         in Student Records.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{View Complete} \index{student record!complete} \index{exam!complete}
-   \begin{quote} % Indent section
-         This function displays all the students who have passed the
+   \subsubsection{\large View Complete} \index{student record!complete} \index{exam!complete}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function displays all the students who have passed the
          programming, communication, and core exams. The information
          displayed includes txstateid, username, student first and last
          name, major, email, result of programming, result of communication,
-         result of core.
+         result of core.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Faculty selects the View Completed Option.
-            \item All Student who have completed all necessary exams are displayed.
+            \item All Student who have completed all necessary exams are
+               displayed.}
       \end{enumerate}
 
          \textbf{Rational:}
-         Faculty should be able to see all students who have completed the
-         required exams without having to search through all Student Records.
-   \end{quote} % End indent section
+         {\small Faculty should be able to see all students who have completed the
+         required exams without having to search through all Student Records.}
+   \end{boxed} % End boxed section
 
 
-\subsection*{Student Functionality}
+\subsection{Student Functionality}
 
-\subsubsection{Register Exam} \index{exam!register}
-\begin{quote} % Indent section
-         This function allows a student to register for an existing exam by
+\subsubsection{\large Register Exam} \index{exam!register}
+\begin{boxed} % Boxed section
+   \textbf{Description:}
+   {\small This function allows a student to register for an existing exam by
          entering a username, txstateid, first and last name, major, email,
          local phone, local address, local city, local state, local zip.
          Once a student has registered for the exam, a faculty member can see
-         this registration in the View Registered function.
+         this registration in the View Registered function.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Student is logged in and goes to Register Exam and selects
                Programming/Communcation/Core Course Exam to register.
             \item The Register Exam function accepts the necessary data for the exam
@@ -327,48 +364,53 @@ after logging into the system. They are the following:
                \end{itemize}
             \item Exam record is updated to the database
             \item Faculty member can see this registration in the View Registered
-               function.
+               function.}
          \end{enumerate}
 
          \textbf{Rational:}
-         Because a student is required to take exams with certain criteria and
+         {\small Because a student is required to take exams with certain criteria and
          restrictions (e.g. only offered on specific dates or a certain set of
-         core exams) he or she should be responsible for registering for each one.
-   \end{quote} % End indent section
+         core exams) he or she should be responsible for registering for each
+      one.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{Withdraw Exam} \index{exam!withdraw}
-   \begin{quote} % Indent section
-         This function allows a student to withdraw from an existing exam. The
+   \subsubsection{\large Withdraw Exam} \index{exam!withdraw}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a student to withdraw from an existing exam. The
          student should give username and the exam to withdraw. Once a
          student has withdrawn an exam, the record seen by the faculty should
-         be updated.
+         be updated.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Student is logged in and selects the Withdraw Exam Option.
             \item Student enters username and exam to withdraw.
             \item Exam record is updated.
-            \item Faculty can view updated record.
+            \item Faculty can view updated record.}
          \end{enumerate}
 
          \textbf{Rational:}
-         As it is the student's responsibility to register for exams, he or she
-         should also be able to withdraw for a registered exam.
-   \end{quote} % End indent section
+         {\small As it is the student's responsibility to register for exams, he or she
+         should also be able to withdraw for a registered exam.}
+   \end{boxed} % End boxed section
 
-   \subsubsection{View Exam Result} \index{exam!view result}
-   \begin{quote} % Indent section
-         This function allows a student to view his or her exam results after
-         the exam results are published by a faculty member.
+   \subsubsection{\large View Exam Result} \index{exam!view result}
+   \begin{boxed} % Boxed section
+      \textbf{Description:}
+      {\small This function allows a student to view his or her exam results after
+      the exam results are published by a faculty member.}
          
          \textbf{Sequence of Actions:}
          \begin{enumerate}
+               {\small
             \item Student is logged in and selects the View Exam Result option.
             \item Exam results are published by faculty
-            \item Student is able to view results
+            \item Student is able to view results}
          \end{enumerate}
 
          \textbf{Rational:}
-         After the exam is completed and graded, each student needs to be able
-         to view his or her own results of the exam.
-   \end{quote} % End indent section
+         {\small After the exam is completed and graded, each student needs to
+         be able to view his or her own results of the exam.}
+   \end{boxed} % End boxed section
