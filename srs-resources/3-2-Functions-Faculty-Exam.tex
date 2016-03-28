@@ -3,7 +3,7 @@ Create exam function.
 Flow of events	
 1. Faculty is logged in and fills in form of Exam type
 2. Exam type is created with update ability.
-3. Faculty and student can see exam.
+3. Faculty and Student can see exam.
 Entry Condition	Faculty is logged into EMS
 Exit Condition	Exam is created successfully
 OR 
@@ -15,9 +15,9 @@ Use Case Name	Faculty Exam Option
 Participating actors	 Faculty
 Flow of events	
 1. Faculty selects Exam Option Function
-2. Faculty member is presented with exam creation details [username, student ID, lastname, firstname, results (registered or not), comments, and the total number of students registered ]
+2. Faculty member is presented with exam creation details [username, Student ID, lastname, firstname, results (registered or not), comments, and the total number of Students registered ]
 Entry Condition	Faculty is logged into EMS
-Exit Condition	Extended exam options are presented with editable fields : username, student ID, lastname, firstname, results (registered or not), comments, and the total number of students registered.
+Exit Condition	Extended exam options are presented with editable fields : username, Student ID, lastname, firstname, results (registered or not), comments, and the total number of Students registered.
 OR
 Faculty is show error message 
 Quality Requirements	Exam option details should be presented under 1 second. Exam Options fields should also be saved under 1 second if updated.
@@ -38,7 +38,7 @@ Use Case Name	Faculty Enter Results
 Participating actors	 Faculty
 Flow of events	
 1. Faculty selects Enter Results Function
-2. Faculty member is presented with form to indicate (noshow, passed, failed) according to student ID. 
+2. Faculty member is presented with form to indicate (noshow, passed, failed) according to Student ID. 
 Entry Condition	Faculty is logged into EMS
 Exit Condition	Exam Results are entered and updated , redirecting to success page.
 OR
@@ -49,22 +49,22 @@ Use Case Name	Faculty View Results
 Participating actors	 Faculty
 Flow of events	
 1. Faculty selects View Result function.
-2. Faculty member is presented with username, student ID, last name, first name, results (noshow, passed, failed), and statistics including the total results, how many passed, how many failed, and how many noshow. 
+2. Faculty member is presented with username, Student ID, last name, first name, results (noshow, passed, failed), and statistics including the total results, how many passed, how many failed, and how many noshow. 
 Entry Condition	Faculty is logged into EMS
-Exit Condition	Exam Results presented to faculty successfully with exit option.
+Exit Condition	Exam Results presented to Faculty successfully with exit option.
 OR
 Faculty is show error message 
-Quality Requirements	Results should be shown to faculty in under 1 second.
+Quality Requirements	Results should be shown to Faculty in under 1 second.
 	
 Use Case Name	Faculty Publish Results
 Participating actors	 Faculty, Student
 Flow of events	
 1. Faculty selects Publish results function
-2. This function allows a faculty member to publish the exam results.
+2. This function allows a Faculty member to publish the exam results.
 3 Students can see results.
 Entry Condition	Faculty is logged into EMS
 Exit Condition	Exam Results saved successfully with page redirect.
 OR
 Faculty is show error message 
-Quality Requirements	Results should be shown to faculty and students in under 1 second.
+Quality Requirements	Results should be shown to Faculty and Students in under 1 second.
 	
