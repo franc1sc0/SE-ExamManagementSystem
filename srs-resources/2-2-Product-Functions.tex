@@ -1,15 +1,18 @@
 % Product Functions
 
 % Define a box around each function
-\newenvironment{boxed}
- {\begin{center} \begin{tabular}{|p{0.9\textwidth}|}
- \hline
- }
- { 
- \\\hline
- \end{tabular} 
- \end{center}
- }
+\ifcsmacro{boxed}{}{
+   \let\endmyboxed\undefined%
+   \newenvironment{boxed}
+    {\begin{center} \begin{tabular}{|p{0.9\textwidth}|}
+    \hline
+    }
+    { 
+    \\\hline
+    \end{tabular} 
+    \end{center}
+    }
+}
 
 The major functions of this application will be used by either Faculty or Students
 after logging into the system.
