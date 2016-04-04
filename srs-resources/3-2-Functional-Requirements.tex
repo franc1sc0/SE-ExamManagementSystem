@@ -45,7 +45,7 @@ Faculty and Student.
 \item[Sources:]
    Faculty or Student
 \item[Outputs:]
-   Access to EMS
+   Valid or invalid attempt
 \item[Destination:]
    Database
 \item[Requires:]
@@ -64,21 +64,30 @@ Faculty and Student.
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:create_exam}.
+   Refer to the description in \autoref{desc:create_exam}
 \item[Inputs:]
-   A new exam.
+   An exam as defined in \autoref{def:exam} Information includes:
+   \begin{enumerate}
+      \item Type (programming, communication or core exam)
+      \item Date
+      \item Start time
+      \item End time
+      \item Semester offered (Fall or Spring)
+      \item Location
+      \item Registration deadline
+   \end{enumerate}
 \item[Sources:]
-   All inputs are inputted by the Faculty user during exam creation.
+   Faculty
 \item[Outputs:]
-   An exam.
+   A new exam
 \item[Destination:]
-   The exam is committed to the database.
+   Database
 \item[Requires:]
-   All necessary data is obtained for the new exam.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the Create Exams Function.
+   The Faculty selects the Create Exams Function
 \item[Post-condition:]
-   The new exam is stored in the database.
+   The new exam is created
 \end{description}
 \end{boxed} % End boxed section
 
@@ -87,21 +96,29 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:view_registered}.
+   Refer to the description in \autoref{desc:view_registered}
 \item[Inputs:]
-   An exam.
+   An exam as defined in \autoref{def:exam}
 \item[Sources:]
-   The Faculty selects the exam.
+   Faculty
 \item[Outputs:]
-   The specific exam details are returned.
+   Total students registered, comments and the following information of
+   Students:
+   \begin{enumerate}
+      \item username
+      \item Student ID
+      \item first name
+      \item last name
+      \item results (registered/not registered)
+   \end{enumerate}
 \item[Destination:]
-   The exam details are displayed on the screen.
+   Screen
 \item[Requires:]
-   The exam must exist in the database.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the View Registered Students in Exam Function.
+   The Faculty selects the View Registered Students in Exam Function
 \item[Post-condition:]
-   The specific exam is displayed.
+   The exam details are displayed
 \end{description}
 \end{boxed} % End boxed section
 
@@ -109,21 +126,21 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:edit_exams}.
+   Refer to the description in \autoref{desc:edit_exams}
 \item[Inputs:]
-   An exam.
+   An exam as defined in \autoref{def:exam}
 \item[Sources:]
-   The specific exam is selected by the Faculty.
+   Faculty
 \item[Outputs:]
-   The exam with modified attributes.
+   An exam
 \item[Destination:]
-   The exam attributes are updated in the database.
+   Database
 \item[Requires:]
-   The exam to be in the database and modifiable.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the Edit Exams Function.
+   The Faculty selects the Edit Exams Function
 \item[Post-condition:]
-   The specific exam details are updated in the database.
+   The specific exam details are updated in the database
 \end{description}
 \end{boxed} % End boxed section
 
@@ -131,25 +148,21 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:enter_results}.
+   Refer to the description in \autoref{desc:enter_results}
 \item[Inputs:]
-   An exam and list of Student record.
+   An exam and Student records as defined in \autoref{def:record}
 \item[Sources:]
-   The exam is selected by the Faculty and the database gets the Student
-   records that have registered for the exam according to the attribute
-   Student ID.
+   Faculty (exam) and the database (Student records)
 \item[Outputs:]
-   The list of Student record attributes of exam result is updated with
-   either pass, fail, or no show. The Faculty will indicate the exam result for each
-   Student record.
+   Student records
 \item[Destination:]
-   Each Student record is updated in the database.
+   Database
 \item[Requires:]
-   The database to select the correct Student records based on Student ID.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the Enter Exam Results Function.
+   The Faculty selects the Enter Exam Results Function
 \item[Post-condition:]
-   The Student records are updated in the database.
+   The Student records are updated in the database
 \end{description}
 \end{boxed} % End boxed section
 
@@ -157,14 +170,29 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:view_results}.
+   Refer to the description in \autoref{desc:view_results}
 \item[Inputs:]
+   An exam as defined in \autoref{def:exam}
 \item[Sources:]
+   Faculty
 \item[Outputs:]
+   Total students passed, failed and did not show along with the following
+   information of Students:
+   \begin{enumerate}
+      \item username
+      \item Student ID
+      \item first name
+      \item last name
+      \item results (passed, failed, no show)
+   \end{enumerate}
 \item[Destination:]
+   Screen
 \item[Requires:]
+   Faculty must be logged in
 \item[Pre-condition:]
+   The Faculty selects the View Exams Results Function
 \item[Post-condition:]
+   The exam results are viewable by Faculty
 \end{description}
 \end{boxed} % End boxed section
 
@@ -172,45 +200,44 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:publish_results}.
+   Refer to the description in \autoref{desc:publish_results}
 \item[Inputs:]
-   An exam and list of Student records.
+   An exam as defined in \autoref{def:exam}
 \item[Sources:]
-   The exam is selected by the Faculty and the Student records 
-   from the database.
+   Faculty
 \item[Outputs:]
-   The Student records attribute of exam results are now viewable by the
-   appropriate Students.
+   Student records' exam results (pass, fail, no show) as defined in
+   \autoref{def:record}
 \item[Destination:]
-   The Student records are updated in the database.
+   Database
 \item[Requires:]
-   The correct Student records are selected from the database.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the Publish Exams Result Function.
+   The Faculty selects the Publish Exams Results Function
 \item[Post-condition:]
-   The exam results are viewable by students.
+   The exam results are viewable by students
 \end{description}
 \end{boxed} % End boxed section
 
-\subsubsection{\large View Student records} \index{Student record!view}
+\subsubsection{\large View Student Records} \index{Student record!view}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:view_records}.
+   Refer to the description in \autoref{desc:view_records}
 \item[Inputs:]
-   None.
+   None
 \item[Sources:]
-   The Faculty selects this function.
+   None
 \item[Outputs:]
-   All Student records in the database are returned.
+   All Student records defined in \autoref{def:record}
 \item[Destination:]
-   The Student record details are displayed on the screen.
+   Screen
 \item[Requires:]
-   The Student records to be retrievable from the database.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the View Student record Function.
+   The Faculty selects the View Student Record Function
 \item[Post-condition:]
-   All Student records' details are displayed.
+   All Student records' details are displayed
 \end{description}
 \end{boxed} % End boxed section
 
@@ -218,21 +245,37 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:create_record}.
+   Refer to the description in \autoref{desc:create_record}
 \item[Inputs:]
-   A new Student record.
+   All information for a Student record as defined in \autoref{def:record}:
+   \begin{enumerate}
+      \item username
+      \item Student ID
+      \item first name
+      \item last name
+      \item major
+      \item email
+      \item programming result
+      \item communication result
+      \item each core exam result
+      \item phone number
+      \item address
+      \item city
+      \item state
+      \item zip code
+   \end{enumerate}
 \item[Sources:]
-   The Student record attributes is inputted by the Faculty.
+   Faculty
 \item[Outputs:]
-   The Student record.
+   A new Student record
 \item[Destination:]
-   The Student record is created in the database.
+   Database
 \item[Requires:]
-   All information necessary for a Student record.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the Create Student record Function.
+   The Faculty selects the Create Student record Function
 \item[Post-condition:]
-   A New Student record is created.
+   A New Student record is created
 \end{description}
 \end{boxed} % End boxed section
 
@@ -240,23 +283,21 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:search_record}.
+   Refer to the description in \autoref{desc:search_record}
 \item[Inputs:]
-   A list of one or more Student record attributes and Student records.
+   One or more attributes of a Student record as defined in \autoref{def:record}
 \item[Sources:]
-   The list of attributes are inputted by the Faculty and the Student records
-   come from the database.
+   Faculty
 \item[Outputs:]
-   The Student records who have the matching attributes are returned from the
-   database.
+   Student records with matching attributes
 \item[Destination:]
-   The Student records are displayed on the screen.
+   Screen
 \item[Requires:]
-   Student record attributes and access to the database.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the Search Student record Function.
+   The Faculty selects the Search Student record Function
 \item[Post-condition:]
-   A list of matching Student records is displayed.
+   A list of matching Student records is displayed
 \end{description}
 \end{boxed} % End boxed section
 
@@ -264,24 +305,22 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:edit_record}.
+   Refer to the description in \autoref{desc:edit_record}
 \item[Inputs:]
-   The attribute of a Student record of Student ID or username and a list of all
-   Student records.
+   username or Student ID of a Student and one or more of any
+   attribute of a Student record as defined in \autoref{def:record}
 \item[Sources:]
-   The search criteria of Student ID or username is inputted by the user and the
-   database for the list of Student records.
+   Faculty
 \item[Outputs:]
-   The Faculty updates the matching Student record's attributes and the updated
-   Student record is returned.
+   The updated Student record
 \item[Destination:]
-   The Student record is updated in the database.
+   Database
 \item[Requires:]
-   The matching Student record is modifiable in the database.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the Edit Student record Function.
+   The Faculty selects the Edit Student record Function
 \item[Post-condition:]
-   The Student record is updated.
+   The Student record that was edited is updated
 \end{description}
 \end{boxed} % End boxed section
 
@@ -289,24 +328,22 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:change_result}.
+   Refer to the description in \autoref{desc:change_result}
 \item[Inputs:]
-   The attribute of a Student record of Student ID or username and a list of all
-   Student records.
+   username or Student Id of a Student and one or more exam results as defined
+   in \autoref{def:exam}
 \item[Sources:]
-   The search criteria of Student ID or username is inputted by the user and the
-   database for the list of Student records.
+   Faculty
 \item[Outputs:]
-   The Faculty updates the matching Student record's attribute of exam result
-   and the updated Student record is returned.
+   The updated Student record
 \item[Destination:]
-   The Student record is updated in the database.
+   Database
 \item[Requires:]
-   The matching Student record is modifiable in the database.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the Change Student Exam Result Function.
+   The Faculty selects the Change Student Exam Result Function
 \item[Post-condition:]
-   The Student record is updated.
+   The Student record's exam results are updated
 \end{description}
 \end{boxed} % End boxed section
 
@@ -314,22 +351,23 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:view_complete}.
+   Refer to the description in \autoref{desc:view_complete}
 \item[Inputs:]
-   None.
+   Student records as defined in \autoref{def:record}
 \item[Sources:]
-   The Faculty selects this function.
+   Faculty
 \item[Outputs:]
    A list of Student records that have passed the programming,
-   communication, and core exams is returned from the database.
+   communication, and core exams
 \item[Destination:]
-   The list of matching Student records is displayed on the screen.
+   Screen
 \item[Requires:]
-   The database is accessible.
+   Faculty must be logged in
 \item[Pre-condition:]
-   The Faculty selects the View Complete Function.
+   The Faculty selects the View Complete Function
 \item[Post-condition:]
-   The list of Student records that meet the criteria is displayed.
+   The list of Student records that have completed all programming,
+   communication, and core exams.
 \end{description}
 \end{boxed}
 
@@ -339,23 +377,22 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:register_exam}.
+   Refer to the description in \autoref{desc:register_exam}
 \item[Inputs:]
-   An exam and a Student record.
+   An existing exam and a Student record as defined in \autoref{def:exam}
 \item[Sources:]
-   The Student record is inputted by the Student and the exam is
-   obtained from the database.
+   Student
 \item[Outputs:]
-   The exam is updated with the Student record now being registered for
-   it.
+   Student record with the exam (programming, communication or core) showing
+   registered
 \item[Destination:]
-   The exam is updated in the database.
+   Database
 \item[Requires:]
-   The Student is able to select a list of exams.
+   Student must be logged in
 \item[Pre-condition:]
-   The Student selects the Register Exam Function.
+   Student selects the Register Exam Function
 \item[Post-condition:]
-   The updated exam is saved.
+   The exam shows as registered in the Student record
 \end{description}
 \end{boxed} % End boxed section
 
@@ -363,22 +400,22 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:withdraw_exam}.
+   Refer to the description in \autoref{desc:withdraw_exam}
 \item[Inputs:]
-   A username and exam.
+   username and exam
 \item[Sources:]
-   The username is inputted by the Student and the exam is obtained from
-   the database.
+   Student
 \item[Outputs:]
-   The exam is updated with the Student record showing withdrawn.
+   Student record with the exam (programming, communication or core) showing
+   not registered
 \item[Destination:]
-   The exam is updated in the database.
+   Database
 \item[Requires:]
-   The Student is able to access a list of exams from the database.
+   Student must be logged in
 \item[Pre-condition:]
-   The Student selects the Withdraw Exam Function.
+   The Student selects the Withdraw Exam Function
 \item[Post-condition:]
-   The exam is updated.
+   The exam shows as not registered in the Student record
 \end{description}
 \end{boxed} % End boxed section
 
@@ -386,20 +423,20 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   Refer to the description in \autoref{desc:student_view}.
+   Refer to the description in \autoref{desc:student_view}
 \item[Inputs:]
-   None.
+   Student's record as defined in \autoref{def:exam}
 \item[Sources:]
-   The Student selects this function.
+   Student
 \item[Outputs:]
-   The results of the exam is returned.
+   The Student record exam result
 \item[Destination:]
-   The results are displayed on the screen.
+   Screen
 \item[Requires:]
-   The exam results have been published by the Faculty.
+   Student must be logged in
 \item[Pre-condition:]
-   The Student selects the View Exam Result Function.
+   The Student selects the View Exam Result Function
 \item[Post-condition:]
-   The results of the exam are displayed.
+   The results of the exam in the Student record are displayed
 \end{description}
 \end{boxed} % End boxed section
