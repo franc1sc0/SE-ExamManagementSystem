@@ -20,228 +20,260 @@
 The major functions of this application will be used by either Faculty or Students
 after logging into the system.
 
+\subsection{Shared Functionality}
+   \subsubsection{\large Login} \index{login}
+   \begin{boxed} % Boxed section
+      \begin{description}
+         \item[Description:\label{desc:login}]
+      This function allows a Faculty member or Student to login to EMS.
+      
+         \item[Sequence of Actions:]\hspace{10cm}
+      \begin{enumerate}
+         \item Faculty or Student provides a username and password
+         \item A successful attempt allows the Faculty or Student access to EMS
+         \item After three unsuccessful attempts the Faculty or Student's access
+            is blocked
+      \end{enumerate}
+
+         \item[Rationale:]
+            All users of EMS must be logged in to use the functionality.
+      \end{description}
+   \end{boxed} % End boxed section
+
 \subsection{Faculty Functionality}
-The following is functionality that applies to Faculty.
 
    \subsubsection{\large Create Exams} \index{exam!create}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
+      \begin{description}
+         \item[Description:\label{desc:Create Exams}]
       This function allows a Faculty member to create programming and
       communication exams. After creation, the exam is viewable by the Students.
       The exam information includes the exam type, exam administration date,
       start and end time of exam, semester offered, location of exam, and
-      registration deadline. 
+      registration deadline.
       
-      \vspace{3mm}
-      \textbf{Sequence of Actions:}
+         \item[Sequence of Actions:]\hspace{10cm}
       \begin{enumerate}
-            
-         \item Faculty provides the data for the exam to be created.
-         \item The exam is created.
-         \item Faculty and Student can see exam.
+         \item Faculty provides the data for the exam as defined in
+            \autoref{def:exam}
+         \item The exam is created
+         \item Faculty and Student can see exam
       \end{enumerate}
 
-      \textbf{Rational:}
+         \item[Rationale:]
       Because the Faculty administer and grades the exams, he or she should
       be the one capable of creating an exam.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large View Registered Students in Exam} \index{exam!view registered
    Students}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
+      \begin{description}
+         \item[Description:\label{desc:view_registered}]
       This function allows a Faculty member to display all registered
          Students for an exam. The information displayed includes username,
          Student ID, Student first and last name, results, comments, and total number
          of registered Students. 
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
             \item Faculty is logged in and selects the View Registered Students
-               in Exam function.
-            \item Faculty member is presented with exam details [username,
+               in Exam function
+            \item Faculty member is presented with exam details of username,
                Student ID, last name, first name, results (registered or not),
-               comments, and the total number of Students registered]
+               comments, and the total number of Students registered
          \end{enumerate}
 
-         \textbf{Rational:}
-         This allows the Faculty to know the details of an upcoming exam before
-         administering it. It is helpful to know how much material to prepare,
-         how many Students have registered, etc. beforehand for Faculty.
+            \item[Rational:]
+         Faculty should know the details of an upcoming exam before
+         administering it.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large Edit Exams} \index{exam!edit}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
-      This function allows a Faculty member to edit exam information
-         that has already been created.
+      \begin{description}
+         \item[Description:\label{desc:edit_exams}]
+      This function allows a Faculty member to edit exam type, date, start time,
+      end time, semester offered, location and registration deadline of an
+      existing exam.
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Faculty selects the exam to edit its details.
-            \item Faculty member edits the necessary exam data.
-            \item The exam data is saved.
+            \item Faculty selects the exam to edit
+            \item Faculty member edits any part of an exam as defined in
+               \ref{def:exam}
+            \item The exam information is updated
          \end{enumerate}
 
-         \textbf{Rational:}
+            \item[Rational:]
          Faculty should have the capability to edit details of each exam after
          creation.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large Enter Exam Results} \index{exam!enter result}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
-      This function allows a Faculty member to enter the exam results
-         according to Student ID.
+      \begin{description}
+            \item[Description:\label{desc:enter_results}]
+      This function allows a Faculty member to enter the results of an exam
+      based on Student ID.
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
                
-            \item Faculty selects the exam to update results.
-            \item Faculty member enters exam results.
-            \item The exam data is saved. 
+            \item Faculty selects the exam to enter results
+            \item Faculty member enters exam results based on Student ID
+            \item The appropriate exam result as defined in \ref{def:record} is updated in the Student record
          \end{enumerate}
 
-         \textbf{Rational:}
+            \item[Rational:]
          Because Faculty are responsible for grading each exam, he or she needs
          to be able to update the results after the exam is administered.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large View Exam Results} \index{exam!view results}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
+      \begin{description}
+         \item[Description:\label{desc:view_results}]
       This function allows a Faculty member to display the results of an
-         exam.
+         exam. Displayed results include username, Student ID, last name, first
+         name, exam results (passed, failed or no show) of each Student along
+         with the total passed, failed and no show of Students.
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
                
-            \item Faculty selects the exam to view.
-            \item Faculty member is presented the details of the exam selected.
+            \item Faculty selects the exam to view
+            \item Faculty is presented with all Students registered along with
+               the results
          \end{enumerate}
 
-         \textbf{Rational:}
-         It is useful for Faculty to see an overview of exam results and
-         statistical significant data to help prepare for future exams.
+            \item[Rational:]
+         Faculty should be able to see an overview of the results of each exam.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large Publish Exams Result} \index{exam!publish result}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
+      \begin{description}
+         \item[Description:\label{desc:publish_results}]
       This function allows a Faculty member to publish the results of an
          exam. After being published, Students will be able to see their
          results.
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Faculty selects the exam to be published.
-            \item Students and Faculty can see the exam results.
+            \item Faculty selects the exam to be published
+            \item Students and Faculty can see the exam results
       \end{enumerate}
 
-         \textbf{Rational:}
-         The Students who participated in an exam will need to know their
-         results, but only after the Faculty has graded the exam and reviewed
-         it. Hence, the Faculty should have the capability to make the exam
+            \item[Rational:]
+         Faculty should have the capability to make the exam
          results available for Student review.
+      \end{description}
    \end{boxed} % End boxed section
 
-   \subsubsection{\large View Student record} \index{Student record!view}
+   \subsubsection{\large View Student records} \index{Student record!view}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
+      \begin{description}
+         \item[Description:\label{desc:view_records}]
       This function allows a Faculty member to display all Student
-         records.
+         records information including username, Student ID, first name, last
+         name, major, email, exam results and exam history.
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Faculty selects to view all Student records.
-            \item All Student records are viewable.
+            \item Faculty selects to view all Student records
+            \item All Student records details as defined in \ref{def:record} are viewable
       \end{enumerate}
 
-         \textbf{Rational:}
+            \item[Rational:]
          Faculty should have the capability of viewing all current Student
          records
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large Create Student record} \index{Student record!create}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
+      \begin{description}
+         \item[Description:\label{desc:create_record}]
       This function allows a Faculty member to create a new Student
-         record. 
+         record of username, Student ID, first name, last name, major, email,
+         exam results, phone number, address, city, state and zip code.
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item The Faculty selects to create a Student record.
-            \item The Faculty enters the Student record data.
-            \item The new Student record is created.
+            \item The Faculty selects to create a Student record
+            \item The Faculty enters the Student record data as defined in
+               \ref{def:record}
+            \item The new Student record is created
       \end{enumerate}
 
-         \textbf{Rational:}
-         Faculty need to be able to create new Student records as new Students
-         enroll in courses and exams
+            \item[Rational:]
+         Faculty should be able to create new Student records as new Students
+         enroll.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large Search Student record} \index{Student record!search}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
-      This function allows a Faculty member to search Student records.
+      \begin{description}
+         \item[Description:\label{desc:search_record}]
+      This function allows a Faculty member to search Student records by
+      username, Student ID, first name, last name, major, email or exam
+      enrollment.
          
-      \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Faculty selects to search Student records.
-            \item Faculty searches Student records by their data.
-            \item All Student records that meet the criteria are shown.
+            \item Faculty selects to search Student records
+            \item Faculty searches Student records by username, Student ID,
+               first name, last name, major, email or exam enrollment
+            \item All Student records that meet the criteria are shown
       \end{enumerate}
 
-         \textbf{Rational:}
-         Because Faculty should be able to view all Student records, there
-         should be an option to search the Records as well.
+            \item[Rational:]
+         Faculty should be able to search Student records by various criteria.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large Edit Student record} \index{Student record!edit}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
-      This function allows a Faculty member to edit Student records.
+      \begin{description}
+         \item[Description:\label{desc:edit_record}]
+      This function allows a Faculty member to edit Student records. Faculty can
+      use username or Student ID to locate a Student record and can edit first
+      name, last name, major, email, exam results, phone, address, city, state
+      or zip code.
          
-      \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Faculty selects the Student record to edit.
-            \item Faculty edit one or more elements of the Student record.
-            \item. The Student record is updated with the new information.
+            \item Faculty selects the Student record to edit by username or
+               Student ID
+            \item Faculty edit the Student record information as defined in
+               \ref{def:record}
+            \item. The Student record is updated
       \end{enumerate}
 
-         \textbf{Rational:}
-         Because Faculty is capable of creating Student records, he or she
-         should have the availability to edit Student records after they have
-      been created.
+            \item[Rational:]
+         Faculty should be able to edit Student records after they have been created.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large Change Student Exam Result} \index{exam!change result}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
-      This function allows a Faculty member to change a Student exam
-         results.
+      \begin{description}
+         \item[Description:\label{desc:change_result}]
+      This function allows a Faculty member to change a Student exam results
+      based on username or Student ID.
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
                
-            \item Faculty selects the exam to change its results.
+            \item Faculty selects the Student record based on username or
+               Student ID
             \item Faculty can edit one or more of the following elements:
             \begin{itemize}
                \item Programming Exam Results
@@ -251,92 +283,96 @@ The following is functionality that applies to Faculty.
          \item The Student record is updated with the new information.
       \end{enumerate}
 
-         \textbf{Rational:}
+            \item[Rational:]
          Faculty should be able to change, insert, or delete results from exams
          in Student records.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large View Complete} \index{Student record!complete} \index{exam!complete}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
+      \begin{description}
+         \item[Description:\label{desc:view_complete}]
       This function displays all the Students who have passed the
-         programming, communication, and core exams. 
+         programming, communication, and core exams. The information displayed
+         is username, Student ID, first name, last name, major, email, and
+         results of exams.
          
-         \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Faculty selects to view completed Student records.
-            \item All Student who have completed all necessary exams are
-               displayed.
+            \item Faculty selects to view completed Student records
+            \item All Student who have completed all programming, communication
+               and core exams are displayed
       \end{enumerate}
 
-         \textbf{Rational:}
+            \item[Rational:]
          Faculty should be able to see all Students who have completed the
-         required exams without having to search through all Student records.
+         required exams.
+      \end{description}
    \end{boxed} % End boxed section
 
 
 \subsection{Student Functionality}
-The following are functionality that applies to Students.
 
 \subsubsection{\large Register Exam} \index{exam!register}
 \begin{boxed} % Boxed section
-   \textbf{Description:}
-   This function allows a Student to register for an existing exam.
+      \begin{description}
+         \item[Description:\label{desc:}]
+   This function allows a Student to register for an existing exam by entering a
+   username, Student ID, first name, last name, major, email, phone number,
+   address, city, and zip code.
          
-   \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Student selects to register for an exam.
-            \item The Student enters in the necessary data to register.
-            \item The exam record is updated.
+            \item Student selects to register for an exam
+            \item The Student enters in the same data as his or her Student
+               record as defined in \ref{def:record}
+            \item The Student is registered for the exam
          \end{enumerate}
 
-         \textbf{Rational:}
-         Because a Student is required to take exams with certain criteria and
-         restrictions (e.g. only offered on specific dates or a certain set of
-         core exams) he or she should be responsible for registering for each
-      one.
+            \item[Rational:]
+               Students must register before taking the exam.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large Withdraw Exam} \index{exam!withdraw}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
-      This function allows a Student to withdraw from an existing exam.
+      \begin{description}
+         \item[Description:\label{desc:withdraw_exam}]
+      This function allows a Student to withdraw from an existing exam by
+      entering his or her username and the exam to be withdrawn from.
          
-      \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Student selects the exam to be withdrawn from.
-            \item Student enters username and exam to withdraw.
-            \item The exam record is updated.
-            \item Faculty can view updated record.
+            \item Student selects the exam to be withdrawn from
+            \item Student enters username and exam to withdraw
+            \item Student is no longer registered for the exam
          \end{enumerate}
 
-         \textbf{Rational:}
-         As it is the Student's responsibility to register for exams, he or she
-         should also be able to withdraw for a registered exam.
+            \item[Rational:]
+               Students should be able to withdraw from exams that they are
+               registered for.
+      \end{description}
    \end{boxed} % End boxed section
 
    \subsubsection{\large View Exam Result} \index{exam!view result}
    \begin{boxed} % Boxed section
-      \textbf{Description:}
+      \begin{description}
+         \item[Description:\label{desc:student_view}]
       This function allows a Student to view his or her exam results after
       the exam results are published by a Faculty member.
          
-      \vspace{3mm}
-         \textbf{Sequence of Actions:}
+            \item[Sequence of Actions:]\hspace{10cm}
          \begin{enumerate}
-               
-            \item Student selects to view the exam results that they took.
-            \item Exam results are published by Faculty.
-            \item Student is able to view results
+            \item Student selects to view the exam results
+            \item If Faculty published the exam results, Student views the
+               results
+            \item Otherwise, Student is informed that the results are not
+               published
          \end{enumerate}
 
-         \textbf{Rational:}
-         After the exam is completed and graded, each Student needs to
-         be able to view his or her own results of the exam.
+            \item[Rational:]
+         After the exam is completed, each Student needs to be able to view his
+         or her own results of the exam.
+      \end{description}
    \end{boxed} % End boxed section
