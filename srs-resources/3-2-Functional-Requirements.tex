@@ -31,17 +31,40 @@
 }
 
 \section{Functional Requirements}
-The functional requirements of the application are based on the user class of
+The functional requirements of the application are based on the user classes of
 Faculty and Student.
+\subsection{Shared Functional Requirements}
+
+\subsubsection{\large Login} \index{login}
+\begin{boxed} % Boxed section
+\begin{description}
+\item[Description:]
+   Refer to the description in \autoref{desc:login}
+\item[Inputs:]
+   A username and password
+\item[Sources:]
+   Faculty or Student
+\item[Outputs:]
+   Access to EMS
+\item[Destination:]
+   Database
+\item[Requires:]
+   None
+\item[Pre-condition:]
+   Faculty or Student is at the Login Function
+\item[Post-condition:]
+   Faculty or Student is granted or denied access
+\end{description}
+\end{boxed} % End boxed section
+
+
 \subsection{Faculty User Class}
-The following are functionality requirements that apply to Faculty.
+
 \subsubsection{\large Create Exams} \index{exam!create}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to create programming and communication
-   exams. After creation, the exam is viewable by the Students in their
-   interfaces.
+   Refer to the description in \autoref{desc:create_exam}.
 \item[Inputs:]
    A new exam.
 \item[Sources:]
@@ -64,8 +87,7 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to display all registered Students for
-   an exam along with the details of the exam.
+   Refer to the description in \autoref{desc:view_registered}.
 \item[Inputs:]
    An exam.
 \item[Sources:]
@@ -87,8 +109,7 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to edit exam information that are
-   already created.
+   Refer to the description in \autoref{desc:edit_exams}.
 \item[Inputs:]
    An exam.
 \item[Sources:]
@@ -110,8 +131,7 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to enter the exam results
-   according to Student ID.
+   Refer to the description in \autoref{desc:enter_results}.
 \item[Inputs:]
    An exam and list of Student record.
 \item[Sources:]
@@ -133,13 +153,26 @@ Students}
 \end{description}
 \end{boxed} % End boxed section
 
-\subsubsection{\large Publish Exams Result} \index{exam!publish result}
+\subsubsection{\large View Exams Results} \index{exam!view results}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to publish the results of an exam.
-   After being published, Students will be able to see their results in their
-   interface.
+   Refer to the description in \autoref{desc:view_results}.
+\item[Inputs:]
+\item[Sources:]
+\item[Outputs:]
+\item[Destination:]
+\item[Requires:]
+\item[Pre-condition:]
+\item[Post-condition:]
+\end{description}
+\end{boxed} % End boxed section
+
+\subsubsection{\large Publish Exams Results} \index{exam!publish results}
+\begin{boxed} % Boxed section
+\begin{description}
+\item[Description:]
+   Refer to the description in \autoref{desc:publish_results}.
 \item[Inputs:]
    An exam and list of Student records.
 \item[Sources:]
@@ -159,11 +192,11 @@ Students}
 \end{description}
 \end{boxed} % End boxed section
 
-\subsubsection{\large View Student record} \index{Student record!view}
+\subsubsection{\large View Student records} \index{Student record!view}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to display all Student records.
+   Refer to the description in \autoref{desc:view_records}.
 \item[Inputs:]
    None.
 \item[Sources:]
@@ -185,7 +218,7 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to create a new Student record.
+   Refer to the description in \autoref{desc:create_record}.
 \item[Inputs:]
    A new Student record.
 \item[Sources:]
@@ -207,9 +240,7 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to search Student records using
-   Student ID, username, Student first or last name, major, email, programming
-   exam, communication exam, or core course as criteria.
+   Refer to the description in \autoref{desc:search_record}.
 \item[Inputs:]
    A list of one or more Student record attributes and Student records.
 \item[Sources:]
@@ -233,9 +264,7 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to edit Student records by entering
-   Student ID or username to find the Student record and edit the Student
-   record's attributes.
+   Refer to the description in \autoref{desc:edit_record}.
 \item[Inputs:]
    The attribute of a Student record of Student ID or username and a list of all
    Student records.
@@ -260,9 +289,7 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Faculty member to change a Student exam results by
-   entering his/her Student ID or username, and the results of programming,
-   communication, and each core course can be changed.
+   Refer to the description in \autoref{desc:change_result}.
 \item[Inputs:]
    The attribute of a Student record of Student ID or username and a list of all
    Student records.
@@ -287,10 +314,7 @@ Students}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function displays all the Students who have passed the programming,
-   communication, and core exams. The information displayed includes Student ID,
-   username, Student first and last name, major, email, result of programming,
-   result of communication, result of core.
+   Refer to the description in \autoref{desc:view_complete}.
 \item[Inputs:]
    None.
 \item[Sources:]
@@ -310,16 +334,12 @@ Students}
 \end{boxed}
 
 \subsection{Student User Class}
-The following are functionality requirements that apply to Students.
+
 \subsubsection{\large Register Exam} \index{exam!register}
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Student to register for an existing exam by entering a
-   username, Student ID, first and last name, major, email, local phone, local
-   address, local city, local state, local zip.  Once a Student has registered
-   for the exam, a Faculty member can see this registration in the View
-   Registered function.
+   Refer to the description in \autoref{desc:register_exam}.
 \item[Inputs:]
    An exam and a Student record.
 \item[Sources:]
@@ -343,9 +363,7 @@ The following are functionality requirements that apply to Students.
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Student to withdraw from an existing exam. The Student
-   should give username and the exam to withdraw. Once a Student has withdrawn
-   an exam, the record seen by the Faculty should be updated.
+   Refer to the description in \autoref{desc:withdraw_exam}.
 \item[Inputs:]
    A username and exam.
 \item[Sources:]
@@ -368,8 +386,7 @@ The following are functionality requirements that apply to Students.
 \begin{boxed} % Boxed section
 \begin{description}
 \item[Description:]
-   This function allows a Student to view his or her exam results after the exam
-   results are published by a Faculty member.
+   Refer to the description in \autoref{desc:student_view}.
 \item[Inputs:]
    None.
 \item[Sources:]
