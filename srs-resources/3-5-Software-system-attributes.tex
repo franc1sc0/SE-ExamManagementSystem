@@ -1,25 +1,23 @@
 % Software system attributes
 
-The requirements in this section specify the required attributes
-\index{attributes!requirements} of availability, performance, security, and
-maintainability of the EMS.  See \autoref{sec:constraints} for constraints.
+% Is this our non-functional requirements section?
+The elements in this section specify the required attributes
+\index{attributes!requirements} of availability, performance, and security for the EMS.  See \autoref{sec:constraints} for constraints.
 
 \subsection{Availability} \index{availability}
 
-EMS will be available for use 95\% of the time that the server running it is
-operational.
+The EMS will be available for use 95\% of the time that the host server running the application is operational.
 
 \subsection{Performance} \index{performance}
 
-All database calls will be completed in within five second. Any user
-visualizations will be updated and presented within three second.
+All database requests will be completed within five seconds.
 
 \subsection{Security} \index{security}
 
-EMS will use encryption and no functionality will be usable without logging into
-the system.
+EMS will use encryption to protect passwords, and system functionality will only be available to users once they have logged in to the system.
 
-\subsection{Maintainability} \index{maintainability}
-
-All functionality will be documented and each component will be implemented in a
-modular fashion.
+% can de remove this section?
+%\subsection{Maintainability} \index{maintainability}
+%
+%All functionality will be documented and each component will be implemented in a
+%modular fashion.
