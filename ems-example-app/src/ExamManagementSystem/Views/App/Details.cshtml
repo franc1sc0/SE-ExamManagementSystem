@@ -1,0 +1,66 @@
+@model ExamManagementSystem.Models.ProductDetail
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Product Detail</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.cost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.cost)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.description)
+        </dt>
+        <dd class="prod-description">
+            @Html.Raw(System.Net.WebUtility.HtmlDecode(Model.description))
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.inventory_on_hand)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.inventory_on_hand)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.slug)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.slug)
+        </dd>
+        <dt>
+            @Html.LabelFor(model => model.uuid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.uuid)
+        </dd>
+    </dl>
+</div>
+<p>
+    @if (Model.inventory_on_hand > 0)
+    {
+        <a asp-action="Purchase" asp-route-id="@Model.Id">Purchase</a> @Html.Raw("|");
+    }
+    
+    <a asp-action="Products">Back to Products</a>
+</p>
+
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="~/js/details.js"></script>
