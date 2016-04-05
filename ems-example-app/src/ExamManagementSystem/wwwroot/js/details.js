@@ -1,0 +1,4 @@
+﻿// details.js
+(function () {
+    
+})();
