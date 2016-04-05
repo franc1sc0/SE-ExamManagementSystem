@@ -1,6 +1,5 @@
-# DiocaresUndercoverTouristAssignment
-##Product Purchasing Web Application
-Assignment for Undercover Tourist
+# Exam Management System - .NET Example
+##Web Application
 
 ##Required
 [Visual Studio 2015](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) <br>
