@@ -23,6 +23,7 @@
 \usepackage[english]{babel}
 \usepackage{import}
 \usepackage{imakeidx}
+\usepackage{datetime}
 \makeindex[intoc]
 \hypersetup{
     bookmarks=false,    % show bookmarks bar?
@@ -51,6 +52,10 @@
 % Adjust label put on subsubsection cross-referencing
 \renewcommand{\subsubsectionautorefname}{section}%
 
+% Adjust datetime for month year only
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
 \begin{document}
 
 \begin{flushleft}
@@ -66,7 +71,7 @@
         \vspace{1.0cm}
         Texas State University\\
         \vspace{1.0cm}
-        \today\\
+			\monthyeardate\today\\
     \end{bfseries}
 \end{flushleft}
 
