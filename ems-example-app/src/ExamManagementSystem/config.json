@@ -1,0 +1,5 @@
+﻿{
+  "Data": {
+    "ExamManagementContextConnection": "Server=(localdb)\\ProjectsV12;Database=ExamManagementDB;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  }
+}
