@@ -1,0 +1,31 @@
+@model ExamManagementSystem.Models.CustomerPurchase
+
+@{
+    ViewBag.Title = "Purchase Product";
+}
+@section Scripts {
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">  </script>
+}
+<h2>Purchase</h2>
+<form method="post">
+    <div asp-validation-summary="ValidationSummary.ModelOnly"></div>
+
+    <label asp-for="customer_email">Email</label>
+    <input type="email" asp-for="customer_email" />
+    <span asp-validation-for="customer_email"></span>
+
+    <label asp-for="customer_name">Name</label>
+    <input asp-for="customer_name" />
+    <span asp-validation-for="customer_name"></span>
+
+    <label asp-for="customer_phone">Phone</label>
+    <input asp-for="customer_phone" />
+    <span asp-validation-for="customer_phone"></span>
+
+    <label asp-for="quantity">Quantity</label>
+    <input asp-for="quantity" />
+    <span asp-validation-for="quantity"></span>
+
+    <div><input type="submit" value="Purchase" /></div>
+</form>
