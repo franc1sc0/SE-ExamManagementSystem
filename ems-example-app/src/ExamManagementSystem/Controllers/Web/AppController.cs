@@ -9,32 +9,14 @@ namespace ExamManagementSystem.Controllers.Web
 {
     public class AppController : Controller
     {
-        private ProductPurchasingContext _context;
+        private ExamManagementContext _context;
 
-        public AppController(ProductPurchasingContext context)
+        public AppController(ExamManagementContext context)
         {
             _context = context;
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Products()
-        {
-            var products = _context.Products.OrderBy(t => t.name).ToList();
-            return View(products);
-        }
-
-        [HttpGet("app/products/{id}")]
-        public IActionResult Details(int id)
-        {
-            ProductDetail productDetail = new ProductDetail();
-            return View(productDetail);
-        }
-
-        public IActionResult Purchase()
         {
             return View();
         }
