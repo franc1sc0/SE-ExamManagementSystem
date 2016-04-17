@@ -11,15 +11,16 @@ using Microsoft.AspNet.Builder;
 
 namespace ExamManagementSystem.Models
 {
-    public class ProductPurchasingContext : DbContext
+    public class ExamManagementContext : DbContext
     {
-        public ProductPurchasingContext()
+        public ExamManagementContext()
         {
             Database.EnsureCreated();
         }
 
-        public DbSet<Product> Products { get; set; }
-        public DbSet<PurchaseConfirmation> PurchaseConfirmations { get; set; }
+        public DbSet<Faculty> Faculty { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Exam> Exams { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
