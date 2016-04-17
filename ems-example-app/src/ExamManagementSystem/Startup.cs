@@ -33,13 +33,13 @@ namespace ExamManagementSystem
             services.AddMvc();
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<ProductPurchasingContext>();
+                .AddDbContext<ExamManagementContext>();
 
-            services.AddTransient<ProductPurchasingContextSeedData>();
+            services.AddTransient<ExamManagementContextSeedData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, ProductPurchasingContextSeedData seeder)
+        public void Configure(IApplicationBuilder app, ExamManagementContextSeedData seeder)
         {
             app.UseStaticFiles();
 
