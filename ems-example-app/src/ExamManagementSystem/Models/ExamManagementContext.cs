@@ -8,10 +8,11 @@ using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
 using Microsoft.AspNet.Builder;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ExamManagementSystem.Models
 {
-    public class ExamManagementContext : DbContext
+    public class ExamManagementContext : IdentityDbContext<EMSUser>
     {
         public ExamManagementContext()
         {

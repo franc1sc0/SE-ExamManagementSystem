@@ -1,7 +1,10 @@
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -12,14 +15,43 @@ namespace ExamManagementSystem.Models
     public class ExamManagementContextSeedData
     {
         private ExamManagementContext _context;
+        private RoleManager<IdentityRole> _roleManager;
+        private UserManager<EMSUser> _userManager;
 
-        public ExamManagementContextSeedData(ExamManagementContext context)
+        public ExamManagementContextSeedData(ExamManagementContext context, UserManager<EMSUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
 
-        public void EnsureSeedData()
+        public async Task EnsureSeedDataAsync()
         {
+            string facultyRole = "faculty";
+            if (await _roleManager.FindByNameAsync(facultyRole) == null)
+            {
+                IdentityRole newRole = new IdentityRole(facultyRole);
+                await _roleManager.CreateAsync(newRole);
+            }
+            
+            if (await _userManager.FindByEmailAsync("faculty1@txstate.edu") == null)
+            {
+                // add the user
+                var newUser = new EMSUser()
+                {
+                    UserName = "faculty1",
+                    Email = "faculty1@txstate.edu"
+                };
+
+                var result = await _userManager.CreateAsync(newUser, "P@ssw0rd!");
+                if (result.Succeeded)
+                {
+                    var createdUser = await _userManager.FindByNameAsync(newUser.UserName);
+                    await _userManager.AddToRoleAsync(createdUser, "faculty");
+                }
+
+            }
+
             if (!_context.Faculty.Any())
             {
                 var faculty1 = new Faculty();

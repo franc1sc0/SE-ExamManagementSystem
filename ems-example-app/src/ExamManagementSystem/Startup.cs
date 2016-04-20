@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
 using ExamManagementSystem.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ExamManagementSystem
 {
@@ -31,6 +32,16 @@ namespace ExamManagementSystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddIdentity<EMSUser, IdentityRole>(config =>
+            {
+                // here is where we can configure our identity options
+                //config.User.RequireUniqueEmail = true;
+                config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
+            })
+            .AddEntityFrameworkStores<ExamManagementContext>();
+
+
             services.AddEntityFramework()
                 .AddSqlServer()
                 .AddDbContext<ExamManagementContext>();
@@ -39,9 +50,11 @@ namespace ExamManagementSystem
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, ExamManagementContextSeedData seeder)
+        public async void Configure(IApplicationBuilder app, ExamManagementContextSeedData seeder)
         {
             app.UseStaticFiles();
+
+            app.UseIdentity();
 
             app.UseMvc(config => {
                 config.MapRoute(
@@ -51,7 +64,7 @@ namespace ExamManagementSystem
                     );
             });
 
-            seeder.EnsureSeedData();
+            await seeder.EnsureSeedDataAsync();
         }
 
         // Entry point for the application.
