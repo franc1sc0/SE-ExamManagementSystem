@@ -12,10 +12,38 @@
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="Name" class="col-md-2 control-label"></label>
+            <label asp-for="email" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger" />
+                <input asp-for="email" class="form-control" />
+                <span asp-validation-for="email" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="firstName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="firstName" class="form-control" />
+                <span asp-validation-for="firstName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="lastName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="lastName" class="form-control" />
+                <span asp-validation-for="lastName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="major" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="major" class="form-control" />
+                <span asp-validation-for="major" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="txStateID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="txStateID" class="form-control" />
+                <span asp-validation-for="txStateID" class="text-danger" />
             </div>
         </div>
         <div class="form-group">

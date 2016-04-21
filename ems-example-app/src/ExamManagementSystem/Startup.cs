@@ -35,11 +35,11 @@ namespace ExamManagementSystem
                 .AddSqlServer()
                 .AddDbContext<ExamManagementContext>();
 
-            services.AddTransient<ExamManagementContextSeedData>();
+           //services.AddTransient<ExamManagementContextSeedData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, ExamManagementContextSeedData seeder)
+        public void Configure(IApplicationBuilder app)
         {
             app.UseStaticFiles();
 
@@ -51,7 +51,7 @@ namespace ExamManagementSystem
                     );
             });
 
-            seeder.EnsureSeedData();
+           // seeder.EnsureSeedData();
         }
 
         // Entry point for the application.
