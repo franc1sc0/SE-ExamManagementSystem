@@ -29,7 +29,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Exam exam = _context.Exams.Single(m => m.Id == id);
+            Exam exam = _context.Exams.Single(m => m.examID == id);
             if (exam == null)
             {
                 return HttpNotFound();
@@ -66,7 +66,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Exam exam = _context.Exams.Single(m => m.Id == id);
+            Exam exam = _context.Exams.Single(m => m.examID == id);
             if (exam == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Exam exam = _context.Exams.Single(m => m.Id == id);
+            Exam exam = _context.Exams.Single(m => m.examID == id);
             if (exam == null)
             {
                 return HttpNotFound();
@@ -111,7 +111,7 @@ namespace ExamManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            Exam exam = _context.Exams.Single(m => m.Id == id);
+            Exam exam = _context.Exams.Single(m => m.examID == id);
             _context.Exams.Remove(exam);
             _context.SaveChanges();
             return RedirectToAction("Index");

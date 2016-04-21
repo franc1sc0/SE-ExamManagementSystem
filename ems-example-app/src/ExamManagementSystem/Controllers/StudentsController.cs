@@ -29,7 +29,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.Id == id);
+            Student student = _context.Students.Single(m => m.studentID == id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -66,7 +66,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.Id == id);
+            Student student = _context.Students.Single(m => m.studentID == id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.Id == id);
+            Student student = _context.Students.Single(m => m.studentID == id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -111,7 +111,7 @@ namespace ExamManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            Student student = _context.Students.Single(m => m.Id == id);
+            Student student = _context.Students.Single(m => m.studentID == id);
             _context.Students.Remove(student);
             _context.SaveChanges();
             return RedirectToAction("Index");
