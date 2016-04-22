@@ -10,16 +10,22 @@ namespace ExamManagementSystem.Models
     public class Exam
     {
         [ScaffoldColumn(false)]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public DateTime Date { get; set; }
-        [Display(Name="Start Time")]
-        public DateTime StartTime { get; set; }
+        public int examID { get; set; }
+        public string examType { get; set; }
+        public DateTime date { get; set; }
+        [Display(Name = "Start Time")]
+        public DateTime startTime { get; set; }
         [Display(Name = "End Time")]
-        public DateTime EndTime { get; set; }
+        public DateTime endTime { get; set; }
         [Display(Name = "Registration Deadline")]
-        public DateTime RegDeadline { get; set; }
-        public string Semester { get; set; }
-        public string Location { get; set; }
+        public DateTime regDeadline { get; set; }
+        public string semester { get; set; }
+        public string location { get; set; }
+        public string result { get; set; }
+        public string score { get; set;}
+        public string withdraw { get; set; }
+
+        [ScaffoldColumn(false)]
+        public int studentID { get; set; }
     }
 }
