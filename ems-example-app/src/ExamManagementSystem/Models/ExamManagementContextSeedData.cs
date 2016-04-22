@@ -27,13 +27,14 @@ namespace ExamManagementSystem.Models
 
         public async Task EnsureSeedDataAsync()
         {
+            string PASSWORD = "P@ssw0rd!";
             string facultyRole = "faculty";
             if (await _roleManager.FindByNameAsync(facultyRole) == null)
             {
-                IdentityRole newRole = new IdentityRole(facultyRole);
+                var newRole = new IdentityRole(facultyRole);
                 await _roleManager.CreateAsync(newRole);
             }
-            
+
             if (await _userManager.FindByEmailAsync("faculty1@txstate.edu") == null)
             {
                 // add the user
@@ -43,13 +44,35 @@ namespace ExamManagementSystem.Models
                     Email = "faculty1@txstate.edu"
                 };
 
-                var result = await _userManager.CreateAsync(newUser, "P@ssw0rd!");
+                var result = await _userManager.CreateAsync(newUser, PASSWORD);
                 if (result.Succeeded)
                 {
                     var createdUser = await _userManager.FindByNameAsync(newUser.UserName);
-                    await _userManager.AddToRoleAsync(createdUser, "faculty");
+                    await _userManager.AddToRoleAsync(createdUser, facultyRole);
                 }
+            }
 
+            string studentRole = "student";
+            if (await _roleManager.FindByNameAsync(studentRole) == null)
+            {
+                var newRole = new IdentityRole(studentRole);
+                await _roleManager.CreateAsync(newRole);
+            }
+            if (await _userManager.FindByEmailAsync("student1@txstate.edu") == null)
+            {
+                // add the user
+                var newUser = new EMSUser()
+                {
+                    UserName = "student1",
+                    Email = "student1@txstate.edu"
+                };
+
+                var result = await _userManager.CreateAsync(newUser, PASSWORD);
+                if (result.Succeeded)
+                {
+                    var createdUser = await _userManager.FindByNameAsync(newUser.UserName);
+                    await _userManager.AddToRoleAsync(createdUser, studentRole);
+                }
             }
 
             if (!_context.Faculty.Any())

@@ -23,7 +23,7 @@ namespace ExamManagementSystem.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("Index", "Faculties");
+                return RedirectToAction("Index", "App");
             }
 
             return View();
@@ -41,7 +41,7 @@ namespace ExamManagementSystem.Controllers
                 {
                     if (string.IsNullOrWhiteSpace(returnUrl))
                     {
-                        return RedirectToAction("Index", "Faculties");
+                        return RedirectToAction("Index", "App");
                     }
                     else
                     {
