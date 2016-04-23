@@ -1,0 +1,36 @@
+@model ExamManagementSystem.Models.RegExam
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RegExam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.result)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.result)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.score)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.score)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.withdraw)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.withdraw)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.regExamID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>
