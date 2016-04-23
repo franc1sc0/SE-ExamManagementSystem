@@ -21,11 +21,9 @@ namespace ExamManagementSystem.Models
         public DateTime regDeadline { get; set; }
         public string semester { get; set; }
         public string location { get; set; }
-        public string result { get; set; }
-        public string score { get; set;}
-        public string withdraw { get; set; }
 
-        [ScaffoldColumn(false)]
-        public int studentID { get; set; }
+
+       // [ScaffoldColumn(false)]
+       // public int studentID { get; set; }
     }
 }

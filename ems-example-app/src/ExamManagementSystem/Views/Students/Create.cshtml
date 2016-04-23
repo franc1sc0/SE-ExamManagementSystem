@@ -12,6 +12,20 @@
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
         <div class="form-group">
+            <label asp-for="address" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="address" class="form-control" />
+                <span asp-validation-for="address" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="city" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="city" class="form-control" />
+                <span asp-validation-for="city" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="email" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="email" class="form-control" />
@@ -40,10 +54,31 @@
             </div>
         </div>
         <div class="form-group">
+            <label asp-for="phone" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="txStateID" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="txStateID" class="form-control" />
                 <span asp-validation-for="txStateID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="userName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="userName" class="form-control" />
+                <span asp-validation-for="userName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="zip" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="zip" class="form-control" />
+                <span asp-validation-for="zip" class="text-danger" />
             </div>
         </div>
         <div class="form-group">

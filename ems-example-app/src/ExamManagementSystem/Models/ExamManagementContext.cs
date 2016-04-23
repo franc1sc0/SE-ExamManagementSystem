@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Identity.EntityFramework;
+using ExamManagementSystem.Models;
 
 namespace ExamManagementSystem.Models
 {
@@ -30,6 +31,10 @@ namespace ExamManagementSystem.Models
 
             base.OnConfiguring(optionsBuilder);
         }
+
+        public DbSet<EMSUser> EMSUser { get; set; }
+
+        public DbSet<RegExam> RegExam { get; set; }
         
     }
 }

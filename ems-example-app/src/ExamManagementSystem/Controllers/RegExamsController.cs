@@ -6,22 +6,22 @@ using ExamManagementSystem.Models;
 
 namespace ExamManagementSystem.Controllers
 {
-    public class FacultyController : Controller
+    public class RegExamsController : Controller
     {
         private ExamManagementContext _context;
 
-        public FacultyController(ExamManagementContext context)
+        public RegExamsController(ExamManagementContext context)
         {
             _context = context;    
         }
 
-        // GET: Faculty
+        // GET: RegExams
         public IActionResult Index()
         {
-            return View(_context.Faculty.ToList());
+            return View(_context.RegExam.ToList());
         }
 
-        // GET: Faculty/Details/5
+        // GET: RegExams/Details/5
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -29,36 +29,36 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Faculty faculty = _context.Faculty.Single(m => m.facultyID == id);
-            if (faculty == null)
+            RegExam regExam = _context.RegExam.Single(m => m.regExamID == id);
+            if (regExam == null)
             {
                 return HttpNotFound();
             }
 
-            return View(faculty);
+            return View(regExam);
         }
 
-        // GET: Faculty/Create
+        // GET: RegExams/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Faculty/Create
+        // POST: RegExams/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Faculty faculty)
+        public IActionResult Create(RegExam regExam)
         {
             if (ModelState.IsValid)
             {
-                _context.Faculty.Add(faculty);
+                _context.RegExam.Add(regExam);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(faculty);
+            return View(regExam);
         }
 
-        // GET: Faculty/Edit/5
+        // GET: RegExams/Edit/5
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -66,29 +66,29 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Faculty faculty = _context.Faculty.Single(m => m.facultyID == id);
-            if (faculty == null)
+            RegExam regExam = _context.RegExam.Single(m => m.regExamID == id);
+            if (regExam == null)
             {
                 return HttpNotFound();
             }
-            return View(faculty);
+            return View(regExam);
         }
 
-        // POST: Faculty/Edit/5
+        // POST: RegExams/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Faculty faculty)
+        public IActionResult Edit(RegExam regExam)
         {
             if (ModelState.IsValid)
             {
-                _context.Update(faculty);
+                _context.Update(regExam);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(faculty);
+            return View(regExam);
         }
 
-        // GET: Faculty/Delete/5
+        // GET: RegExams/Delete/5
         [ActionName("Delete")]
         public IActionResult Delete(int? id)
         {
@@ -97,22 +97,22 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Faculty faculty = _context.Faculty.Single(m => m.facultyID == id);
-            if (faculty == null)
+            RegExam regExam = _context.RegExam.Single(m => m.regExamID == id);
+            if (regExam == null)
             {
                 return HttpNotFound();
             }
 
-            return View(faculty);
+            return View(regExam);
         }
 
-        // POST: Faculty/Delete/5
+        // POST: RegExams/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            Faculty faculty = _context.Faculty.Single(m => m.facultyID == id);
-            _context.Faculty.Remove(faculty);
+            RegExam regExam = _context.RegExam.Single(m => m.regExamID == id);
+            _context.RegExam.Remove(regExam);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }
