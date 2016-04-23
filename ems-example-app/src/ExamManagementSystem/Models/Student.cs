@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace ExamManagementSystem.Models
 {
-    public class Student
+    public class Student : EMSUser
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int studentID { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
+        //public string firstName { get; set; }
+        //public string lastName { get; set; }
         public string txStateID { get; set; }
         public string major { get; set; }
-        public string email { get; set; }
+        //public string email { get; set; }
         
 
     }

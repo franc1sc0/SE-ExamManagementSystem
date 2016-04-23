@@ -38,7 +38,7 @@ namespace ExamManagementSystem.Models
             if (await _userManager.FindByEmailAsync("faculty1@txstate.edu") == null)
             {
                 // add the user
-                var newUser = new EMSUser()
+                var newUser = new Faculty()
                 {
                     UserName = "faculty1",
                     Email = "faculty1@txstate.edu"
@@ -61,7 +61,7 @@ namespace ExamManagementSystem.Models
             if (await _userManager.FindByEmailAsync("student1@txstate.edu") == null)
             {
                 // add the user
-                var newUser = new EMSUser()
+                var newUser = new Student()
                 {
                     UserName = "student1",
                     Email = "student1@txstate.edu"

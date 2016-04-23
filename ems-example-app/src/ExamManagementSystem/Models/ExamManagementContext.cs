@@ -30,6 +30,13 @@ namespace ExamManagementSystem.Models
 
             base.OnConfiguring(optionsBuilder);
         }
-        
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Faculty>().ToTable("Faculty");
+            modelBuilder.Entity<Student>().ToTable("Student");
+        }
+
     }
 }

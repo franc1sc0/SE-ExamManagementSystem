@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ExamManagementSystem.Models
 {
-    public class Faculty
+    public class Faculty : EMSUser
     {
         public int facultyID { get; set; }
-        public string firstName { get; set; }
-        public string lastName { get; set; }
+        //public string firstName { get; set; }
+        //public string lastName { get; set; }
     }
 }
