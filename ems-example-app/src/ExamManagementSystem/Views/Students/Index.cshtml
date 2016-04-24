@@ -12,6 +12,12 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
@@ -24,13 +30,28 @@
             @Html.DisplayNameFor(model => model.major)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.txStateID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zip)
         </th>
         <th></th>
     </tr>
     
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.email)
         </td>
@@ -44,7 +65,16 @@
             @Html.DisplayFor(modelItem => item.major)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.txStateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.userName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zip)
         </td>
         <td>
             <a asp-action="Edit" asp-route-id="@item.studentID">Edit</a> |

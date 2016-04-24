@@ -3,27 +3,25 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
-using Microsoft.AspNet.Authorization;
 
 namespace ExamManagementSystem.Controllers
 {
-    [Authorize]
-    public class StudentsController : Controller
+    public class RegExamsController : Controller
     {
         private ExamManagementContext _context;
 
-        public StudentsController(ExamManagementContext context)
+        public RegExamsController(ExamManagementContext context)
         {
             _context = context;    
         }
 
-        // GET: Students
+        // GET: RegExams
         public IActionResult Index()
         {
-            return View(_context.Students.ToList());
+            return View(_context.RegExam.ToList());
         }
 
-        // GET: Students/Details/5
+        // GET: RegExams/Details/5
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -31,36 +29,36 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.studentID == id);
-            if (student == null)
+            RegExam regExam = _context.RegExam.Single(m => m.regExamID == id);
+            if (regExam == null)
             {
                 return HttpNotFound();
             }
 
-            return View(student);
+            return View(regExam);
         }
 
-        // GET: Students/Create
+        // GET: RegExams/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Students/Create
+        // POST: RegExams/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Student student)
+        public IActionResult Create(RegExam regExam)
         {
             if (ModelState.IsValid)
             {
-                _context.Students.Add(student);
+                _context.RegExam.Add(regExam);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(student);
+            return View(regExam);
         }
 
-        // GET: Students/Edit/5
+        // GET: RegExams/Edit/5
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -68,29 +66,29 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.studentID == id);
-            if (student == null)
+            RegExam regExam = _context.RegExam.Single(m => m.regExamID == id);
+            if (regExam == null)
             {
                 return HttpNotFound();
             }
-            return View(student);
+            return View(regExam);
         }
 
-        // POST: Students/Edit/5
+        // POST: RegExams/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Edit(Student student)
+        public IActionResult Edit(RegExam regExam)
         {
             if (ModelState.IsValid)
             {
-                _context.Update(student);
+                _context.Update(regExam);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(student);
+            return View(regExam);
         }
 
-        // GET: Students/Delete/5
+        // GET: RegExams/Delete/5
         [ActionName("Delete")]
         public IActionResult Delete(int? id)
         {
@@ -99,22 +97,22 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.studentID == id);
-            if (student == null)
+            RegExam regExam = _context.RegExam.Single(m => m.regExamID == id);
+            if (regExam == null)
             {
                 return HttpNotFound();
             }
 
-            return View(student);
+            return View(regExam);
         }
 
-        // POST: Students/Delete/5
+        // POST: RegExams/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            Student student = _context.Students.Single(m => m.studentID == id);
-            _context.Students.Remove(student);
+            RegExam regExam = _context.RegExam.Single(m => m.regExamID == id);
+            _context.RegExam.Remove(regExam);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

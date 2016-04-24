@@ -1,0 +1,51 @@
+@model ExamManagementSystem.Models.RegExam
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>RegExam</h4>
+        <hr />
+        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="result" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="result" class="form-control" />
+                <span asp-validation-for="result" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="score" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="score" class="form-control" />
+                <span asp-validation-for="score" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="withdraw" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="withdraw" class="form-control" />
+                <span asp-validation-for="withdraw" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
