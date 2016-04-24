@@ -33,7 +33,6 @@ namespace ExamManagementSystem.Models
 
             base.OnConfiguring(optionsBuilder);
         }
-        
 
     }
 }

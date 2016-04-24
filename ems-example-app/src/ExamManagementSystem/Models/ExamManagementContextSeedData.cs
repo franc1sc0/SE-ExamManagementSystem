@@ -25,23 +25,52 @@ namespace ExamManagementSystem.Models
             _roleManager = roleManager;
         }
 
+        string PASSWORD = "P@ssw0rd!";
+        string facultyRole = "faculty";
+        string studentRole = "student";
         public async Task EnsureSeedDataAsync()
         {
-            string PASSWORD = "P@ssw0rd!";
-            string facultyRole = "faculty";
             if (await _roleManager.FindByNameAsync(facultyRole) == null)
             {
                 var newRole = new IdentityRole(facultyRole);
                 await _roleManager.CreateAsync(newRole);
             }
 
+            if (await _roleManager.FindByNameAsync(studentRole) == null)
+            {
+                var newRole = new IdentityRole(studentRole);
+                await _roleManager.CreateAsync(newRole);
+            }
+
             if (!_context.Faculty.Any())
             {
+                var userName = "faculty1";
+                var emailDomain = "@txstate.edu";
+                var newFaculty = new Faculty()
+                {
+                    UserName = userName,
+                    email = userName + emailDomain
+                };
+                _context.Add(newFaculty);
+                _context.SaveChanges();
 
+                await CreateFacultyIdentityUser(newFaculty);
             }
 
             if (!_context.Students.Any())
             {
+                var userName = "student1";
+                var emailDomain = "@txstate.edu";
+                var newStudent = new Student()
+                {
+                    major = "CS",
+                    UserName = userName,
+                    email = userName + emailDomain
+                };
+                _context.Add(newStudent);
+                _context.SaveChanges();
+                await CreateStudentIdentityUser(newStudent);
+
                 var students = new List<Student>
                 {
                 new Student{txStateID="A04612323",UserName="c_a11",firstName="Carson",lastName="Alexander",major="ComputerScience",email="c_a11@txstate.edu",phone="817-238-7222",address="123 Exchange Dr",city="Austin",zip="78754"},
@@ -50,6 +79,15 @@ namespace ExamManagementSystem.Models
                 };
                 students.ForEach(s => _context.Students.Add(s));
                 _context.SaveChanges();
+
+                foreach (var student in students)
+                {
+                    var result = await CreateStudentIdentityUser(student);
+                    if (!result.Succeeded)
+                    {
+                        throw new Exception("CreateStudentIdentity - Failed");
+                    }
+                }
 
             }
 
@@ -66,67 +104,49 @@ namespace ExamManagementSystem.Models
                 _context.SaveChanges();
 
             }
+        }
 
-            if (await _userManager.FindByEmailAsync("faculty1@txstate.edu") == null)
+        public async Task<IdentityResult> CreateFacultyIdentityUser(Faculty faculty)
+        {
+            IdentityResult iResult = new IdentityResult();
+            if (await _userManager.FindByNameAsync(faculty.UserName) == null)
             {
-                // add the user
-
-                var userName = "faculty1";
-                var emailDomain = "@txstate.edu";
-
+                 
                 var newUser = new EMSUser()
                 {
-                    UserName = userName,
-                    Email = userName + emailDomain,
-                    //Faculty = newFaculty
+                    UserName = faculty.UserName,
+                    Email = faculty.email,
                 };
 
                 var result = await _userManager.CreateAsync(newUser, PASSWORD);
                 if (result.Succeeded)
                 {
                     var createdUser = await _userManager.FindByNameAsync(newUser.UserName);
-                    await _userManager.AddToRoleAsync(createdUser, facultyRole);
-                    var newFaculty = new Faculty()
-                    {
-                        UserName = userName
-                    };
-                    _context.Add(newFaculty);
-                    _context.SaveChanges();
+                    iResult = await _userManager.AddToRoleAsync(createdUser, facultyRole);
                 }
             }
+            return iResult;
+        }
 
-            string studentRole = "student";
-            if (await _roleManager.FindByNameAsync(studentRole) == null)
+        public async Task<IdentityResult> CreateStudentIdentityUser(Student student)
+        {
+            IdentityResult iResult = new IdentityResult();
+            if (await _userManager.FindByNameAsync(student.UserName) == null)
             {
-                var newRole = new IdentityRole(studentRole);
-                await _roleManager.CreateAsync(newRole);
-            }
-            if (await _userManager.FindByEmailAsync("student1@txstate.edu") == null)
-            {
-                // add the user
-                var userName = "student1";
-                var emailDomain = "@txstate.edu";
-
                 var newUser = new EMSUser()
                 {
-                    UserName = userName,
-                    Email = userName + emailDomain,
+                    UserName = student.UserName,
+                    Email = student.email,
                 };
 
                 var result = await _userManager.CreateAsync(newUser, PASSWORD);
                 if (result.Succeeded)
                 {
                     var createdUser = await _userManager.FindByNameAsync(newUser.UserName);
-                    await _userManager.AddToRoleAsync(createdUser, studentRole);
-                    var newStudent = new Student()
-                    {
-                        major = "CS",
-                        UserName = userName
-                    };
-                    _context.Add(newStudent);
-                    _context.SaveChanges();
+                    iResult = await _userManager.AddToRoleAsync(createdUser, studentRole);
                 }
             }
+            return iResult;
         }
     }
 }
