@@ -15,11 +15,7 @@ namespace ExamManagementSystem.Models
         public string txStateID { get; set; }
         public string major { get; set; }
         public string email { get; set; }
-
+        // this is how we map back to identity table
         public string UserName { get; set; }
-
-        //public int UserIdFK { get; set; }
-        //[ForeignKey("UserName")]
-        //public EMSUser EMSUser { get; set; }
     }
 }
