@@ -32,15 +32,5 @@ namespace ExamManagementSystem.Models
             base.OnConfiguring(optionsBuilder);
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            //modelBuilder.Entity<Faculty>()
-            //    .HasOne(p => p.EMSUser)
-            //    .WithOne(i => i.Faculty)
-            //    .HasForeignKey<EMSUser>(b => b.Id);
-        }
-
     }
 }
