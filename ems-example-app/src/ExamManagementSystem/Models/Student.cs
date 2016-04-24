@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 
 namespace ExamManagementSystem.Models
 {
-    public class Student : EMSUser
+    public class Student
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int studentID { get; set; }
-        //public string firstName { get; set; }
-        //public string lastName { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
         public string txStateID { get; set; }
         public string major { get; set; }
-        //public string email { get; set; }
-        
+        public string email { get; set; }
 
+        public string UserName { get; set; }
+
+        //public int UserIdFK { get; set; }
+        //[ForeignKey("UserName")]
+        //public EMSUser EMSUser { get; set; }
     }
 }
