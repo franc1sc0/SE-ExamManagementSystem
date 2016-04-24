@@ -26,6 +26,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label asp-for="commResult" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="commResult" class="form-control" />
+                <span asp-validation-for="commResult" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="email" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="email" class="form-control" />
@@ -58,6 +65,13 @@
             <div class="col-md-10">
                 <input asp-for="phone" class="form-control" />
                 <span asp-validation-for="phone" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="prgResult" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="prgResult" class="form-control" />
+                <span asp-validation-for="prgResult" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
