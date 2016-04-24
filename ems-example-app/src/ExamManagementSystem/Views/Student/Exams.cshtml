@@ -1,4 +1,6 @@
-@model ExamManagementSystem.Models.Student
+@model ExamManagementSystem.Models.RegExam
+
+@*@model IEnumerable<ExamManagementSystem.Models.RegExam>*@
 
 @{
     ViewData["Title"] = "Student Exams";
@@ -14,3 +16,55 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
+<dl class="dl-horizontal"></dl>
+@*@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.result)
+        </td>
+       
+
+    </tr>
+}*@
+<tr>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.score)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.score)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.result)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.result)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.txStateID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.txStateID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Student.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Exam.examType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Exam.examType)
+        </dd>
+    </dl>
+
+    <a asp-action="Index" asp-route-id="@Model.Student.studentID">Withdraw</a> |
+    <a asp-action="Index" asp-route-id="@Model.Student.studentID">Register</a> |
+    <a asp-action="Index" asp-route-id="@Model.Student.studentID">View Result</a> |
+</tr>
