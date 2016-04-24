@@ -23,6 +23,7 @@ namespace ExamManagementSystem.Models
         public DbSet<Faculty> Faculty { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Exam> Exams { get; set; }
+        public DbSet<EMSUser> EMSUser { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,9 +33,8 @@ namespace ExamManagementSystem.Models
             base.OnConfiguring(optionsBuilder);
         }
 
-        public DbSet<EMSUser> EMSUser { get; set; }
 
         public DbSet<RegExam> RegExam { get; set; }
-        
+
     }
 }

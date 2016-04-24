@@ -38,10 +38,15 @@ namespace ExamManagementSystem.Models
             if (await _userManager.FindByEmailAsync("faculty1@txstate.edu") == null)
             {
                 // add the user
+                
+                var userName = "faculty1";
+                var emailDomain = "@txstate.edu";
+                
                 var newUser = new EMSUser()
                 {
-                    UserName = "faculty1",
-                    Email = "faculty1@txstate.edu"
+                    UserName = userName,
+                    Email = userName + emailDomain,
+                    //Faculty = newFaculty
                 };
 
                 var result = await _userManager.CreateAsync(newUser, PASSWORD);
@@ -49,6 +54,12 @@ namespace ExamManagementSystem.Models
                 {
                     var createdUser = await _userManager.FindByNameAsync(newUser.UserName);
                     await _userManager.AddToRoleAsync(createdUser, facultyRole);
+                    var newFaculty = new Faculty()
+                    {
+                        UserName = userName
+                    };
+                    _context.Add(newFaculty);
+                    _context.SaveChanges();
                 }
             }
 
@@ -61,17 +72,27 @@ namespace ExamManagementSystem.Models
             if (await _userManager.FindByEmailAsync("student1@txstate.edu") == null)
             {
                 // add the user
+                var userName = "student1";
+                var emailDomain = "@txstate.edu";
+                
                 var newUser = new EMSUser()
                 {
-                    UserName = "student1",
-                    Email = "student1@txstate.edu"
+                    UserName = userName,
+                    Email = userName + emailDomain,
                 };
-
+                
                 var result = await _userManager.CreateAsync(newUser, PASSWORD);
                 if (result.Succeeded)
                 {
                     var createdUser = await _userManager.FindByNameAsync(newUser.UserName);
                     await _userManager.AddToRoleAsync(createdUser, studentRole);
+                    var newStudent = new Student()
+                    {
+                        major = "CS",
+                        UserName = userName
+                    };
+                    _context.Add(newStudent);
+                    _context.SaveChanges();
                 }
             }
 
