@@ -18,7 +18,8 @@ namespace ExamManagementSystem.Controllers
         // GET: RegExams
         public IActionResult Index()
         {
-            return View(_context.RegExam.ToList());
+            var examManagementContext = _context.RegExam.Include(r => r.Exam).Include(r => r.Student);
+            return View(examManagementContext.ToList());
         }
 
         // GET: RegExams/Details/5
@@ -41,6 +42,8 @@ namespace ExamManagementSystem.Controllers
         // GET: RegExams/Create
         public IActionResult Create()
         {
+            ViewData["examID"] = new SelectList(_context.Exams, "examID", "Exam");
+            ViewData["studentID"] = new SelectList(_context.Students, "studentID", "Student");
             return View();
         }
 
@@ -55,6 +58,8 @@ namespace ExamManagementSystem.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewData["examID"] = new SelectList(_context.Exams, "examID", "Exam", regExam.examID);
+            ViewData["studentID"] = new SelectList(_context.Students, "studentID", "Student", regExam.studentID);
             return View(regExam);
         }
 
@@ -71,6 +76,8 @@ namespace ExamManagementSystem.Controllers
             {
                 return HttpNotFound();
             }
+            ViewData["examID"] = new SelectList(_context.Exams, "examID", "Exam", regExam.examID);
+            ViewData["studentID"] = new SelectList(_context.Students, "studentID", "Student", regExam.studentID);
             return View(regExam);
         }
 
@@ -85,6 +92,8 @@ namespace ExamManagementSystem.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewData["examID"] = new SelectList(_context.Exams, "examID", "Exam", regExam.examID);
+            ViewData["studentID"] = new SelectList(_context.Students, "studentID", "Student", regExam.studentID);
             return View(regExam);
         }
 

@@ -90,3 +90,13 @@ input[type=text], input[type=password], textarea {
     -webkit-transition: margin-left ease .25s;
     transition: margin-left ease .25s;
   }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}

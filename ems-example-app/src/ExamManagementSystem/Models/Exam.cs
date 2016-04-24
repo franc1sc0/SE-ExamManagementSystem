@@ -14,16 +14,17 @@ namespace ExamManagementSystem.Models
         public string examType { get; set; }
         public DateTime date { get; set; }
         [Display(Name = "Start Time")]
-        public DateTime startTime { get; set; }
+        public TimeSpan startTime { get; set; }
         [Display(Name = "End Time")]
-        public DateTime endTime { get; set; }
+        public TimeSpan endTime { get; set; }
         [Display(Name = "Registration Deadline")]
         public DateTime regDeadline { get; set; }
         public string semester { get; set; }
         public string location { get; set; }
 
+        public virtual ICollection<RegExam> RegExam { get; set; }
 
-       // [ScaffoldColumn(false)]
-       // public int studentID { get; set; }
+        // [ScaffoldColumn(false)]
+        // public int studentID { get; set; }
     }
 }

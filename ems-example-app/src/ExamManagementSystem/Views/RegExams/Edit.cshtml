@@ -26,6 +26,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label asp-for="studentID" class="control-label col-md-2">studentID</label>
+            <div class="col-md-10">
+                <select asp-for="studentID" class="form-control" />
+                <span asp-validation-for="studentID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="withdraw" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="withdraw" class="form-control" />
