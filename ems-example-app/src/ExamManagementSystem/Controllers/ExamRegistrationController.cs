@@ -6,11 +6,11 @@ using ExamManagementSystem.Models;
 
 namespace ExamManagementSystem.Controllers
 {
-    public class RegExamsController : Controller
+    public class ExamRegistrationController : Controller
     {
         private ExamManagementContext _context;
 
-        public RegExamsController(ExamManagementContext context)
+        public ExamRegistrationController(ExamManagementContext context)
         {
             _context = context;    
         }
