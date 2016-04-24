@@ -14,11 +14,11 @@ namespace ExamManagementSystem.Models
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string txStateID { get; set; }
-        public string userName { get; set; }
+        public string UserName { get; set; }
         public string major { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
-        public string address { get; set; }
+
         public string city { get; set; }
         public string zip { get; set; }
         [ScaffoldColumn(false)]
