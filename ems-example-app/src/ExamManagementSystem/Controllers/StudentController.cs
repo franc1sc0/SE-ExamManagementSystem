@@ -4,6 +4,7 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
+using System.Collections.Generic;
 
 namespace ExamManagementSystem.Controllers
 {
@@ -31,9 +32,57 @@ namespace ExamManagementSystem.Controllers
         }
 
         // GET: Student/Create
-        public IActionResult Exams()
+        public async Task<IActionResult> Exams()
         {
-            return View();
+            var currentUserName = User.Identity.Name;//gets current username logged in 
+
+            ExamManagementContext emc = new ExamManagementContext();//whole context
+
+            var regExamList =  emc.RegExam.ToList();//grabbing all regExams in DB
+
+
+           // Student s = new Student();
+
+            //grab student record where userName == loggedin user name.
+            var student =  emc.Students.Where(s => s.UserName == currentUserName);
+
+           
+            
+            Student s1 = student.First();//grabs the first student return
+
+            //-Grabs regExam record where studentID grabed from step above == regExamStudentID
+            //-This might return multiple results because the student could be 
+            // registered for multiple exams 
+            var regEList = emc.RegExam.Where(e => e.studentID == s1.studentID);
+
+            
+            var regExam = new List<RegExam>();
+
+            regExam = regEList.ToList();//place them in a list 
+
+
+            //query Examtypes found on regExam
+            List<Exam> ExamObj = new List<Exam>();
+            for (int x = 0; x < regExam.Count(); x++) {
+                var examTypes = emc.Exams.Where(c => c.examID == regExam[x].examID);
+                Exam temp = examTypes.First();
+                ExamObj.Add(temp);
+            }
+
+            //Joining
+            for (int x = 0; x < regExam.Count(); x++)
+            {
+                regExam[x].Exam = ExamObj[x];
+            }
+
+
+                // Student student = await _context.Students.SingleAsync(m => m.UserName == currentUserName);
+                if (student == null)
+            {
+                return HttpNotFound();
+            }
+            //_context.RegExam.Include(r=>regExam);
+            return View(regExam[0]);
         }
 
         // POST: Student/Create

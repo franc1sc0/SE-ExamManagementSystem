@@ -27,6 +27,11 @@ namespace ExamManagementSystem.Models
 
         public virtual ICollection<RegExam> RegExam { get; set; }
 
+        public static implicit operator Exam(List<Exam> v)
+        {
+            throw new NotImplementedException();
+        }
+
         // [ScaffoldColumn(false)]
         // public int studentID { get; set; }
     }
