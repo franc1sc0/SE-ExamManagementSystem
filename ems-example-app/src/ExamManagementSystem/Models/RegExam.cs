@@ -17,8 +17,11 @@ namespace ExamManagementSystem.Models
         public string score { get; set; }
         public string withdraw { get; set; }
 
-
         [ScaffoldColumn(false)]
+        //foregin key
         public int examID { get; set; }
+        public int studentID { get; set; }
+        public virtual Exam Exam { get; set; }
+        public virtual Student Student { get; set; }
     }
 }

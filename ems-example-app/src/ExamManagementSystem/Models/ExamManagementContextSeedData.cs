@@ -91,6 +91,18 @@ namespace ExamManagementSystem.Models
 
                 //_context.Add(student1);
                 //_context.SaveChanges();
+
+            
+
+                var students = new List<Student>
+                {
+                new Student{txStateID="A04612323",userName="c_a11",firstName="Carson",lastName="Alexander",major="ComputerScience",email="c_a11@txstate.edu",phone="817-238-7222",address="123 Exchange Dr",city="Austin",zip="78754"},
+                new Student{txStateID="A05865234",userName="a_m11",firstName="Meredith",lastName="Alonso",major="SoftwareEngineering",email="a_m72@txstate.edu",phone="235-457-7121",address="66 Crosspark Rd",city="Austin",zip="78724"},
+                new Student{txStateID="A03477189",userName="a_a11",firstName="Arturo",lastName="Anand",major="ComputerScience",email="a_a45@txstate.edu",phone="273464341",address="1873 Crosspark Rd",city="Austin",zip="78724"}
+                };
+                students.ForEach(s => _context.Students.Add(s));
+                _context.SaveChanges();
+
             }
 
             if (!_context.Exams.Any())
@@ -100,6 +112,16 @@ namespace ExamManagementSystem.Models
 
                 //_context.Add(exam1);
                 //_context.SaveChanges();
+                var exams = new List<Exam>
+                {
+                new Exam{examType="Programming Exam",date=DateTime.Parse("2016-09-01"),startTime=TimeSpan.Parse("13:00:00"),endTime=TimeSpan.Parse("15:00:00"),regDeadline=DateTime.Parse("2016-08-25"),semester="Fall",location="SanMarcos"},
+                new Exam{examType="Communication Exam",date=DateTime.Parse("2016-09-15"),startTime=TimeSpan.Parse("13:00:00"),endTime=TimeSpan.Parse("15:00:00"),regDeadline=DateTime.Parse("2016-09-10"),semester="Fall",location="SanMarcos"},
+                new Exam{examType="Programming Exam",date=DateTime.Parse("2017-01-20"),startTime=TimeSpan.Parse("13:00:00"),endTime=TimeSpan.Parse("15:00:00"),regDeadline=DateTime.Parse("2016-08-25"),semester="Spring",location="SanMarcos"},
+                new Exam{examType="Communication Exam",date=DateTime.Parse("2016-01-27"),startTime=TimeSpan.Parse("13:00:00"),endTime=TimeSpan.Parse("15:00:00"),regDeadline=DateTime.Parse("2016-09-10"),semester="Spring",location="SanMarcos"},
+                };
+                exams.ForEach(s => _context.Exams.Add(s));
+                _context.SaveChanges();
+
             }
         }
     }
