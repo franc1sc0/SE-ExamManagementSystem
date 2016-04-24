@@ -14,7 +14,6 @@ namespace ExamManagementSystem.Models
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string txStateID { get; set; }
-        public string UserName { get; set; }
         public string major { get; set; }
         [Display(Name = "Programming Result")]
         public string prgResult { get; set; }
@@ -22,9 +21,11 @@ namespace ExamManagementSystem.Models
         public string commResult { get; set; }
         public string email { get; set; }
         public string phone { get; set; }
-
+        public string address { get; set; }
         public string city { get; set; }
         public string zip { get; set; }
+        // this is how we map back to identity table
+        public string UserName { get; set; }
 
         public virtual ICollection<RegExam> RegExam { get; set; }
         //[ScaffoldColumn(false)]
