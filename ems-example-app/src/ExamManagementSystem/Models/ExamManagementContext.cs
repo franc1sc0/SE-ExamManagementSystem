@@ -22,6 +22,7 @@ namespace ExamManagementSystem.Models
         public DbSet<Faculty> Faculty { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Exam> Exams { get; set; }
+        public DbSet<EMSUser> EMSUser { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,8 +35,11 @@ namespace ExamManagementSystem.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Faculty>().ToTable("Faculty");
-            modelBuilder.Entity<Student>().ToTable("Student");
+
+            //modelBuilder.Entity<Faculty>()
+            //    .HasOne(p => p.EMSUser)
+            //    .WithOne(i => i.Faculty)
+            //    .HasForeignKey<EMSUser>(b => b.Id);
         }
 
     }
