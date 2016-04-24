@@ -82,7 +82,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
             //_context.RegExam.Include(r=>regExam);
-            return View(regExam[0]);
+            return View(regExam);
         }
 
         // POST: Student/Create
