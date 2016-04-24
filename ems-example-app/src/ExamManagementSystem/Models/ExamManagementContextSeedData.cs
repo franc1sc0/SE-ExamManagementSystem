@@ -91,6 +91,9 @@ namespace ExamManagementSystem.Models
 
             }
 
+
+
+
             if (!_context.Exams.Any())
             {
                 var exams = new List<Exam>
@@ -103,6 +106,19 @@ namespace ExamManagementSystem.Models
                 exams.ForEach(s => _context.Exams.Add(s));
                 _context.SaveChanges();
 
+            }
+
+
+
+            if (!_context.RegExam.Any())
+            {
+                var regExam = new List<RegExam>
+               {
+                   new RegExam {examID=1,result="pass",score="75",studentID=1,withdraw="0"},
+                   new RegExam {examID=2,result="fail",score="99",studentID=2,withdraw="0"}
+               };
+                regExam.ForEach(s => _context.RegExam.Add(s));
+                _context.SaveChanges();
             }
         }
 
