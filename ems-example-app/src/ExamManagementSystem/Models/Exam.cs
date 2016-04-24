@@ -12,18 +12,22 @@ namespace ExamManagementSystem.Models
         [ScaffoldColumn(false)]
         public int examID { get; set; }
         public string examType { get; set; }
+        [Display(Name = "Exam Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime date { get; set; }
         [Display(Name = "Start Time")]
-        public DateTime startTime { get; set; }
+        public TimeSpan startTime { get; set; }
         [Display(Name = "End Time")]
-        public DateTime endTime { get; set; }
+        public TimeSpan endTime { get; set; }
         [Display(Name = "Registration Deadline")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime regDeadline { get; set; }
         public string semester { get; set; }
         public string location { get; set; }
 
+        public virtual ICollection<RegExam> RegExam { get; set; }
 
-       // [ScaffoldColumn(false)]
-       // public int studentID { get; set; }
+        // [ScaffoldColumn(false)]
+        // public int studentID { get; set; }
     }
 }
