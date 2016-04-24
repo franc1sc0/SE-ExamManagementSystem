@@ -62,7 +62,14 @@
 
         <tr>
             <td>
-                <a asp-action="Index" asp-route-id="@item.Student.studentID"> Withdraw |</a>
+                @Html.ActionLink("Withdraw |",
+
+               "Withdraw",
+               "Student",
+               new {withdraw=item.withdraw },
+               null
+               )
+                @*<a asp-action="Withdraw" asp-route-id="@item.regExamID"> Withdraw |</a>*@
                 <a asp-action="Index" asp-route-id="@item.Student.studentID"> Register |</a>
                 <a asp-action="Index" asp-route-id="@item.Student.studentID"> View Result |</a>
             </td>

@@ -5,6 +5,7 @@ using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
 using System.Collections.Generic;
+using System;
 
 namespace ExamManagementSystem.Controllers
 {
@@ -84,6 +85,26 @@ namespace ExamManagementSystem.Controllers
             //_context.RegExam.Include(r=>regExam);
             return View(regExam);
         }
+
+        public IActionResult Withdraw(string withdraw)
+        {
+            ExamManagementContext emc = new ExamManagementContext();//whole context
+            var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(withdraw));
+
+
+            if (regEList != null)
+            {
+                var firstR = regEList.First();
+                firstR.withdraw = "1";
+
+                emc.Update(firstR);
+                // var regExam = new List<RegExam>();
+                emc.SaveChanges();
+            }
+            return View("Index");
+
+        }
+
 
         // POST: Student/Create
         [HttpPost]
