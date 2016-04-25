@@ -1,0 +1,79 @@
+@model IEnumerable<ExamManagementSystem.Models.RegExam>
+
+@{
+    ViewData["Title"] = "ViewResults";
+}
+
+<h2>ViewResults</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            UserName
+        </th>
+        <th>
+            TxStateID
+        </th>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.result)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.score)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.withdraw)
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.txStateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.result)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.score)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.withdraw)
+        </td>
+        <td>
+
+        </td>
+    </tr>
+}
+    <td>
+        PASS:
+        @Html.DisplayFor(modelItem => Model.First().Exam.examType)
+    </td>
+    <td>
+        FAIL:
+    @Html.DisplayFor(modelItem => Model.First().Exam.semester)
+    </td>
+    <td>
+        NOSHOW:
+       @Html.DisplayFor(modelItem => Model.First().Exam.location)
+    </td>
+</table>
