@@ -1,0 +1,58 @@
+@model IEnumerable<ExamManagementSystem.Models.RegExam>
+
+@{
+    ViewData["Title"] = "ViewRegistered";
+}
+
+<h2>ViewRegistered</h2>
+
+<p>
+    @*<a asp-action="Create">Create New</a>*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.firstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.lastName)
+        </th>
+        <th>
+           Score
+        </th>
+        <th></th>
+    </tr>
+    
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.result)
+        </td>
+        <td>
+            @*<a asp-action="Edit" asp-route-id="@item.facultyID">Edit</a> |
+            <a asp-action="Details" asp-route-id="@item.facultyID">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.facultyID">Delete</a>*@
+        </td>
+    </tr>
+}
+    
+    
+</table>
