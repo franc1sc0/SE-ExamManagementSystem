@@ -80,6 +80,22 @@
                null
                )
 
+            @Html.ActionLink("View Results |",
+
+               "ViewResults",
+               "Exams",
+               new { examID = item.examID },
+               null
+               )
+
+            @Html.ActionLink("Publish Results |",
+
+               "PublishResults",
+               "Exams",
+               new { examID = item.examID },
+               null
+               )
+
         </td>
     </tr>
 }
