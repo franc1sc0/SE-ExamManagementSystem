@@ -7,7 +7,7 @@ using Microsoft.AspNet.Authorization;
 
 namespace ExamManagementSystem.Controllers
 {
-    [Authorize]
+    [Authorize (Roles="faculty")]
     public class StudentsController : Controller
     {
         private ExamManagementContext _context;

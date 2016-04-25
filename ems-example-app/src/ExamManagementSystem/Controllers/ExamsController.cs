@@ -3,9 +3,11 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
+using Microsoft.AspNet.Authorization;
 
 namespace ExamManagementSystem.Controllers
 {
+    [Authorize(Roles = "faculty")]
     public class ExamsController : Controller
     {
         private ExamManagementContext _context;

@@ -6,9 +6,11 @@ using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
 using System.Collections.Generic;
 using System;
+using Microsoft.AspNet.Authorization;
 
 namespace ExamManagementSystem.Controllers
 {
+    [Authorize(Roles = "student")]
     public class StudentController : Controller
     {
         private ExamManagementContext _context;
