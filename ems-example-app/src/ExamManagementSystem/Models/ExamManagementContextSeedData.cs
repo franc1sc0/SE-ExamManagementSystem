@@ -114,9 +114,9 @@ namespace ExamManagementSystem.Models
             {
                 var regExam = new List<RegExam>
                {
-                   new RegExam {examID=1,result="pass",score="75",studentID=1,withdraw="0"},
-                   new RegExam {examID=2,result="fail",score="66",studentID=1,withdraw="0"},
-                   new RegExam {examID=2,result="fail",score="99",studentID=2,withdraw="0"}
+                   new RegExam {examID=1,result="pass",score="75",studentID=1,withdraw="0",publish="1",registered="1"},
+                   new RegExam {examID=2,result="fail",score="66",studentID=1,withdraw="0",publish="1",registered="1"},
+                   new RegExam {examID=2,result="fail",score="99",studentID=2,withdraw="0",publish="1",registered="1"}
                };
                 regExam.ForEach(s => _context.RegExam.Add(s));
                 _context.SaveChanges();

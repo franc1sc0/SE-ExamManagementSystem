@@ -4,6 +4,7 @@ using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
 using Microsoft.AspNet.Authorization;
+using System.Collections.Generic;
 
 namespace ExamManagementSystem.Controllers
 {
@@ -20,6 +21,22 @@ namespace ExamManagementSystem.Controllers
         // GET: Students
         public IActionResult Index()
         {
+
+
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
+
+            //var RegExam = emc.RegExam.Where(Re => Re.examID == examID);
+
+            //List<RegExam> regExam = RegExam.ToList();
+            //List<Student> studentList = _context.Students.ToList();
+            //for (int x = 0; x < studentList.Count(); x++)
+            //{
+            //    var stud = emc.RegExam.Where(s => s.studentID == studentList[x].studentID);
+            //    regExam[x].Student = studentList[x];
+            //    //studentList.Add(stud.First());
+            //}
+
+
             return View(_context.Students.ToList());
         }
 
