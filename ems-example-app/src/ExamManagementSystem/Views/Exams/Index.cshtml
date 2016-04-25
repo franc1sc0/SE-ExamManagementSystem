@@ -60,8 +60,26 @@
         </td>
         <td>
             <a asp-action="Edit" asp-route-id="@item.examID">Edit</a> |
+
             <a asp-action="Details" asp-route-id="@item.examID">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.examID">Delete</a>
+            <a asp-action="Delete" asp-route-id="@item.examID">Delete</a> |
+            @Html.ActionLink("View Registered |",
+
+               "ViewRegistered",
+               "Exams",
+               new { examID = item.examID },
+               null
+               )
+
+
+            @Html.ActionLink("Enter Results |",
+
+               "EnterResults",
+               "Exams",
+               new { examID = item.examID },
+               null
+               )
+
         </td>
     </tr>
 }
