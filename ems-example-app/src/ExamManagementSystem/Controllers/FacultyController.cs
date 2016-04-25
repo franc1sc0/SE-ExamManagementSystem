@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExamManagementSystem.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "faculty")]
     public class FacultyController : Controller
     {
         private ExamManagementContext _context;
