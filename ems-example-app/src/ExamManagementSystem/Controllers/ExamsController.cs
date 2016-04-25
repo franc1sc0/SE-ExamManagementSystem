@@ -3,6 +3,8 @@ using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
+using System.Collections.Generic;
+using System;
 
 namespace ExamManagementSystem.Controllers
 {
@@ -87,7 +89,65 @@ namespace ExamManagementSystem.Controllers
             }
             return View(exam);
         }
+        public IActionResult ViewRegistered(int examID)
+        {
 
+            ExamManagementContext emc = new ExamManagementContext();//whole context
+
+            var RegExam = emc.RegExam.Where(Re => Re.examID == examID);
+
+            List<RegExam> regExam = RegExam.ToList();
+            List<Student> studentList = new List<Student>();
+            for(int x = 0; x < RegExam.Count(); x++)
+            {
+                var stud = emc.Students.Where(s => s.studentID == regExam[x].studentID);
+                regExam[x].Student=stud.First();
+                //studentList.Add(stud.First());
+            }
+
+
+            return View(regExam);
+        }
+
+        public IActionResult EnterResults(int examID)
+        {
+
+            ExamManagementContext emc = new ExamManagementContext();//whole context
+
+            var RegExam = emc.RegExam.Where(Re => Re.examID == examID);
+
+            List<RegExam> regExam = RegExam.ToList();
+            List<Student> studentList = new List<Student>();
+            for (int x = 0; x < RegExam.Count(); x++)
+            {
+                var stud = emc.Students.Where(s => s.studentID == regExam[x].studentID);
+                regExam[x].Student = stud.First();
+                //studentList.Add(stud.First());
+            }
+
+
+            return View(regExam);
+        }
+
+        [HttpPost]
+        public IActionResult Submit(string val,string id)
+        {
+
+            ExamManagementContext emc = new ExamManagementContext();//whole context
+
+            var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(id));
+
+            if (regEList != null)
+            {
+                var firstR = regEList.First();
+                firstR.result = val;
+
+                emc.Update(firstR);
+                // var regExam = new List<RegExam>();
+                emc.SaveChanges();
+            }
+            return View("Index");
+        }
         // GET: Exams/Delete/5
         [ActionName("Delete")]
         public IActionResult Delete(int? id)
