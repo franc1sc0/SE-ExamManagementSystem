@@ -17,7 +17,12 @@ namespace ExamManagementSystem.Controllers
         {
             _context = context;    
         }
-
+        
+        /// GET: Student
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         // GET: Student/Details/5
         public async Task<IActionResult> Details()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,7 +10,7 @@ namespace ExamManagementSystem.Models
 {
     public class Exam
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int examID { get; set; }
         public string examType { get; set; }
         [Display(Name = "Exam Date")]
@@ -31,8 +32,5 @@ namespace ExamManagementSystem.Models
         {
             throw new NotImplementedException();
         }
-
-        // [ScaffoldColumn(false)]
-        // public int studentID { get; set; }
     }
 }
