@@ -60,6 +60,7 @@
         </td>
         <td>
             <a asp-action="Edit" asp-route-id="@item.examID">Edit</a> |
+
             <a asp-action="Details" asp-route-id="@item.examID">Details</a> |
             <a asp-action="Delete" asp-route-id="@item.examID">Delete</a> |
             @Html.ActionLink("View Registered |",
@@ -78,6 +79,7 @@
                new { examID = item.examID },
                null
                )
+
         </td>
     </tr>
 }
