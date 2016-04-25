@@ -17,6 +17,9 @@
                 <li><a asp-controller="Faculty" asp-action="Index">Faculty</a></li>
                 <li><a asp-controller="Exams" asp-action="Index">Exams</a></li>
                 @*<li><a asp-controller="Students" asp-action="Index">Students Exam Results</a></li>*@
+                <li><a asp-controller="Students" asp-action="ViewAll">View All Student Records</a></li>
+                <li><a asp-controller="Students" asp-action="ChangeResults">Change Results</a></li>
+                <li><a asp-controller="Students" asp-action="ViewCompleted">View Completed</a></li>
             }
 
             @if (User.IsInRole("student"))
