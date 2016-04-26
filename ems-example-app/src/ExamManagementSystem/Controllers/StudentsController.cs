@@ -19,7 +19,7 @@ namespace ExamManagementSystem.Controllers
         }
 
         // GET: Students
-        public IActionResult Index()
+        public IActionResult Index(string option, string search)
         {
 
 
@@ -36,7 +36,33 @@ namespace ExamManagementSystem.Controllers
             //    //studentList.Add(stud.First());
             //}
 
-
+            // Eww-wee! This is stinky.
+            if (option=="firstName")
+            {
+                return View(_context.Students.Where(x => x.firstName.Contains(search) || search == null).ToList());
+            }
+            else if (option=="lastName")
+            {
+                return View(_context.Students.Where(x => x.lastName.Contains(search) || search == null).ToList());
+            }
+            else if (option == "username")
+            {
+                return View(_context.Students.Where(x => x.UserName.Contains(search) || search == null).ToList());
+            }
+            else if (option == "studentId")
+            {
+                return View(_context.Students.Where(x => x.txStateID.Contains(search) || search == null).ToList());
+            }
+            else if (option == "major")
+            {
+                return View(_context.Students.Where(x => x.major.Contains(search) || search == null).ToList());
+            }
+            else if (option == "email")
+            {
+                return View(_context.Students.Where(x => x.email.Contains(search) || search == null).ToList());
+            }
+            
+            // No search match
             return View(_context.Students.ToList());
         }
 
