@@ -13,9 +13,11 @@ namespace ExamManagementSystem.Models
         //This is what we call the Intermidiate/bridge/helper table.
         [HiddenInput(DisplayValue = false)]
         public int regExamID { get; set; }
-
+        [Display(Name = "Result")]
         public string result { get; set; }
+        [Display(Name = "Score")]
         public string score { get; set; }
+        [Display(Name = "Withdraw")]
         public string withdraw { get; set; }
         public string publish { get; set; }
         public string registered { get; set; }

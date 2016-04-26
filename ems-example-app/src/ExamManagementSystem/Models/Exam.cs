@@ -12,6 +12,7 @@ namespace ExamManagementSystem.Models
     {
         [HiddenInput(DisplayValue = false)]
         public int examID { get; set; }
+        [Display(Name = "Exam Type")]
         public string examType { get; set; }
         [Display(Name = "Exam Date")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
@@ -23,7 +24,9 @@ namespace ExamManagementSystem.Models
         [Display(Name = "Registration Deadline")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime regDeadline { get; set; }
+        [Display(Name = "Semester")]
         public string semester { get; set; }
+        [Display(Name = "Location")]
         public string location { get; set; }
 
         public virtual ICollection<RegExam> RegExam { get; set; }

@@ -4,6 +4,8 @@ using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
 using Microsoft.AspNet.Authorization;
+using System.Collections.Generic;
+
 
 namespace ExamManagementSystem.Controllers
 {
@@ -24,6 +26,13 @@ namespace ExamManagementSystem.Controllers
             return View(examManagementContext.ToList());
         }
 
+        //GET: ViewAll
+        public IActionResult ViewAll()
+        {
+            return View(_context.Students.ToList());
+
+        }
+
         // GET: RegExams/Details/5
         public IActionResult Details(int? id)
         {
@@ -39,6 +48,41 @@ namespace ExamManagementSystem.Controllers
             }
 
             return View(regExam);
+        }
+
+        public IActionResult ExamHistory(int? id)
+        {
+            ExamManagementContext emc = new ExamManagementContext();
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+
+            var sregExam = emc.RegExam.Where(m => m.studentID == id);
+            if (sregExam == null)
+            {
+                return HttpNotFound();
+            }
+            var regeExam = new List<RegExam>();
+
+            regeExam = sregExam.ToList();//place them in a list 
+
+            List<Exam> ExamObj = new List<Exam>();
+            for (int x = 0; x < regeExam.Count(); x++)
+            {
+                var examTypes = emc.Exams.Where(c => c.examID == regeExam[x].examID);
+                Exam temp = examTypes.First();
+                ExamObj.Add(temp);
+            }
+
+            //Joining
+            for (int x = 0; x < regeExam.Count(); x++)
+            {
+                regeExam[x].Exam = ExamObj[x];
+            }
+
+
+            return View(regeExam);
         }
 
         // GET: RegExams/Create
