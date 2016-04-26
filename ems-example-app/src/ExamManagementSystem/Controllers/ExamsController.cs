@@ -187,13 +187,23 @@ namespace ExamManagementSystem.Controllers
 
             //ugly hack below , im just using the Exam object to store pass,fail,noshow info.
             //I understand its a horrible way to pass info , but since time is not on our side idgaf :)
-            Exam Exm = new Exam();
-            regExam[0].Exam = Exm;
+            if (regExam.Count>0 )
+            {
+                Exam Exm = new Exam();
+                regExam[0].Exam = Exm;
 
-            regExam[0].Exam.examType = pass.ToString();
-            regExam[0].Exam.semester = fail.ToString();
-            regExam[0].Exam.location = noshow.ToString();
-
+                regExam[0].Exam.examType = pass.ToString();
+                regExam[0].Exam.semester = fail.ToString();
+                regExam[0].Exam.location = noshow.ToString();
+            }else
+            {
+                regExam.Add(new RegExam());
+                Exam Exm = new Exam();
+                regExam[0].Exam = Exm;
+                regExam[0].Exam.examType = pass.ToString();
+                regExam[0].Exam.semester = fail.ToString();
+                regExam[0].Exam.location = noshow.ToString();
+            }
             return View(regExam);
         }
 
