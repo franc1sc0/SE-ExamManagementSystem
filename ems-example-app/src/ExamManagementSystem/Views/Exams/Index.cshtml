@@ -12,7 +12,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.examType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.regDeadline)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.semester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.startTime)
         </th>
         <th></th>
     </tr>
@@ -20,12 +38,64 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
+            @Html.DisplayFor(modelItem => item.date)
         </td>
         <td>
-            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            @Html.DisplayFor(modelItem => item.endTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.examType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.regDeadline)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.semester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.startTime)
+        </td>
+        <td>
+            <a asp-action="Edit" asp-route-id="@item.examID">Edit</a> |
+
+            <a asp-action="Details" asp-route-id="@item.examID">Details</a> |
+            <a asp-action="Delete" asp-route-id="@item.examID">Delete</a> |
+            @Html.ActionLink("View Registered |",
+
+               "ViewRegistered",
+               "Exams",
+               new { examID = item.examID },
+               null
+               )
+
+
+            @Html.ActionLink("Enter Results |",
+
+               "EnterResults",
+               "Exams",
+               new { examID = item.examID },
+               null
+               )
+
+            @Html.ActionLink("View Results |",
+
+               "ViewResults",
+               "Exams",
+               new { examID = item.examID },
+               null
+               )
+
+            @Html.ActionLink("Publish Results |",
+
+               "PublishResults",
+               "Exams",
+               new { examID = item.examID },
+               null
+               )
+
         </td>
     </tr>
 }
