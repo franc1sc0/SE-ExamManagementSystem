@@ -32,6 +32,13 @@ namespace ExamManagementSystem.Controllers
             return View(_context.Students.ToList());
 
         }
+        //GET: ViewCompleted
+        public IActionResult ViewCompleted()
+        {
+            return View(_context.Students.Where(s=>s.prgResult == "Pass" && s.commResult == "Pass").ToList());
+
+        }
+
 
         // GET: RegExams/Details/5
         public IActionResult Details(int? id)
