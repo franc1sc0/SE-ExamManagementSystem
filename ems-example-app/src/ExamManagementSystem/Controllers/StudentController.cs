@@ -40,7 +40,7 @@ namespace ExamManagementSystem.Controllers
         }
 
         // GET: Student/Create
-        public async Task<IActionResult> Exams()
+        public IActionResult Exams()
         {
             var currentUserName = User.Identity.Name;//gets current username logged in 
 
@@ -83,6 +83,8 @@ namespace ExamManagementSystem.Controllers
                 regExam[x].Exam = ExamObj[x];
             }
 
+            // Remove withdrawn exams
+            regExam.RemoveAll(w => w.withdraw == "1");
 
                 // Student student = await _context.Students.SingleAsync(m => m.UserName == currentUserName);
                 if (student == null)
@@ -93,23 +95,25 @@ namespace ExamManagementSystem.Controllers
             return View(regExam);
         }
 
-        public IActionResult Withdraw(string withdraw)
+        public IActionResult Withdraw(string withdraw, RegExam regExam)
         {
             ExamManagementContext emc = new ExamManagementContext();//whole context
-            var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(withdraw));
+            // var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(withdraw));
 
+            regExam.withdraw = "1";
 
-            if (regEList != null)
-            {
-                var firstR = regEList.First();
-                firstR.withdraw = "1";
+            /* if (regEList != null)
+             {
+                 var firstR = regEList.First();
+                 firstR.withdraw = "1";
 
-                emc.Update(firstR);
-                // var regExam = new List<RegExam>();
-                emc.SaveChanges();
-            }
-            return View("Index");
+                 emc.Update(firstR);
+                 // var regExam = new List<RegExam>();
+                 emc.SaveChanges(); */
+            emc.Update(regExam);
+            emc.SaveChanges();
 
+            return RedirectToAction("Exams");
         }
 
 

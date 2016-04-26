@@ -25,31 +25,10 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.city)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.commResult)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.firstName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.lastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.major)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.phone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.prgResult)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.txStateID)
@@ -58,7 +37,28 @@
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.major)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.city)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.commResult)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prgResult)
         </th>
         <th></th>
     </tr>
@@ -66,31 +66,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.city)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.commResult)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.firstName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.major)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.prgResult)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.txStateID)
@@ -99,13 +78,36 @@
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.major)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.city)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.zip)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.prgResult)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.commResult)
+        </td>
+        <tr>
+            <td colspan="12">
             <a asp-action="Edit" asp-route-id="@item.studentID">Edit</a> |
             <a asp-action="Details" asp-route-id="@item.studentID">Details</a> |
             <a asp-action="Delete" asp-route-id="@item.studentID">Delete</a>
-        </td>
+            </td>
+        </tr>
     </tr>
 }
 </table>
