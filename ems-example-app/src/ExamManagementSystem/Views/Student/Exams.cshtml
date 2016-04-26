@@ -1,0 +1,87 @@
+@*@model ExamManagementSystem.Models.RegExam*@
+
+@model IEnumerable<ExamManagementSystem.Models.RegExam>
+
+@{
+    ViewData["Title"] = "Student Exams";
+}
+
+<h2>Student Exams</h2>
+
+<div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>TxStateID:
+                @Html.DisplayFor(modelItem => item.Student.txStateID)
+            </td>
+
+        </tr>
+        <tr>
+            <td>EMail:
+               @Html.DisplayFor(modelItem => item.Student.email)
+            </td>
+        </tr>
+        <tr>
+            <td>UserName: 
+                @Html.DisplayFor(modelItem => item.Student.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>Result: 
+                @Html.DisplayFor(modelItem => item.result)
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>Score: 
+                @Html.DisplayFor(modelItem => item.score)
+            </td>
+        </tr>
+        <tr>
+            <td>WithDraw: 
+                @Html.DisplayFor(modelItem => item.withdraw)
+            </td>
+        </tr>
+
+        <tr>
+            <td>ExamType: 
+                @Html.DisplayFor(modelItem => item.Exam.examType)
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.ActionLink("Withdraw |",
+
+               "Withdraw",
+               "Student",
+               new {withdraw=item.withdraw },
+               null
+               )
+                @*<a asp-action="Withdraw" asp-route-id="@item.regExamID"> Withdraw |</a>*@
+                <a asp-action="Index" asp-route-id="@item.Student.studentID"> Register |</a>
+                <a asp-action="Index" asp-route-id="@item.Student.studentID"> View Result |</a>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+            </td>
+
+        </tr>
+
+    }
+
+</table>
+

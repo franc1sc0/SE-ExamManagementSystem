@@ -1,16 +1,25 @@
 @model ExamManagementSystem.Models.Student
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h2>Create</h2>
+<h2>Edit</h2>
 
-<form asp-action="Create">
+<form asp-action="Edit">
     <div class="form-horizontal">
         <h4>Student</h4>
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="studentID" />
+        <div class="form-group">
+            <label asp-for="UserName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.UserName)
+                <input type="hidden" asp-for="UserName" class="form-control" />
+            </div>
+
+        </div>
         <div class="form-group">
             <label asp-for="address" class="col-md-2 control-label"></label>
             <div class="col-md-10">
@@ -28,7 +37,8 @@
         <div class="form-group">
             <label asp-for="commResult" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="commResult" class="form-control" />
+                @Html.DisplayFor(model => model.commResult)
+                <input type="hidden" asp-for="commResult" class="form-control" />
                 <span asp-validation-for="commResult" class="text-danger" />
             </div>
         </div>
@@ -56,7 +66,8 @@
         <div class="form-group">
             <label asp-for="major" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="major" class="form-control" />
+                @Html.DisplayFor(model => model.major)
+                <input type="hidden" asp-for="major" class="form-control" />
                 <span asp-validation-for="major" class="text-danger" />
             </div>
         </div>
@@ -70,22 +81,17 @@
         <div class="form-group">
             <label asp-for="prgResult" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="prgResult" class="form-control" />
+                @Html.DisplayFor(model => model.prgResult)
+                <input type="hidden" asp-for="prgResult" class="form-control" />
                 <span asp-validation-for="prgResult" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
             <label asp-for="txStateID" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="txStateID" class="form-control" />
+                @Html.DisplayFor(model => model.txStateID)
+                <input type="hidden" asp-for="txStateID" class="form-control" />
                 <span asp-validation-for="txStateID" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="userName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="userName" class="form-control" />
-                <span asp-validation-for="userName" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
@@ -97,7 +103,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>
     </div>

@@ -9,7 +9,11 @@ namespace ExamManagementSystem.Models
 {
     public class Faculty
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int facultyID { get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
+        public string email { get; set; }
+        // this is how we map back to identity table
+        public string UserName { get; set; }
     }
 }

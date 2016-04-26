@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -9,32 +10,27 @@ namespace ExamManagementSystem.Models
 {
     public class Exam
     {
-        [ScaffoldColumn(false)]
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Type { get; set; }
-        [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}",ApplyFormatInEditMode = true)]
-        public DateTime Date { get; set; }
-        [Required]
-        [DataType(DataType.Time)]
-        [Display(Name="Start Time")]
-        public DateTime StartTime { get; set; }
-        [Required]
-        [DataType(DataType.Time)]
+        [HiddenInput(DisplayValue = false)]
+        public int examID { get; set; }
+        public string examType { get; set; }
+        [Display(Name = "Exam Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime date { get; set; }
+        [Display(Name = "Start Time")]
+        public TimeSpan startTime { get; set; }
         [Display(Name = "End Time")]
-        public DateTime EndTime { get; set; }
-        [Required]
-        [DataType(DataType.Date)]
+        public TimeSpan endTime { get; set; }
         [Display(Name = "Registration Deadline")]
-        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime RegDeadline { get; set; }
-        [Required]
-        public string Semester { get; set; }
-        [Required]
-        public string Location { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime regDeadline { get; set; }
+        public string semester { get; set; }
+        public string location { get; set; }
+
+        public virtual ICollection<RegExam> RegExam { get; set; }
+
+        public static implicit operator Exam(List<Exam> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

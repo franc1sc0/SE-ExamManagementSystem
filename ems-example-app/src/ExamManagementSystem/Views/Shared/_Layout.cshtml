@@ -11,16 +11,40 @@
     <div id="sidebar">
         <ul class="menu">
             <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
-            <li><a asp-controller="Students" asp-action="Index">Students</a></li>
-            <li><a asp-controller="Faculties" asp-action="Index">Faculty</a></li>
-            <li><a asp-controller="Exams" asp-action="Index">Exams</a></li>
+            @if (User.IsInRole("faculty"))
+            {
+                <li><a asp-controller="Students" asp-action="Index">Students</a></li>
+                <li><a asp-controller="Faculty" asp-action="Index">Faculty</a></li>
+                <li><a asp-controller="Exams" asp-action="Index">Exams</a></li>
+                @*<li><a asp-controller="Students" asp-action="Index">Students Exam Results</a></li>*@
+                <li><a asp-controller="Students" asp-action="ViewAll">View All Student Records</a></li>
+                <li><a asp-controller="Students" asp-action="ChangeResults">Change Results</a></li>
+                <li><a asp-controller="Students" asp-action="ViewCompleted">View Completed</a></li>
+            }
+
+            @if (User.IsInRole("student"))
+            {
+                @*<li><a asp-controller="Student" asp-action="Index">Student</a></li>*@
+                <li><a asp-controller="Student" asp-action="Details">Student Details</a></li>
+                @*<li><a asp-controller="Student" asp-action="Details">Student Exam Registration</a></li>
+                <li><a asp-controller="Student" asp-action="Details">Student Exam Withdraw</a></li>*@
+                <li><a asp-controller="Student" asp-action="Exams">Exams</a></li>
+
+            }
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a asp-controller="Auth" asp-action="Logout">Logout</a></li>
+            }
+            else
+            {
+                <li><a asp-controller="Auth" asp-action="Login">Login</a></li>
+            }
         </ul>
+
     </div>
     <div id="wrapper">
         <div id="main">
-            <div>
-                <button id="sidebarToggle">Toggle Menu</button>
-            </div>
             <div>
                 @RenderBody()
             </div>
