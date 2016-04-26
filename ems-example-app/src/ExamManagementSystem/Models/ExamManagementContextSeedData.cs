@@ -63,9 +63,16 @@ namespace ExamManagementSystem.Models
                 var emailDomain = "@txstate.edu";
                 var newStudent = new Student()
                 {
-                    major = "CS",
+                    major = "Computer Science",
                     UserName = userName,
-                    email = userName + emailDomain
+                    email = "mmouse" + emailDomain,
+                    txStateID="A49583920",
+                    firstName="Mickey",
+                    lastName="Mouse",
+                    phone = "235-385-9932",
+                    address = "100 Congress",
+                    city = "Austin",
+                    zip = "78701"
                 };
                 _context.Add(newStudent);
                 _context.SaveChanges();
@@ -116,6 +123,7 @@ namespace ExamManagementSystem.Models
                {
                    new RegExam {examID=1,result="pass",score="75",studentID=1,withdraw="0",publish="1",registered="1"},
                    new RegExam {examID=2,result="fail",score="66",studentID=1,withdraw="0",publish="1",registered="1"},
+                   new RegExam {examID=3,studentID=1,withdraw="0",publish="0",registered="1" },
                    new RegExam {examID=2,result="fail",score="99",studentID=2,withdraw="0",publish="1",registered="1"}
                };
                 regExam.ForEach(s => _context.RegExam.Add(s));

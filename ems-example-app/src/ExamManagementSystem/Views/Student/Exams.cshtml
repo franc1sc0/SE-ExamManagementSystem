@@ -6,7 +6,7 @@
     ViewData["Title"] = "Student Exams";
 }
 
-<h2>Student Exams</h2>
+<h2>Registered Exams</h2>
 
 <div>
 </div>
@@ -18,70 +18,54 @@
 }
 
 <table>
+    <tr>
+        <td><b>Exam Type</b></td>
+        <td><b>Exam Date</b></td>
+        <td align="center"><b>Exam Results</b></td>
+        <td><b>Withdraw</b></td>
+    </tr>
     @foreach (var item in Model)
     {
         <tr>
-            <td>TxStateID:
-                @Html.DisplayFor(modelItem => item.Student.txStateID)
-            </td>
-
-        </tr>
-        <tr>
-            <td>EMail:
-               @Html.DisplayFor(modelItem => item.Student.email)
-            </td>
-        </tr>
-        <tr>
-            <td>UserName: 
-                @Html.DisplayFor(modelItem => item.Student.UserName)
-            </td>
-        </tr>
-        <tr>
-            <td>Result: 
-                @Html.DisplayFor(modelItem => item.result)
-            </td>
-        </tr>
-
-
-        <tr>
-            <td>Score: 
-                @Html.DisplayFor(modelItem => item.score)
-            </td>
-        </tr>
-        <tr>
-            <td>WithDraw: 
-                @Html.DisplayFor(modelItem => item.withdraw)
-            </td>
-        </tr>
-
-        <tr>
-            <td>ExamType: 
+            <td>
                 @Html.DisplayFor(modelItem => item.Exam.examType)
             </td>
-        </tr>
-
-        <tr>
             <td>
-                @Html.ActionLink("Withdraw |",
-
-               "Withdraw",
-               "Student",
-               new {withdraw=item.withdraw },
-               null
-               )
-                @*<a asp-action="Withdraw" asp-route-id="@item.regExamID"> Withdraw |</a>*@
-                <a asp-action="Index" asp-route-id="@item.Student.studentID"> Register |</a>
-                <a asp-action="Index" asp-route-id="@item.Student.studentID"> View Result |</a>
+                @Html.DisplayFor(modelItem => item.Exam.date)
             </td>
-        </tr>
-
-        <tr>
-            <td>
+        @if (item.publish == "1")
+        {
+            <td> 
+                @Html.DisplayFor(modelItem => item.result)
+            
+                (Grade: @Html.DisplayFor(modelItem => item.score))
             </td>
+        }
+        else
+        {
+            <td align="center">
+                Results not published
+            </td>
+        }
+        @if ((DateTime.Compare(DateTime.Now, item.Exam.date)) < 0 && item.publish == "0")
+        {
+                <td>
+                    @Html.ActionLink("Withdraw",
 
-        </tr>
-
+                "Withdraw",
+                "Student",
+                item,
+                null
+                )
+                   </td>
+        }
+        else
+        {
+            <td>Not Available</td>
+        }</tr>
     }
-
 </table>
 
+<h2>Available Exams</h2>
+
+List of available exam will go here with link to register.

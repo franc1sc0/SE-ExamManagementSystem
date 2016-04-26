@@ -11,78 +11,102 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.UserName)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.firstName):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.firstName)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.UserName)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.address)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.lastName):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.lastName)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.address)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.city)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.txStateID):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.txStateID)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.city)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.commResult)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.UserName):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.UserName)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.commResult)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.email)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.phone):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.phone)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.firstName)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.email):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.email)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.firstName)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.lastName)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.address):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.address)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.lastName)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.major)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.city):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.city)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.major)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.phone)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.zip):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.zip)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.phone)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.prgResult)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.major):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.major)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.prgResult)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.txStateID)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.commResult):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.commResult)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.txStateID)
-        </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.zip)
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.prgResult):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.prgResult)
+            </dr>
         </dt>
-        <dd>
-            @Html.DisplayFor(model => model.zip)
-        </dd>
-    </dl>
+        </dl>
 </div>
 <p>
     <a asp-action="Edit" asp-route-id="@Model.studentID">Edit</a> |
