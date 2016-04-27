@@ -1,0 +1,73 @@
+@model ExamManagementSystem.Models.Exam
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Exam</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.examType):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.examType)
+            </dr>
+            </dt>
+            <dt>
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.semester):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.semester)
+            </dr>
+            </dt>
+        <dt>
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.date):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.date)
+            </dr>
+        </dt>
+        <dt>
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.startTime):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.startTime)
+            </dr>
+        </dt>
+        <dt>
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.endTime):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.endTime)
+            </dr>
+        </dt>
+        <dt>
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.regDeadline):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.regDeadline)
+            </dr>
+        </dt>
+        <dt>
+            <dr>
+                <b>@Html.DisplayNameFor(model => model.location):</b>
+            </dr>
+            <dr>
+                @Html.DisplayFor(model => model.location)
+            </dr>
+        </dt>
+     </dl>
+</div>
+<p>
+    <a asp-action="Exams">Back to List</a>
+</p>
