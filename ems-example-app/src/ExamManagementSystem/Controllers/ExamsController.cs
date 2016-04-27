@@ -133,23 +133,29 @@ namespace ExamManagementSystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult Submit(string val,string id)
+        public IActionResult Submit(string result, string examRegistrationId)
         {
 
             ExamManagementContext emc = new ExamManagementContext();//whole context
 
-            var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(id));
+            var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(examRegistrationId));
 
             if (regEList != null)
             {
                 var firstR = regEList.First();
-                firstR.result = val;
+                firstR.result = result;
 
                 emc.Update(firstR);
                 // var regExam = new List<RegExam>();
                 emc.SaveChanges();
             }
-            return View("Index");
+
+            //return View("ViewResults", regEList);
+
+            return RedirectToAction(
+                        "ViewResults",
+                        "Exams",
+                        new { examID= examRegistrationId });
         }
 
 
@@ -184,6 +190,8 @@ namespace ExamManagementSystem.Controllers
 
                 //studentList.Add(stud.First());
             }
+
+
 
             //ugly hack below , im just using the Exam object to store pass,fail,noshow info.
             //I understand its a horrible way to pass info , but since time is not on our side idgaf :)
@@ -224,6 +232,29 @@ namespace ExamManagementSystem.Controllers
             }
 
             return View(exam);
+        }
+
+        [ActionName("PublishResults")]
+        public IActionResult PublishResults(int? examID)
+        {
+            if (examID == null)
+            {
+                return HttpNotFound();
+            }
+
+            var exams = _context.RegExam.Where(er => er.examID == examID).ToList();
+            if (exams == null || exams.Count() < 1)
+            {
+                return HttpNotFound();
+            }
+            foreach (var exam in exams)
+            {
+                exam.publish = "1";
+                _context.RegExam.Update(exam);
+                _context.SaveChanges();
+            }
+
+            return View("Index", _context.Exams.ToList());
         }
 
         // POST: Exams/Delete/5
