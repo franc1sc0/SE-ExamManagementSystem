@@ -133,29 +133,48 @@ namespace ExamManagementSystem.Controllers
         }
 
         [HttpPost]
-        public IActionResult Submit(string result, string examRegistrationId)
+        public IActionResult Submit(string option, string examRegistrationId, string studentID,string examinationID)
         {
 
             ExamManagementContext emc = new ExamManagementContext();//whole context
 
             var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(examRegistrationId));
+            var studList = emc.Students.Where(s=> s.studentID == Int32.Parse(studentID));
+            var examList = emc.Exams.Where(ex => ex.examID == Int32.Parse(examinationID));
+
+
 
             if (regEList != null)
             {
                 var firstR = regEList.First();
-                firstR.result = result;
+                firstR.result = option;
 
                 emc.Update(firstR);
                 // var regExam = new List<RegExam>();
                 emc.SaveChanges();
             }
+           if (studList != null)
+            {
+                var firstS = studList.First();
+                var firstE = examList.First();
+                if (firstE.examType == "Programming Exam")
+                {
+                    firstS.prgResult = option;
+                }
+                else if (firstE.examType == "Communication Exam")
+                {
+                    firstS.commResult = option;
+                }
 
+                emc.Update(firstS);
+                emc.SaveChanges();
+            }
             //return View("ViewResults", regEList);
 
             return RedirectToAction(
-                        "ViewResults",
+                        "EnterResults",
                         "Exams",
-                        new { examID= examRegistrationId });
+                        new { examID= examinationID });
         }
 
 

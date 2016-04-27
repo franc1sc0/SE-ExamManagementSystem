@@ -32,7 +32,18 @@
         <th>
             @Html.DisplayNameFor(model => model.commResult)
         </th>
-   
+        <th>
+            @Html.DisplayNameFor(model => model.group1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.group2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.group3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.group4)
+        </th>
         <th></th>
     </tr>
 
@@ -62,6 +73,18 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.commResult)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.group1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.group2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.group3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.group4)
             </td>
         </tr>
     }
