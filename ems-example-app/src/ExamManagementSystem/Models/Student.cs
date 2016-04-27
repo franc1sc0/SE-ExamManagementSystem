@@ -28,6 +28,14 @@ namespace ExamManagementSystem.Models
         [Editable(false)]
         [Display(Name = "Communication Result")]
         public string commResult { get; set; }
+        [Display(Name = "Group 1")]
+        public string group1 { get; set; }
+        [Display(Name = "Group 2")]
+        public string group2 { get; set; }
+        [Display(Name = "Group 3")]
+        public string group3 { get; set; }
+        [Display(Name = "Group 4")]
+        public string group4 { get; set; }
         [Display(Name = "Email")]
         public string email { get; set; }
         [Display(Name = "Phone")]
