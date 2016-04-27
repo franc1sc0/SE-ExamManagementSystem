@@ -35,7 +35,7 @@ namespace ExamManagementSystem.Controllers
         //GET: ViewCompleted
         public IActionResult ViewCompleted()
         {
-            return View(_context.Students.Where(s=>s.prgResult == "Pass" && s.commResult == "Pass").ToList());
+            return View(_context.Students.Where(s=>s.prgResult == "Pass" && s.commResult == "Pass" && s.group1 == "Pass" && s.group2 == "Pass" && s.group3 == "Pass" && s.group4 == "Pass").ToList());
 
         }
 
