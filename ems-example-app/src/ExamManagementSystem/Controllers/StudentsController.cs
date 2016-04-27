@@ -64,7 +64,12 @@ namespace ExamManagementSystem.Controllers
             {
                 return View(_context.Students.Where(x => x.email.Contains(search) || search == null).ToList());
             }
-            
+            // Based on Groups
+            else if (option == "exam")
+            {
+                return View(_context.Students.Where(x => x.group1.Contains(search) || x.group2.Contains(search) || x.group3.Contains(search) || x.group4.Contains(search) || search == null).ToList());
+            }
+
             // No search match
             return View(_context.Students.ToList());
         }
