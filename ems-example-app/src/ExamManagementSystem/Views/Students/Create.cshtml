@@ -12,6 +12,13 @@
         <hr />
         <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
         <div class="form-group">
+            <label asp-for="UserName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
             <label asp-for="address" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="address" class="form-control" />
@@ -44,6 +51,34 @@
             <div class="col-md-10">
                 <input asp-for="firstName" class="form-control" />
                 <span asp-validation-for="firstName" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="group1" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="group1" class="form-control" />
+                <span asp-validation-for="group1" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="group2" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="group2" class="form-control" />
+                <span asp-validation-for="group2" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="group3" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="group3" class="form-control" />
+                <span asp-validation-for="group3" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="group4" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="group4" class="form-control" />
+                <span asp-validation-for="group4" class="text-danger" />
             </div>
         </div>
         <div class="form-group">
@@ -82,24 +117,23 @@
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="userName" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="userName" class="form-control" />
-                <span asp-validation-for="userName" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
             <label asp-for="zip" class="col-md-2 control-label"></label>
             <div class="col-md-10">
                 <input asp-for="zip" class="form-control" />
                 <span asp-validation-for="zip" class="text-danger" />
             </div>
         </div>
+        <div class="">
+            <label >Password</label>
+            <input type="password" name="Password" class="form-control" />
+            <span ></span>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
+        
     </div>
 </form>
 

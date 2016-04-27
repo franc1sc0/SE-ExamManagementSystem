@@ -52,13 +52,13 @@ namespace ExamManagementSystem.Controllers
         // POST: Faculty/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Faculty faculty)
+        public async Task<IActionResult> Create(Faculty faculty, string Password)
         {
             if (ModelState.IsValid)
             {
                 _context.Faculty.Add(faculty);
                 _context.SaveChanges();
-                var result = await _seeder.CreateFacultyIdentityUser(faculty);
+                var result = await _seeder.CreateFacultyIdentityUser(faculty, Password);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index");

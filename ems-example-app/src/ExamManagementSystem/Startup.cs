@@ -36,7 +36,12 @@ namespace ExamManagementSystem
             services.AddIdentity<EMSUser, IdentityRole>(config =>
             {
                 // here is where we can configure our identity options
-                //config.User.RequireUniqueEmail = true;
+                config.User.RequireUniqueEmail = false;
+                config.Password.RequiredLength = 5;
+                config.Password.RequireDigit = false;
+                config.Password.RequireNonLetterOrDigit = false;
+                config.Password.RequireUppercase = false;
+
                 config.Cookies.ApplicationCookie.LoginPath = "/Auth/Login";
             })
             .AddEntityFrameworkStores<ExamManagementContext>();
