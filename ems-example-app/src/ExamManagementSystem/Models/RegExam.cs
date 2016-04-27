@@ -21,9 +21,9 @@ namespace ExamManagementSystem.Models
         public string withdraw { get; set; }
         public string publish { get; set; }
         public string registered { get; set; }
-        [ScaffoldColumn(false)]
-        //foregin key
 
+        //foregin key
+        //[HiddenInput(DisplayValue = false)]
         public int examID { get; set; }
         public int studentID { get; set; }
         public virtual Exam Exam { get; set; }
