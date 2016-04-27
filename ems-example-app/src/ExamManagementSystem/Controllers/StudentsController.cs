@@ -5,6 +5,7 @@ using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
 using Microsoft.AspNet.Authorization;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ExamManagementSystem.Controllers
 {
@@ -12,10 +13,12 @@ namespace ExamManagementSystem.Controllers
     public class StudentsController : Controller
     {
         private ExamManagementContext _context;
+        private ExamManagementContextSeedData _seeder;
 
-        public StudentsController(ExamManagementContext context)
+        public StudentsController(ExamManagementContext context, ExamManagementContextSeedData seeder)
         {
-            _context = context;    
+            _context = context;
+            _seeder = seeder;
         }
 
         // GET: Students
@@ -88,17 +91,20 @@ namespace ExamManagementSystem.Controllers
         {
             return View();
         }
-
-        // POST: Students/Create
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Student student)
+        public async Task<IActionResult> Create(Student student, string Password)
         {
             if (ModelState.IsValid)
             {
                 _context.Students.Add(student);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+                var result = await _seeder.CreateStudentIdentityUser(student, Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
             }
             return View(student);
         }

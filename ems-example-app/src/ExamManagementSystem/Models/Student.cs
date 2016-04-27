@@ -47,7 +47,6 @@ namespace ExamManagementSystem.Models
         [Display(Name = "Zip Code")]
         public string zip { get; set; }
         // this is how we map back to identity table
-        [Editable(false)]
         [Display(Name = "Username")]
         public string UserName { get; set; }
 

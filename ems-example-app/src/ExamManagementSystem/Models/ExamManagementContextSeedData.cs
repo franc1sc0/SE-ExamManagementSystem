@@ -25,7 +25,7 @@ namespace ExamManagementSystem.Models
             _roleManager = roleManager;
         }
 
-        string PASSWORD = "P@ssw0rd!";
+        private const string PASSWORD = "P@ssw0rd!";
         string facultyRole = "faculty";
         string studentRole = "student";
         public async Task EnsureSeedDataAsync()
@@ -131,7 +131,7 @@ namespace ExamManagementSystem.Models
             }
         }
 
-        public async Task<IdentityResult> CreateFacultyIdentityUser(Faculty faculty)
+        public async Task<IdentityResult> CreateFacultyIdentityUser(Faculty faculty, string Password = PASSWORD)
         {
             IdentityResult iResult = new IdentityResult();
             if (await _userManager.FindByNameAsync(faculty.UserName) == null)
@@ -153,7 +153,7 @@ namespace ExamManagementSystem.Models
             return iResult;
         }
 
-        public async Task<IdentityResult> CreateStudentIdentityUser(Student student)
+        public async Task<IdentityResult> CreateStudentIdentityUser(Student student, string Password = PASSWORD)
         {
             IdentityResult iResult = new IdentityResult();
             if (await _userManager.FindByNameAsync(student.UserName) == null)
@@ -164,7 +164,7 @@ namespace ExamManagementSystem.Models
                     Email = student.email,
                 };
 
-                var result = await _userManager.CreateAsync(newUser, PASSWORD);
+                var result = await _userManager.CreateAsync(newUser, Password);
                 if (result.Succeeded)
                 {
                     var createdUser = await _userManager.FindByNameAsync(newUser.UserName);
