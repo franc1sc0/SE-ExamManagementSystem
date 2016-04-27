@@ -23,6 +23,7 @@
         <td><b>Exam Date</b></td>
         <td align="center"><b>Exam Results</b></td>
         <td><b>Withdraw</b></td>
+        <td><b>Details</b></td>
     </tr>
     @foreach (var item in Model)
     {
@@ -62,10 +63,8 @@
         else
         {
             <td>Not Available</td>
-        }</tr>
+        }
+        <td>@Html.ActionLink("Details", "ExamDetails", "Student", item.Exam, null)</td>
+        </tr>
     }
 </table>
-
-<h2>Available Exams</h2>
-
-List of available exam will go here with link to register.

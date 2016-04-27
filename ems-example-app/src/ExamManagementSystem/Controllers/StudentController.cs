@@ -39,6 +39,26 @@ namespace ExamManagementSystem.Controllers
             return View(student);
         }
 
+        public IActionResult ExamDetails(Exam exam)
+        {
+            return View(exam);
+        }
+
+        public IActionResult AvailExams()
+        {
+            var emc = new ExamManagementContext();
+            var allExams = emc.Exams.ToList();
+            var loggedStudent = emc.Students.Where(s => s.UserName == User.Identity.Name).First();
+            var regExams = emc.RegExam.Where(e => e.studentID == loggedStudent.studentID).ToList();
+
+            regExams.RemoveAll(w => w.withdraw == "1");
+
+            var blockedExams = regExams.Select(e => e.Exam).ToList();
+            var availExams = allExams.Except(blockedExams);
+
+            return View(availExams);
+        }
+
         // GET: Student/Create
         public IActionResult Exams()
         {
@@ -94,6 +114,32 @@ namespace ExamManagementSystem.Controllers
             //_context.RegExam.Include(r=>regExam);
             return View(regExam);
         }
+
+        public IActionResult Register(Exam exam)
+        {
+            var emc = new ExamManagementContext();
+            var loggedStudent = emc.Students.Where(s => s.UserName == User.Identity.Name).First();
+            var regExams = emc.RegExam.Where(e => e.studentID == loggedStudent.studentID).ToList();
+            var matchedExam = regExams.Where(e => e.examID == exam.examID);
+            RegExam updatedExam = new RegExam();
+     
+            if (matchedExam.Count() > 0)
+            {
+                updatedExam = matchedExam.First();   
+                updatedExam.withdraw = "0";
+            }
+            else
+            {
+                updatedExam.examID = exam.examID;
+                updatedExam.studentID = loggedStudent.studentID;
+                updatedExam.registered = "1";
+                updatedExam.publish = "0";
+            }
+            emc.Update(updatedExam);
+            emc.SaveChanges();
+
+            return RedirectToAction("AvailExams");
+            }
 
         public IActionResult Withdraw(string withdraw, RegExam regExam)
         {
