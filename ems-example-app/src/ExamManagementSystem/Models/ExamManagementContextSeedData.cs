@@ -69,6 +69,10 @@ namespace ExamManagementSystem.Models
                     txStateID="A49583920",
                     firstName="Mickey",
                     lastName="Mouse",
+                    group1 = "Pass",
+                    group2 = "Pass",
+                    group3 = "Pass",
+                    group4 = "Pass",
                     phone = "235-385-9932",
                     address = "100 Congress",
                     city = "Austin",
@@ -80,9 +84,9 @@ namespace ExamManagementSystem.Models
 
                 var students = new List<Student>
                 {
-                new Student{txStateID="A04612323",UserName="c_a11",firstName="Carson",lastName="Alexander",major="ComputerScience",email="c_a11@txstate.edu",phone="817-238-7222",address="123 Exchange Dr",city="Austin",zip="78754"},
-                new Student{txStateID="A05865234",UserName="a_m11",firstName="Meredith",lastName="Alonso",major="SoftwareEngineering",email="a_m72@txstate.edu",phone="235-457-7121",address="66 Crosspark Rd",city="Austin",zip="78724"},
-                new Student{txStateID="A03477189",UserName="a_a11",firstName="Arturo",lastName="Anand",major="ComputerScience",email="a_a45@txstate.edu",phone="273464341",address="1873 Crosspark Rd",city="Austin",zip="78724"}
+                new Student{txStateID="A04612323",UserName="c_a11",firstName="Carson",lastName="Alexander",major="ComputerScience",group1="Pass",group2="Pass",group3="Pass",group4="Pass",email="c_a11@txstate.edu",phone="817-238-7222",address="123 Exchange Dr",city="Austin",zip="78754"},
+                new Student{txStateID="A05865234",UserName="a_m11",firstName="Meredith",lastName="Alonso",major="SoftwareEngineering",group1="Pass",group2="Pass",group3="Fail",email="a_m72@txstate.edu",phone="235-457-7121",address="66 Crosspark Rd",city="Austin",zip="78724"},
+                new Student{txStateID="A03477189",UserName="a_a11",firstName="Arturo",lastName="Anand",major="ComputerScience",group1="Pass",group2="Pass",group3="Pass",group4="Pass",email="a_a45@txstate.edu",phone="273464341",address="1873 Crosspark Rd",city="Austin",zip="78724"}
                 };
                 students.ForEach(s => _context.Students.Add(s));
                 _context.SaveChanges();

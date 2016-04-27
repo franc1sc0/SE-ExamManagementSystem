@@ -29,12 +29,27 @@
 
             
                  <form asp-action="Submit" method="post">
-                    <input name="result"class="form-control" />
+                     @if(item.result == null) {
+                       <!--<input name="result" class="form-control" /> -->
+                       @Html.RadioButton("option", "Pass")<text>Pass</text>
+                       @Html.RadioButton("option", "Fail")<text>Fail</text>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.result)
+                     }
+                    
                     <input name="examRegistrationId" hidden="hidden" value=@item.regExamID />
-                    <input type="submit" value="Save" class="btn btn-default" />
+                    <input name="studentID" hidden="hidden" value=@item.Student.studentID />
+                    <input name="examinationID" hidden="hidden" value=@item.examID />
+
+                     @if (item.result == null)
+                     {
+                        <input type="submit" value="Save" class="btn btn-default" />
+                     }                                          
                  </form>
                     
-</td>
+                </td>
 
             </tr>
         }
