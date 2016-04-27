@@ -176,18 +176,25 @@ namespace ExamManagementSystem.Controllers
             for (int x = 0; x < RegExam.Count(); x++)
             {
                 var stud = emc.Students.Where(s => s.studentID == regExam[x].studentID);
-                regExam[x].Student = stud.First();
-                if(regExam[x].result.ToLower().Equals("pass"))
-                {
-                    pass++;
-                }else if( regExam[x].result.ToLower().Equals("fail"))
-                {
-                    fail++;
-                }else if (regExam[x].result.ToLower().Equals("noshow") || regExam[x].result.ToLower().Equals("no show"))
-                {
-                    noshow++;
-                }
 
+                Student tempStud = new Student();
+                tempStud = stud.First();
+                    regExam[x].Student = tempStud;
+                if (regExam[x].result != null)
+                {
+                    if (regExam[x].result.ToLower().Equals("pass"))
+                    {
+                        pass++;
+                    }
+                    else if (regExam[x].result.ToLower().Equals("fail"))
+                    {
+                        fail++;
+                    }
+                    else if (regExam[x].result.ToLower().Equals("noshow") || regExam[x].result.ToLower().Equals("no show"))
+                    {
+                        noshow++;
+                    }
+                }
                 //studentList.Add(stud.First());
             }
 
