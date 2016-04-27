@@ -60,6 +60,7 @@ namespace ExamManagementSystem
             app.UseStaticFiles();
 
             app.UseIdentity();
+            app.UseDeveloperExceptionPage();
 
             app.UseMvc(config => {
                 config.MapRoute(
