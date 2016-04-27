@@ -1,0 +1,46 @@
+@model IEnumerable<ExamManagementSystem.Models.Exam>
+
+@{
+    ViewData["Title"] = "Student Exams";
+}
+
+<h2>Available Exams</h2>
+
+<div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<table>
+    <tr>
+        <td><b>Exam Type</b></td>
+        <td><b>Semester</b></td>
+        <td><b>Exam Date</b></td>
+        <td><b>Register</b></td>
+        <td><b>Details</b></td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.examType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.semester)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.ActionLink("Register", "Register", "Student", item, null)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "ExamDetails", "Student", item, null)
+            </td>
+        </tr>
+    }
+</table>
