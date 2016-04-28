@@ -36,9 +36,9 @@
                         @Html.RadioButton("option", "Fail")<text>Fail</text>
                         @Html.RadioButton("option", "No Show")<text>No Show</text>
 
-}
-else
-{
+                    }
+                    else
+                    {
                         @Html.DisplayFor(modelItem => item.result)
                     }
 
@@ -56,8 +56,13 @@ else
 
         </tr>
     }
-</table>
 
+
+</table>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
 @*<form asp-action="Edit">
         <div class="form-horizontal">
