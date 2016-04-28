@@ -25,6 +25,8 @@
     </tr>
     @foreach (var item in Model)
     {
+        @if (item.date > DateTime.Now)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.examType)
@@ -42,5 +44,6 @@
                 @Html.ActionLink("Details", "ExamDetails", "Student", item, null)
             </td>
         </tr>
+        }
     }
 </table>
