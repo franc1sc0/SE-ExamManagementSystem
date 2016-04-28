@@ -1,0 +1,75 @@
+@model IEnumerable<ExamManagementSystem.Models.RegExam>
+
+@{
+    ViewData["Title"] = "ChangeResults";
+}
+
+<h2>Change Results</h2>
+
+  @using (Html.BeginForm("ChangeResults", "ExamRegistration", FormMethod.Post))
+    {
+        <b>Search By:</b>
+        @Html.RadioButton("option", "txstateId")<text>TxState ID</text>
+        @Html.RadioButton("option", "username")<text>Username</text>
+        <br>
+        @Html.TextBox("search")
+        <input type="submit" name="submit" value="Search" />
+    }
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.txStateID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Student.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exam.examType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exam.date)
+        </th>
+        <th>
+            Previous Result
+        </th>
+        <th>
+            Update Result To
+        </th>
+        <th>
+        </th>
+    </tr>
+   
+    @foreach (var item in Model)
+    {        
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.txStateID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exam.examType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exam.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.result)
+            </td>
+            <td>   
+                <form  asp-action="UpdateResult" method="post">
+                    @Html.RadioButton("result", "Pass")<text>Pass</text>
+                    @Html.RadioButton("result", "Fail")<text>Fail</text>
+                    @Html.RadioButton("result", "No Show")<text>No Show</text>
+                      <input name="examRegistrationId" hidden="hidden" value=@item.regExamID />
+                    <input name="studentID" hidden="hidden" value=@item.Student.studentID />
+                    <input name="examinationID" hidden="hidden" value=@item.examID />
+                    <input type="submit" value="Save" class="btn btn-default" />
+                  
+                </form>                               
+            </td>
+        </tr>
+    }
+</table>

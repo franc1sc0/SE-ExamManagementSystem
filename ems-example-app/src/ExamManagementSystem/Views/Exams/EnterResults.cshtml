@@ -7,95 +7,98 @@
 <h2>EnterResults</h2>
 
 
-    <table class="table">
+<table class="table">
+    <tr>
+
+        <th>
+            TxStateID
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
         <tr>
 
-            <th>
-                TxStateID
-            </th>
 
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.txStateID)
+            </td>
+            <td>
 
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.Student.txStateID)
-                </td>
-                <td>
-
-            
-                 <form asp-action="Submit" method="post">
-                     @if(item.result == null) {
-                       <!--<input name="result" class="form-control" /> -->
-                       @Html.RadioButton("option", "Pass")<text>Pass</text>
-                       @Html.RadioButton("option", "Fail")<text>Fail</text>
-                    }
-                    else
+                <form asp-action="Submit" method="post">
+                    @if (item.result == null)
                     {
+                       <!--<input name="result" class="form-control" /> -->
+                        @Html.RadioButton("option", "Pass")<text>Pass</text>
+                        @Html.RadioButton("option", "Fail")<text>Fail</text>
+                        @Html.RadioButton("option", "No Show")<text>No Show</text>
+
+}
+else
+{
                         @Html.DisplayFor(modelItem => item.result)
-                     }
-                    
+                    }
+
                     <input name="examRegistrationId" hidden="hidden" value=@item.regExamID />
                     <input name="studentID" hidden="hidden" value=@item.Student.studentID />
                     <input name="examinationID" hidden="hidden" value=@item.examID />
 
-                     @if (item.result == null)
-                     {
+                    @if (item.result == null)
+                    {
                         <input type="submit" value="Save" class="btn btn-default" />
-                     }                                          
-                 </form>
-                    
-                </td>
+                    }
+                </form>
 
-            </tr>
-        }
-    </table>
+            </td>
+
+        </tr>
+    }
+</table>
 
 
 @*<form asp-action="Edit">
-    <div class="form-horizontal">
-        <h4>RegExam</h4>
-        <hr />
-        <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
-        <div class="form-group">
-            <label asp-for="result" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="result" class="form-control" />
-                <span asp-validation-for="result" class="text-danger" />
+        <div class="form-horizontal">
+            <h4>RegExam</h4>
+            <hr />
+            <div asp-validation-summary="ValidationSummary.ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="result" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="result" class="form-control" />
+                    <span asp-validation-for="result" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="score" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="score" class="form-control" />
+                    <span asp-validation-for="score" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="studentID" class="control-label col-md-2">studentID</label>
+                <div class="col-md-10">
+                    <select asp-for="studentID" class="form-control" />
+                    <span asp-validation-for="studentID" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="withdraw" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="withdraw" class="form-control" />
+                    <span asp-validation-for="withdraw" class="text-danger" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label asp-for="score" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="score" class="form-control" />
-                <span asp-validation-for="score" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="studentID" class="control-label col-md-2">studentID</label>
-            <div class="col-md-10">
-                <select asp-for="studentID" class="form-control" />
-                <span asp-validation-for="studentID" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label asp-for="withdraw" class="col-md-2 control-label"></label>
-            <div class="col-md-10">
-                <input asp-for="withdraw" class="form-control" />
-                <span asp-validation-for="withdraw" class="text-danger" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-</form>*@
+    </form>*@
 
 @section Scripts {
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
