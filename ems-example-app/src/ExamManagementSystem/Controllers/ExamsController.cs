@@ -101,13 +101,16 @@ namespace ExamManagementSystem.Controllers
 
             List<RegExam> regExam = RegExam.ToList();
             List<Student> studentList = new List<Student>();
+
+            int countStudentsRegistered = 0;
             for(int x = 0; x < RegExam.Count(); x++)
             {
                 var stud = emc.Students.Where(s => s.studentID == regExam[x].studentID);
                 regExam[x].Student=stud.First();
-                //studentList.Add(stud.First());
+                countStudentsRegistered += 1;
             }
 
+            ViewData["countStudents"] = countStudentsRegistered;
 
             return View(regExam);
         }

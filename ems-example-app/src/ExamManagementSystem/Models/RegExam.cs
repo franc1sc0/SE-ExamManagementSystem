@@ -15,7 +15,7 @@ namespace ExamManagementSystem.Models
         public int regExamID { get; set; }
         [Display(Name = "Result")]
         public string result { get; set; }
-        [Display(Name = "Score")]
+        [Display(Name = "Comments")]
         public string score { get; set; }
         [Display(Name = "Withdraw")]
         public string withdraw { get; set; }
