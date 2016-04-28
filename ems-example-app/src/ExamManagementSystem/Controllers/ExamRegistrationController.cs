@@ -75,7 +75,7 @@ namespace ExamManagementSystem.Controllers
                 return View(regExamList);
 
             var studentID = studList.First().studentID;
-            regExamList = emc.RegExam.Where(e => e.studentID == studentID && (e.result!= null)).ToList();
+            regExamList = emc.RegExam.Where(e => e.studentID == studentID && (e.result!= null) && e.withdraw == "0").ToList();
 
             List<Exam> ExamObj = new List<Exam>();
             for (int x = 0; x < regExamList.Count(); x++)

@@ -120,7 +120,7 @@ namespace ExamManagementSystem.Controllers
 
             ExamManagementContext emc = new ExamManagementContext();//whole context
 
-            var RegExam = emc.RegExam.Where(Re => Re.examID == examID);
+            var RegExam = emc.RegExam.Where(Re => Re.examID == examID && Re.withdraw == "0");
 
             List<RegExam> regExam = RegExam.ToList();
             List<Student> studentList = new List<Student>();
