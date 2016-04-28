@@ -72,4 +72,134 @@
             </td>
         </tr>
     }
+
+    @{int i = 0;}
+@foreach (var item in Model)
+{
+
+    @if (i == 0)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.txStateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.UserName)
+        </td>
+        <td>
+            Group 1:
+            @*@Html.DisplayFor(modelItem => item.Student.group1)*@
+        </td>
+        <td>
+            
+        </td>
+        <td>
+           
+            @Html.DisplayFor(modelItem => item.Student.group1)
+        </td>
+        <td>
+            <form asp-action="UpdateResult" method="post">
+                @Html.RadioButton("result", "Pass")<text>Pass</text>
+                @Html.RadioButton("result", "Fail")<text>Fail</text>
+                @Html.RadioButton("result", "No Show")<text>No Show</text>
+                <input name="examRegistrationId" hidden="hidden" value="-1" />
+                <input name="studentID" hidden="hidden" value=@item.Student.studentID />
+                <input name="examinationID" hidden="hidden" value="1" />
+                <input type="submit" value="Save" class="btn btn-default" />
+
+            </form>
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.txStateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.UserName)
+        </td>
+        <td>
+            Group 2:
+            @*@Html.DisplayFor(modelItem => item.Student.group1)*@
+        </td>
+        <td></td>
+        <td>
+            
+            @Html.DisplayFor(modelItem => item.Student.group2)
+        </td>
+        <td>
+            <form asp-action="UpdateResult" method="post">
+                @Html.RadioButton("result", "Pass")<text>Pass</text>
+                @Html.RadioButton("result", "Fail")<text>Fail</text>
+                @Html.RadioButton("result", "No Show")<text>No Show</text>
+                <input name="examRegistrationId" hidden="hidden" value="-1" />
+                <input name="studentID" hidden="hidden" value=@item.Student.studentID />
+                <input name="examinationID" hidden="hidden" value="2" />
+                <input type="submit" value="Save" class="btn btn-default" />
+
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.txStateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.UserName)
+        </td>
+        <td>
+            Group 3:
+            @*@Html.DisplayFor(modelItem => item.Student.group1)*@
+        </td>
+        <td></td>
+        <td>
+            
+            @Html.DisplayFor(modelItem => item.Student.group3)
+        </td>
+        <td>
+            <form asp-action="UpdateResult" method="post">
+                @Html.RadioButton("result", "Pass")<text>Pass</text>
+                @Html.RadioButton("result", "Fail")<text>Fail</text>
+                @Html.RadioButton("result", "No Show")<text>No Show</text>
+                <input name="examRegistrationId" hidden="hidden" value="-1" />
+                <input name="studentID" hidden="hidden" value=@item.Student.studentID />
+                <input name="examinationID" hidden="hidden" value="3" />
+                <input type="submit" value="Save" class="btn btn-default" />
+
+            </form>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.txStateID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.UserName)
+        </td>
+        <td>
+            Group 4:
+            @*@Html.DisplayFor(modelItem => item.Student.group1)*@
+        </td>
+        <td></td>
+        <td>
+            
+            @Html.DisplayFor(modelItem => item.Student.group4)
+        </td>
+        <td>
+            <form asp-action="UpdateResult" method="post">
+                @Html.RadioButton("result", "Pass")<text>Pass</text>
+                @Html.RadioButton("result", "Fail")<text>Fail</text>
+                @Html.RadioButton("result", "No Show")<text>No Show</text>
+                <input name="examRegistrationId" hidden="hidden" value="-1" />
+                <input name="studentID" hidden="hidden" value=@item.Student.studentID />
+                <input name="examinationID" hidden="hidden" value="4" />
+                <input type="submit" value="Save" class="btn btn-default" />
+
+            </form>
+        </td>
+    </tr>
+    }
+    i++;
+}
 </table>

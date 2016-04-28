@@ -89,7 +89,12 @@ namespace ExamManagementSystem.Controllers
             for (int x = 0; x < regExamList.Count(); x++)
             {
                 regExamList[x].Exam = ExamObj[x];
+                if(x==0)
+                regExamList[x].Student = studList.First();
             }
+
+
+
             return View(regExamList);
         }
 
@@ -99,21 +104,44 @@ namespace ExamManagementSystem.Controllers
 
             ExamManagementContext emc = new ExamManagementContext();//whole context
 
-            var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(examRegistrationId));
-            var studList = emc.Students.Where(s => s.studentID == Int32.Parse(studentID));
-            var examList = emc.Exams.Where(ex => ex.examID == Int32.Parse(examinationID));
-
-            if (regEList != null)
+            if (examRegistrationId == "-1")
             {
-                var firstR = regEList.First();
-                firstR.result = result;
+                var studList1 = emc.Students.Where(s => s.studentID == Int32.Parse(studentID));
+                if (studList1 != null)
+                {
+                    var firstR = studList1.First();
+                    if(examinationID == "1")
+                         firstR.group1 = result;
+                    else if (examinationID == "2")
+                        firstR.group2 = result;
+                    else if (examinationID == "3")
+                        firstR.group3 = result;
+                    else if (examinationID == "4")
+                        firstR.group4 = result;
 
-                emc.Update(firstR);
-                // var regExam = new List<RegExam>();
-                emc.SaveChanges();
+                    emc.Update(firstR);
+
+                    emc.SaveChanges();
+                }
             }
-            var firstS = studList.First();
-            
+
+
+
+                var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(examRegistrationId));
+                var studList = emc.Students.Where(s => s.studentID == Int32.Parse(studentID));
+                var examList = emc.Exams.Where(ex => ex.examID == Int32.Parse(examinationID));
+
+                if (regEList.Count() >0)
+                {
+                    var firstR = regEList.First();
+                    firstR.result = result;
+
+                    emc.Update(firstR);
+                    // var regExam = new List<RegExam>();
+                    emc.SaveChanges();
+                }
+                var firstS = studList.First();
+
                 var firstE = examList.First();
                 if (firstE.examType == "Programming Exam")
                 {
@@ -126,7 +154,7 @@ namespace ExamManagementSystem.Controllers
 
                 emc.Update(firstS);
                 emc.SaveChanges();
-
+            
 
             return RedirectToAction("ChangeResults", "ExamRegistration", new { option = "txstateId", search = firstS.txStateID });               
         }
