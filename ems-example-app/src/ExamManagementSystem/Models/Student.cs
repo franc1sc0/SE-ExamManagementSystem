@@ -17,7 +17,7 @@ namespace ExamManagementSystem.Models
         [Display(Name = "Last Name")]
         public string lastName { get; set; }
         [Editable(false)]
-        [Display(Name = "Student ID")]
+        [Display(Name = "txstateid")]
         public string txStateID { get; set; }
         [Editable(false)]
         [Display(Name = "Major")]
