@@ -8,16 +8,21 @@
 <table>
     <tr>
         <th>
-         @Html.DisplayNameFor(model => model.Exam.examType)
+            @Html.DisplayNameFor(model => model.Exam.examType)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Exam.date)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.result)
-</tr>
-@foreach (var item in Model) { 
-    <tr>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.withdraw)
+        </th>
+    </tr>
+        @foreach (var item in Model)
+        {
+<tr>
         <td>
             @Html.DisplayFor(modelItem => item.Exam.examType)
         </td>
@@ -27,6 +32,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.result)
         </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.withdraw)
+    </td>
     </tr>
 }
 </table>
