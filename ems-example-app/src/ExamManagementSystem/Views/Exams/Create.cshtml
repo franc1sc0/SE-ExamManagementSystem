@@ -21,12 +21,13 @@
     </div>
     <div class="form-group">
         <label asp-for="examType" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            @Html.RadioButton("examType", "Programming Exam")<text>Programming Exam</text>
-            @Html.RadioButton("examType", "Communication Exam")<text>Communication Exam</text>
+        @Html.RadioButton("examType", "Programming Exam")<text>Programming Exam</text>
+        @Html.RadioButton("examType", "Communication Exam")<text>Communication Exam</text>
+        @*<div class="col-md-10">
+                <input asp-for="examType" class="form-control" />
                 <span asp-validation-for="examType" class="text-danger" />
-            </div>
-        </div>
+            </div>*@
+    </div>
     <div class="form-group">
         <label asp-for="location" class="col-md-2 control-label"></label>
         <div class="col-md-10">
@@ -43,12 +44,12 @@
     </div>
     <div class="form-group">
         <label asp-for="semester" class="col-md-2 control-label"></label>
-        <div class="col-md-10">
-            @Html.RadioButton("semester", "Fall")<text>Fall</text>
-            @Html.RadioButton("semester", "Spring")<text>Spring</text>
-            
-            <span asp-validation-for="semester" class="text-danger" />
-        </div>
+        @Html.RadioButton("semester", "Fall")<text>Fall</text>
+        @Html.RadioButton("semester", "Spring")<text>Spring</text>
+        @*<div class="col-md-10">
+              <input asp-for="semester" class="form-control" />
+              <span asp-validation-for="semester" class="text-danger" />
+            </div>*@
     </div>
     <div class="form-group">
         <label asp-for="startTime" class="col-md-2 control-label"></label>
