@@ -95,7 +95,8 @@ namespace ExamManagementSystem.Controllers
         public IActionResult ViewRegistered(int examID)
         {
 
-            ExamManagementContext emc = new ExamManagementContext();//whole context
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
+            var emc = _context;
 
             var RegExam = emc.RegExam.Where(Re => Re.examID == examID);
 
@@ -118,15 +119,15 @@ namespace ExamManagementSystem.Controllers
         public IActionResult EnterResults(int examID)
         {
 
-            ExamManagementContext emc = new ExamManagementContext();//whole context
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
 
-            var RegExam = emc.RegExam.Where(Re => Re.examID == examID && Re.withdraw == "0");
+            var RegExam = _context.RegExam.Where(Re => Re.examID == examID && Re.withdraw == "0");
 
             List<RegExam> regExam = RegExam.ToList();
             List<Student> studentList = new List<Student>();
             for (int x = 0; x < RegExam.Count(); x++)
             {
-                var stud = emc.Students.Where(s => s.studentID == regExam[x].studentID);
+                var stud = _context.Students.Where(s => s.studentID == regExam[x].studentID);
                 regExam[x].Student = stud.First();
                 //studentList.Add(stud.First());
             }
@@ -139,8 +140,8 @@ namespace ExamManagementSystem.Controllers
         public IActionResult Submit(string option, string examRegistrationId, string studentID,string examinationID)
         {
 
-            ExamManagementContext emc = new ExamManagementContext();//whole context
-
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
+            var emc = _context;
             var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(examRegistrationId));
             var studList = emc.Students.Where(s=> s.studentID == Int32.Parse(studentID));
             var examList = emc.Exams.Where(ex => ex.examID == Int32.Parse(examinationID));
@@ -185,8 +186,8 @@ namespace ExamManagementSystem.Controllers
         public IActionResult ViewResults(int examID)
         {
 
-            ExamManagementContext emc = new ExamManagementContext();//whole context
-
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
+            var emc = _context;
             var RegExam = emc.RegExam.Where(Re => Re.examID == examID);
 
             List<RegExam> regExam = RegExam.ToList();

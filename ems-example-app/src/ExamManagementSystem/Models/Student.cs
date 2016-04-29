@@ -16,16 +16,12 @@ namespace ExamManagementSystem.Models
         public string firstName { get; set; }
         [Display(Name = "Last Name")]
         public string lastName { get; set; }
-        [Editable(false)]
         [Display(Name = "txstateid")]
         public string txStateID { get; set; }
-        [Editable(false)]
         [Display(Name = "Major")]
         public string major { get; set; }
-        [Editable(false)]
         [Display(Name = "Programming Result")]
         public string prgResult { get; set; }
-        [Editable(false)]
         [Display(Name = "Communication Result")]
         public string commResult { get; set; }
         [Display(Name = "Group 1")]

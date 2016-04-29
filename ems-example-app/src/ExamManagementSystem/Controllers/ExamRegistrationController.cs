@@ -36,7 +36,14 @@ namespace ExamManagementSystem.Controllers
         //GET: ViewCompleted
         public IActionResult ViewCompleted()
         {
-            return View(_context.Students.Where(s=>s.prgResult == "Pass" && s.commResult == "Pass" && s.group1 == "Pass" && s.group2 == "Pass" && s.group3 == "Pass" && s.group4 == "Pass").ToList());
+            return View(_context.Students
+                .Where(s=>  s.prgResult == "Pass" 
+                            && s.commResult == "Pass" 
+                            && s.group1 == "Pass" 
+                            && s.group2 == "Pass" 
+                            && s.group3 == "Pass" 
+                            && s.group4 == "Pass")
+                        .ToList());
 
         }
 
@@ -60,7 +67,8 @@ namespace ExamManagementSystem.Controllers
 
         public IActionResult ChangeResults(string option, string search)
         {            
-            ExamManagementContext emc = new ExamManagementContext();//whole context
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
+            var emc = _context;
             List<Student> studList = null;
             if (option == "username")
             {
@@ -102,8 +110,8 @@ namespace ExamManagementSystem.Controllers
         public IActionResult UpdateResult(string result, string examRegistrationId, string studentID, string examinationID)
         {
 
-            ExamManagementContext emc = new ExamManagementContext();//whole context
-
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
+            var emc = _context;
             if (examRegistrationId == "-1")
             {
                 var studList1 = emc.Students.Where(s => s.studentID == Int32.Parse(studentID));
@@ -162,7 +170,8 @@ namespace ExamManagementSystem.Controllers
 
         public IActionResult ExamHistory(int? id)
         {
-            ExamManagementContext emc = new ExamManagementContext();
+            //ExamManagementContext emc = new ExamManagementContext();
+            var emc = _context;
             if (id == null)
             {
                 return HttpNotFound();
