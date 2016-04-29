@@ -64,8 +64,8 @@ namespace ExamManagementSystem.Controllers
         {
             var currentUserName = User.Identity.Name;//gets current username logged in 
 
-            ExamManagementContext emc = new ExamManagementContext();//whole context
-
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
+            var emc = _context;
             var regExamList =  emc.RegExam.ToList();//grabbing all regExams in DB
 
 
@@ -134,6 +134,7 @@ namespace ExamManagementSystem.Controllers
                 updatedExam.studentID = loggedStudent.studentID;
                 updatedExam.registered = "1";
                 updatedExam.publish = "0";
+                updatedExam.withdraw = "0";
             }
             emc.Update(updatedExam);
             emc.SaveChanges();
@@ -143,7 +144,8 @@ namespace ExamManagementSystem.Controllers
 
         public IActionResult Withdraw(string withdraw, RegExam regExam)
         {
-            ExamManagementContext emc = new ExamManagementContext();//whole context
+            //ExamManagementContext emc = new ExamManagementContext();//whole context
+            var emc = _context;
             // var regEList = emc.RegExam.Where(e => e.regExamID == Int32.Parse(withdraw));
 
             regExam.withdraw = "1";
