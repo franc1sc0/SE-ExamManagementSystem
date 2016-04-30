@@ -1,4 +1,4 @@
-# Exam Management System - .NET Example
+# Exam Management System
 ##Web Application
 
 ##Required
