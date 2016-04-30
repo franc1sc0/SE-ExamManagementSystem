@@ -1,5 +1,5 @@
 ﻿{
   "Data": {
-    "ExamManagementContextConnection": "Server=(localdb)\\ProjectsV13;Database=ExamManagementDB;Trusted_Connection=true;MultipleActiveResultSets=true;"
+    "ExamManagementContextConnection": "Server=my-db-instance.cqa3ewpo2y1o.us-east-1.rds.amazonaws.com,1433;Database=emsdb;User Id=db_user;Password=password;"
   }
 }
