@@ -20,6 +20,11 @@
       "environmentVariables": {
         "Hosting:Environment": "Development"
       }
+    },
+
+    "scripts": {
+      "prepare": "",
+      "prepublish": [ "bower install" ]
     }
   }
 }
