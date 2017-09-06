@@ -1,7 +1,5 @@
 using System.Linq;
 using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
 using Microsoft.AspNet.Authorization;
 using System.Threading.Tasks;
@@ -54,6 +52,10 @@ namespace ExamManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Faculty faculty, string Password)
         {
+            if (string.IsNullOrWhiteSpace(Password))
+            {
+                ModelState.AddModelError("", "Could not save faculty, password is missing");
+            }
             if (ModelState.IsValid)
             {
                 _context.Faculty.Add(faculty);

@@ -1,10 +1,7 @@
 using System.Linq;
 using Microsoft.AspNet.Mvc;
-using Microsoft.AspNet.Mvc.Rendering;
-using Microsoft.Data.Entity;
 using ExamManagementSystem.Models;
 using Microsoft.AspNet.Authorization;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace ExamManagementSystem.Controllers
@@ -24,53 +21,6 @@ namespace ExamManagementSystem.Controllers
         // GET: Students
         public IActionResult Index(string option, string search)
         {
-
-
-            //ExamManagementContext emc = new ExamManagementContext();//whole context
-
-            //var RegExam = emc.RegExam.Where(Re => Re.examID == examID);
-
-            //List<RegExam> regExam = RegExam.ToList();
-            //List<Student> studentList = _context.Students.ToList();
-            //for (int x = 0; x < studentList.Count(); x++)
-            //{
-            //    var stud = emc.RegExam.Where(s => s.studentID == studentList[x].studentID);
-            //    regExam[x].Student = studentList[x];
-            //    //studentList.Add(stud.First());
-            //}
-
-            // Eww-wee! This is stinky.
-            if (option=="firstName")
-            {
-                return View(_context.Students.Where(x => x.firstName.Contains(search) || search == null).ToList());
-            }
-            else if (option=="lastName")
-            {
-                return View(_context.Students.Where(x => x.lastName.Contains(search) || search == null).ToList());
-            }
-            else if (option == "username")
-            {
-                return View(_context.Students.Where(x => x.UserName.Contains(search) || search == null).ToList());
-            }
-            else if (option == "studentId")
-            {
-                return View(_context.Students.Where(x => x.txStateID.Contains(search) || search == null).ToList());
-            }
-            else if (option == "major")
-            {
-                return View(_context.Students.Where(x => x.major.Contains(search) || search == null).ToList());
-            }
-            else if (option == "email")
-            {
-                return View(_context.Students.Where(x => x.email.Contains(search) || search == null).ToList());
-            }
-            // Based on Groups
-            //else if (option == "exam")
-            //{
-            //    return View(_context.Students.Where(x => x.group1.Contains(search) || x.group2.Contains(search) || x.group3.Contains(search) || x.group4.Contains(search) || search == null).ToList());
-            //}
-
-            // No search match
             return View(_context.Students.ToList());
         }
 

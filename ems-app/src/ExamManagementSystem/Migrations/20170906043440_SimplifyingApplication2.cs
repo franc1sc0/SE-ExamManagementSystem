@@ -1,10 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Data.Entity.Migrations;
-using Microsoft.Data.Entity.Metadata;
 
 namespace ExamManagementSystem.Migrations
 {
-    public partial class SimplifyingApplication : Migration
+    public partial class SimplifyingApplication2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,13 +13,28 @@ namespace ExamManagementSystem.Migrations
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserLogin<string>_EMSUser_UserId", table: "AspNetUserLogins");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_IdentityRole_RoleId", table: "AspNetUserRoles");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_EMSUser_UserId", table: "AspNetUserRoles");
-            migrationBuilder.DropColumn(name: "commResult", table: "Student");
-            migrationBuilder.DropColumn(name: "group1", table: "Student");
-            migrationBuilder.DropColumn(name: "group2", table: "Student");
-            migrationBuilder.DropColumn(name: "group3", table: "Student");
-            migrationBuilder.DropColumn(name: "prgResult", table: "Student");
-            migrationBuilder.DropTable("RegExam");
-            migrationBuilder.DropTable("Exam");
+            migrationBuilder.DropColumn(name: "address", table: "Student");
+            migrationBuilder.DropColumn(name: "city", table: "Student");
+            migrationBuilder.DropColumn(name: "group4", table: "Student");
+            migrationBuilder.DropColumn(name: "phone", table: "Student");
+            migrationBuilder.DropColumn(name: "txStateID", table: "Student");
+            migrationBuilder.DropColumn(name: "zip", table: "Student");
+            migrationBuilder.AlterColumn<string>(
+                name: "lastName",
+                table: "Faculty",
+                nullable: false);
+            migrationBuilder.AlterColumn<string>(
+                name: "firstName",
+                table: "Faculty",
+                nullable: false);
+            migrationBuilder.AlterColumn<string>(
+                name: "email",
+                table: "Faculty",
+                nullable: false);
+            migrationBuilder.AlterColumn<string>(
+                name: "UserName",
+                table: "Faculty",
+                nullable: false);
             migrationBuilder.AddForeignKey(
                 name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId",
                 table: "AspNetRoleClaims",
@@ -64,73 +79,45 @@ namespace ExamManagementSystem.Migrations
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserLogin<string>_EMSUser_UserId", table: "AspNetUserLogins");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_IdentityRole_RoleId", table: "AspNetUserRoles");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_EMSUser_UserId", table: "AspNetUserRoles");
-            migrationBuilder.CreateTable(
-                name: "Exam",
-                columns: table => new
-                {
-                    examID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    date = table.Column<DateTime>(nullable: false),
-                    endTime = table.Column<TimeSpan>(nullable: false),
-                    examType = table.Column<string>(nullable: true),
-                    location = table.Column<string>(nullable: true),
-                    regDeadline = table.Column<DateTime>(nullable: false),
-                    semester = table.Column<string>(nullable: true),
-                    startTime = table.Column<TimeSpan>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Exam", x => x.examID);
-                });
-            migrationBuilder.CreateTable(
-                name: "RegExam",
-                columns: table => new
-                {
-                    regExamID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    examID = table.Column<int>(nullable: false),
-                    publish = table.Column<string>(nullable: true),
-                    registered = table.Column<string>(nullable: true),
-                    result = table.Column<string>(nullable: true),
-                    score = table.Column<string>(nullable: true),
-                    studentID = table.Column<int>(nullable: false),
-                    withdraw = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RegExam", x => x.regExamID);
-                    table.ForeignKey(
-                        name: "FK_RegExam_Exam_examID",
-                        column: x => x.examID,
-                        principalTable: "Exam",
-                        principalColumn: "examID",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_RegExam_Student_studentID",
-                        column: x => x.studentID,
-                        principalTable: "Student",
-                        principalColumn: "studentID",
-                        onDelete: ReferentialAction.Restrict);
-                });
             migrationBuilder.AddColumn<string>(
-                name: "commResult",
+                name: "address",
                 table: "Student",
                 nullable: true);
             migrationBuilder.AddColumn<string>(
-                name: "group1",
+                name: "city",
                 table: "Student",
                 nullable: true);
             migrationBuilder.AddColumn<string>(
-                name: "group2",
+                name: "group4",
                 table: "Student",
                 nullable: true);
             migrationBuilder.AddColumn<string>(
-                name: "group3",
+                name: "phone",
                 table: "Student",
                 nullable: true);
             migrationBuilder.AddColumn<string>(
-                name: "prgResult",
+                name: "txStateID",
                 table: "Student",
+                nullable: true);
+            migrationBuilder.AddColumn<string>(
+                name: "zip",
+                table: "Student",
+                nullable: true);
+            migrationBuilder.AlterColumn<string>(
+                name: "lastName",
+                table: "Faculty",
+                nullable: true);
+            migrationBuilder.AlterColumn<string>(
+                name: "firstName",
+                table: "Faculty",
+                nullable: true);
+            migrationBuilder.AlterColumn<string>(
+                name: "email",
+                table: "Faculty",
+                nullable: true);
+            migrationBuilder.AlterColumn<string>(
+                name: "UserName",
+                table: "Faculty",
                 nullable: true);
             migrationBuilder.AddForeignKey(
                 name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId",
