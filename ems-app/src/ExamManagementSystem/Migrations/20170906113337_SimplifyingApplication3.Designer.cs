@@ -8,9 +8,10 @@ using ExamManagementSystem.Models;
 namespace ExamManagementSystem.Migrations
 {
     [DbContext(typeof(ExamManagementContext))]
-    partial class ExamManagementContextModelSnapshot : ModelSnapshot
+    [Migration("20170906113337_SimplifyingApplication3")]
+    partial class SimplifyingApplication3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")

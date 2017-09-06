@@ -53,6 +53,10 @@ namespace ExamManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    ModelState.AddModelError("", "Could not save student, password is missing");
+                }
                 _context.Students.Add(student);
                 _context.SaveChanges();
                 var result = await _seeder.CreateStudentIdentityUser(student, password);
