@@ -3,14 +3,14 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ExamManagementSystem.Models
 {
-    public class ExamManagementContext : IdentityDbContext<EMSUser>
+    public class ExamManagementContext : IdentityDbContext<EmsUser>
     {
         public ExamManagementContext()
         {
             Database.EnsureCreated();
         }
 
-        public DbSet<EMSUser> EMSUser { get; set; }
+        public DbSet<EmsUser> EmsUser { get; set; }
         public DbSet<Faculty> Faculty { get; set; }
         public DbSet<Student> Students { get; set; }
 

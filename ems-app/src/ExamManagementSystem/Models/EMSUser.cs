@@ -2,7 +2,7 @@
 
 namespace ExamManagementSystem.Models
 {
-    public class EMSUser : IdentityUser
+    public class EmsUser : IdentityUser
     {
     }
 }

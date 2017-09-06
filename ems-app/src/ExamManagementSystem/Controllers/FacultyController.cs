@@ -32,7 +32,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Faculty faculty = _context.Faculty.Single(m => m.facultyID == id);
+            Faculty faculty = _context.Faculty.Single(m => m.FacultyId == id);
             if (faculty == null)
             {
                 return HttpNotFound();
@@ -50,9 +50,9 @@ namespace ExamManagementSystem.Controllers
         // POST: Faculty/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Faculty faculty, string Password)
+        public async Task<IActionResult> Create(Faculty faculty, string password)
         {
-            if (string.IsNullOrWhiteSpace(Password))
+            if (string.IsNullOrWhiteSpace(password))
             {
                 ModelState.AddModelError("", "Could not save faculty, password is missing");
             }
@@ -60,7 +60,7 @@ namespace ExamManagementSystem.Controllers
             {
                 _context.Faculty.Add(faculty);
                 _context.SaveChanges();
-                var result = await _seeder.CreateFacultyIdentityUser(faculty, Password);
+                var result = await _seeder.CreateFacultyIdentityUser(faculty, password);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index");
@@ -77,7 +77,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Faculty faculty = _context.Faculty.Single(m => m.facultyID == id);
+            Faculty faculty = _context.Faculty.Single(m => m.FacultyId == id);
             if (faculty == null)
             {
                 return HttpNotFound();
@@ -108,7 +108,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Faculty faculty = _context.Faculty.Single(m => m.facultyID == id);
+            Faculty faculty = _context.Faculty.Single(m => m.FacultyId == id);
             if (faculty == null)
             {
                 return HttpNotFound();
@@ -122,7 +122,7 @@ namespace ExamManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            Faculty faculty = _context.Faculty.Single(m => m.facultyID == id);
+            Faculty faculty = _context.Faculty.Single(m => m.FacultyId == id);
             _context.Faculty.Remove(faculty);
             _context.SaveChanges();
             return RedirectToAction("Index");

@@ -5,16 +5,16 @@ namespace ExamManagementSystem.Models
 {
     public class Faculty
     {
-        public int facultyID { get; set; }
+        public int FacultyId { get; set; }
         [Required]
         [Display(Name = "First Name")]
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
         [Required]
         [Display(Name = "Last Name")]
-        public string lastName { get; set; }
+        public string LastName { get; set; }
         [Required]
         [Display(Name = "Email")]
-        public string email { get; set; }
+        public string Email { get; set; }
         // this is how we map back to identity table
         [Required]
         [Display(Name = "User Name")]

@@ -28,7 +28,7 @@ namespace ExamManagementSystem
         {
             services.AddMvc();
 
-            services.AddIdentity<EMSUser, IdentityRole>(config =>
+            services.AddIdentity<EmsUser, IdentityRole>(config =>
             {
                 // here is where we can configure our identity options
                 config.User.RequireUniqueEmail = false;

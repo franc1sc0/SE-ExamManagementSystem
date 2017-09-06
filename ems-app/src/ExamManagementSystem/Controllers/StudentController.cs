@@ -57,7 +57,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = await _context.Students.SingleAsync(m => m.studentID == id);
+            Student student = await _context.Students.SingleAsync(m => m.StudentId == id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -88,7 +88,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = await _context.Students.SingleAsync(m => m.studentID == id);
+            Student student = await _context.Students.SingleAsync(m => m.StudentId == id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -102,7 +102,7 @@ namespace ExamManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            Student student = await _context.Students.SingleAsync(m => m.studentID == id);
+            Student student = await _context.Students.SingleAsync(m => m.StudentId == id);
             _context.Students.Remove(student);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");

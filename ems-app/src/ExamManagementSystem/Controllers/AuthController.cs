@@ -10,9 +10,9 @@ namespace ExamManagementSystem.Controllers
 {
     public class AuthController : Controller
     {
-        private SignInManager<EMSUser> _signInManager;
+        private SignInManager<EmsUser> _signInManager;
 
-        public AuthController(SignInManager<EMSUser> signInManager)
+        public AuthController(SignInManager<EmsUser> signInManager)
         {
             _signInManager = signInManager;
         }

@@ -32,7 +32,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.studentID == id);
+            Student student = _context.Students.Single(m => m.StudentId == id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -49,13 +49,13 @@ namespace ExamManagementSystem.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Student student, string Password)
+        public async Task<IActionResult> Create(Student student, string password)
         {
             if (ModelState.IsValid)
             {
                 _context.Students.Add(student);
                 _context.SaveChanges();
-                var result = await _seeder.CreateStudentIdentityUser(student, Password);
+                var result = await _seeder.CreateStudentIdentityUser(student, password);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index");
@@ -72,7 +72,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.studentID == id);
+            Student student = _context.Students.Single(m => m.StudentId == id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -103,7 +103,7 @@ namespace ExamManagementSystem.Controllers
                 return HttpNotFound();
             }
 
-            Student student = _context.Students.Single(m => m.studentID == id);
+            Student student = _context.Students.Single(m => m.StudentId == id);
             if (student == null)
             {
                 return HttpNotFound();
@@ -117,7 +117,7 @@ namespace ExamManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(int id)
         {
-            Student student = _context.Students.Single(m => m.studentID == id);
+            Student student = _context.Students.Single(m => m.StudentId == id);
             _context.Students.Remove(student);
             _context.SaveChanges();
             return RedirectToAction("Index");
