@@ -20,17 +20,17 @@ namespace ExamManagementSystem.Models
         public string txStateID { get; set; }
         [Display(Name = "Major")]
         public string major { get; set; }
-        [Display(Name = "Programming Result")]
-        public string prgResult { get; set; }
-        [Display(Name = "Communication Result")]
-        public string commResult { get; set; }
-        [Display(Name = "Group 1")]
-        public string group1 { get; set; }
-        [Display(Name = "Group 2")]
-        public string group2 { get; set; }
-        [Display(Name = "Group 3")]
-        public string group3 { get; set; }
-        [Display(Name = "Group 4")]
+        //[Display(Name = "Programming Result")]
+        //public string prgResult { get; set; }
+        //[Display(Name = "Communication Result")]
+        //public string commResult { get; set; }
+        //[Display(Name = "Group 1")]
+        //public string group1 { get; set; }
+        //[Display(Name = "Group 2")]
+        //public string group2 { get; set; }
+        //[Display(Name = "Group 3")]
+        //public string group3 { get; set; }
+        //[Display(Name = "Group 4")]
         public string group4 { get; set; }
         [Display(Name = "Email")]
         public string email { get; set; }
@@ -46,6 +46,6 @@ namespace ExamManagementSystem.Models
         [Display(Name = "Username")]
         public string UserName { get; set; }
 
-        public virtual ICollection<RegExam> RegExam { get; set; }
+        //public virtual ICollection<RegExam> RegExam { get; set; }
     }
 }

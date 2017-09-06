@@ -20,11 +20,12 @@ namespace ExamManagementSystem.Models
             Database.EnsureCreated();
         }
 
+        public DbSet<EMSUser> EMSUser { get; set; }
         public DbSet<Faculty> Faculty { get; set; }
         public DbSet<Student> Students { get; set; }
-        public DbSet<Exam> Exams { get; set; }
-        public DbSet<EMSUser> EMSUser { get; set; }
-        public DbSet<RegExam> RegExam { get; set; }
+
+        //public DbSet<Exam> Exams { get; set; }
+        //public DbSet<RegExam> RegExam { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
